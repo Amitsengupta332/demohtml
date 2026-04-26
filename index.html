@@ -12,8 +12,7 @@
   <div id="navbar"></div>
   <div id="hero"></div>
   <div id="banner"></div>
-
-  
+  <div id="best-sellers"></div>
 
   <script>
     async function loadComponents() {
@@ -23,14 +22,15 @@
       const hero = await fetch("components/hero.html");
       document.getElementById("hero").innerHTML = await hero.text();
 
-      const script = document.createElement("script");
-      script.src = "assets/js/slider.js";
-      document.body.appendChild(script);
-
       const banner = await fetch("components/banner-section.html");
       document.getElementById("banner").innerHTML = await banner.text();
 
-      
+      const bestSellers = await fetch("components/best-sellers.html");
+      document.getElementById("best-sellers").innerHTML = await bestSellers.text();
+
+      const script = document.createElement("script");
+      script.src = "assets/js/slider.js";
+      document.body.appendChild(script);
     }
 
     loadComponents();
