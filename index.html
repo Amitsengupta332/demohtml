@@ -11,6 +11,9 @@
 <body>
   <div id="navbar"></div>
   <div id="hero"></div>
+  <div id="banner"></div>
+
+  
 
   <script>
     async function loadComponents() {
@@ -23,6 +26,11 @@
       const script = document.createElement("script");
       script.src = "assets/js/slider.js";
       document.body.appendChild(script);
+
+      const banner = await fetch("components/banner-section.html");
+      document.getElementById("banner").innerHTML = await banner.text();
+
+      
     }
 
     loadComponents();
