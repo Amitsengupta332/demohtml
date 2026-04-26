@@ -1,184 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Porto Clone</title>
-
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
 
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .script-font {
-      font-family: 'Caveat', cursive;
-    }
-
-    .slide-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body>
-
-  <!-- NAVBAR -->
-  <header class="absolute top-0 left-0 w-full z-50">
-    <div class="px-10 py-7 flex items-center justify-between">
-
-      <div>
-        <h1 class="text-4xl font-black leading-none">PORTO</h1>
-        <p class="text-sm text-gray-400 text-center -mt-1">eCommerce</p>
-      </div>
-
-      <nav class="hidden lg:flex items-center gap-8 text-sm font-bold">
-        <a href="#">HOME</a>
-        <a href="#">CATEGORIES ▼</a>
-        <a href="#">PRODUCTS ▼</a>
-        <a href="#">PAGES ▼</a>
-        <a href="#">FEATURES ▼</a>
-        <a href="#">BLOG</a>
-        <a href="#">BUY PORTO!</a>
-      </nav>
-
-      <div class="flex items-center gap-6 text-3xl">
-        <span>⌕</span>
-        <span>♙</span>
-        <span>♡</span>
-
-        <div class="relative">
-          <span>▢</span>
-          <span class="absolute -top-2 -right-3 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
-            0
-          </span>
-        </div>
-      </div>
-
-    </div>
-  </header>
-
-  <!-- SLIDER -->
-  <section class="relative w-full h-screen min-h-[720px] overflow-hidden">
-
-    <div id="slider" class="flex h-full transition-transform duration-700 ease-in-out">
-
-      <!-- SLIDE 1 -->
-      <div class="relative w-full h-full flex-shrink-0">
-        <img src="images/shop3_banner1.jpg" class="slide-img" alt="Winter Fashion">
-
-        <div class="absolute inset-0 flex items-center">
-          <div class="ml-[13%] mt-20 max-w-[560px]">
-
-            <h2 class="script-font text-[58px] leading-none text-gray-500 mb-4">
-              Winter Fashion Trends
-            </h2>
-
-            <p class="text-[33px] tracking-[0.35em] font-bold mb-2">
-              GET UP TO 30% OFF
-            </p>
-
-            <h1 class="text-[86px] lg:text-[94px] font-black leading-[0.95] mb-8">
-              on Jackets
-            </h1>
-
-            <div class="flex items-center gap-5 mb-8">
-              <span class="text-xl font-black">STARTING AT</span>
-
-              <span class="bg-white px-3 py-1 text-3xl font-black">
-                $199<sup class="text-base">99</sup>
-              </span>
-            </div>
-
-            <a href="#" class="inline-block bg-[#1d2127] text-white px-12 py-5 text-lg font-black">
-              SHOP NOW
-            </a>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- SLIDE 2 -->
-      <div class="relative w-full h-full flex-shrink-0">
-        <img src="images/shop3_banner2.jpg" class="slide-img" alt="New Season Hats">
-
-        <div class="absolute inset-0 flex items-center">
-          <div class="ml-[13%] mt-20 max-w-[620px]">
-
-            <h2 class="script-font text-[70px] leading-none text-gray-700 mb-5">
-              New Season Hats
-            </h2>
-
-            <div class="flex items-center gap-4 mb-8">
-              <span class="rotate-[-90deg] text-2xl font-medium tracking-widest">
-                UP TO
-              </span>
-
-              <h1 class="text-[110px] font-black leading-none">
-                20% OFF
-              </h1>
-            </div>
-
-            <div class="w-16 h-1 bg-black mb-7"></div>
-
-            <div class="flex items-center gap-10">
-              <div class="flex items-center gap-3">
-                <span class="text-xl font-black">STARTING AT</span>
-
-                <span class="bg-white px-3 py-1 text-4xl font-black">
-                  $19<sup class="text-lg">99</sup>
-                </span>
-              </div>
-
-              <a href="#" class="inline-block bg-[#1d2127] text-white px-14 py-5 text-lg font-black">
-                SHOP NOW →
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ARROWS -->
-    <button onclick="prevSlide()" class="absolute left-6 top-1/2 -translate-y-1/2 z-50 text-5xl">
-      ‹
-    </button>
-
-    <button onclick="nextSlide()" class="absolute right-6 top-1/2 -translate-y-1/2 z-50 text-5xl">
-      ›
-    </button>
-
-  </section>
+  <div id="navbar"></div>
+  <div id="hero"></div>
 
   <script>
-    let index = 0;
-    const slider = document.getElementById("slider");
-    const totalSlides = 2;
+    async function loadComponents() {
+      const navbar = await fetch("components/navbar.html");
+      document.getElementById("navbar").innerHTML = await navbar.text();
 
-    function updateSlider() {
-      slider.style.transform = `translateX(-${index * 100}%)`;
+      const hero = await fetch("components/hero.html");
+      document.getElementById("hero").innerHTML = await hero.text();
+
+      const script = document.createElement("script");
+      script.src = "assets/js/slider.js";
+      document.body.appendChild(script);
     }
 
-    function nextSlide() {
-      index = (index + 1) % totalSlides;
-      updateSlider();
-    }
-
-    function prevSlide() {
-      index = (index - 1 + totalSlides) % totalSlides;
-      updateSlider();
-    }
-
-    setInterval(nextSlide, 5000);
+    loadComponents();
   </script>
-
 </body>
-</html>
