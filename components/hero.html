@@ -1,36 +1,46 @@
 <section class="relative w-full h-screen min-h-[720px] overflow-hidden">
 
+  <!-- LANGUAGE SWITCH -->
+  <div class="absolute top-6 right-8 z-[100] flex gap-2">
+    <button onclick="setLanguage('de')" class="bg-[#1d2127] text-white px-4 py-2 font-bold">
+      DE
+    </button>
+    <button onclick="setLanguage('en')" class="bg-white text-[#1d2127] px-4 py-2 font-bold">
+      EN
+    </button>
+  </div>
+
   <div id="slider" class="flex h-full transition-transform duration-700 ease-in-out">
 
     <!-- SLIDE 1 -->
     <div class="relative w-full h-full flex-shrink-0">
-      <img src="assets/images/cameras_4k.avif" class="slide-img" alt="Winter Fashion">
+      <img src="assets/images/cameras_4k.avif" class="slide-img" alt="Überwachungskameras">
 
       <div class="absolute inset-0 flex items-center">
-        <div class="ml-[13%] mt-20 max-w-[560px]">
+        <div class="ml-[13%] mt-20 max-w-[620px]">
 
-          <h2 class="script-font text-[58px] leading-none text-gray-500 mb-4">
-            Winter Fashion Trends
+          <h2 data-key="slide1_title" class="script-font text-[58px] leading-none text-gray-500 mb-4">
+            Moderne Sicherheitstechnologie
           </h2>
 
-          <p class="text-[33px] tracking-[0.35em] font-bold mb-2">
-            GET UP TO 30% OFF
+          <p data-key="slide1_offer" class="text-[33px] tracking-[0.15em] font-bold mb-2">
+            BIS ZU 30% RABATT
           </p>
 
-          <h1 class="text-[86px] lg:text-[94px] font-black leading-[0.95] mb-8">
-            on Jackets
+          <h1 data-key="slide1_product" class="text-[76px] lg:text-[86px] font-black leading-[0.95] mb-8">
+            Überwachungskameras
           </h1>
 
           <div class="flex items-center gap-5 mb-8">
-            <span class="text-xl font-black">STARTING AT</span>
+            <span data-key="starting" class="text-xl font-black">AB</span>
 
             <span class="bg-white px-3 py-1 text-3xl font-black">
-              $199<sup class="text-base">99</sup>
+              €199<sup class="text-base">99</sup>
             </span>
           </div>
 
-          <a href="#" class="inline-block bg-[#1d2127] text-white px-12 py-5 text-lg font-black">
-            SHOP NOW
+          <a data-key="shop" href="#" class="inline-block bg-[#1d2127] text-white px-12 py-5 text-lg font-black">
+            JETZT KAUFEN
           </a>
 
         </div>
@@ -39,22 +49,22 @@
 
     <!-- SLIDE 2 -->
     <div class="relative w-full h-full flex-shrink-0">
-      <img src="assets/images/access_control_4k.avif" class="slide-img" alt="New Season Hats">
+      <img src="assets/images/final_hero_4k.avif" class="slide-img" alt="Zutrittskontrollsysteme">
 
       <div class="absolute inset-0 flex items-center">
-        <div class="ml-[13%] mt-20 max-w-[620px]">
+        <div class="ml-[13%] mt-20 max-w-[680px]">
 
-          <h2 class="script-font text-[70px] leading-none text-gray-700 mb-5">
-            New Season Hats
+          <h2 data-key="slide2_title" class="script-font text-[70px] leading-none text-gray-700 mb-5">
+            Zutrittskontrollsysteme
           </h2>
 
           <div class="flex items-center gap-4 mb-8">
-            <span class="rotate-[-90deg] text-2xl font-medium tracking-widest">
-              UP TO
+            <span data-key="slide2_offer" class="rotate-[-90deg] text-2xl font-medium tracking-widest">
+              BIS ZU
             </span>
 
-            <h1 class="text-[110px] font-black leading-none">
-              20% OFF
+            <h1 data-key="slide2_discount" class="text-[100px] lg:text-[110px] font-black leading-none">
+              20% RABATT
             </h1>
           </div>
 
@@ -62,15 +72,15 @@
 
           <div class="flex items-center gap-10">
             <div class="flex items-center gap-3">
-              <span class="text-xl font-black">STARTING AT</span>
+              <span data-key="starting" class="text-xl font-black">AB</span>
 
               <span class="bg-white px-3 py-1 text-4xl font-black">
-                $19<sup class="text-lg">99</sup>
+                €19<sup class="text-lg">99</sup>
               </span>
             </div>
 
-            <a href="#" class="inline-block bg-[#1d2127] text-white px-14 py-5 text-lg font-black">
-              SHOP NOW →
+            <a data-key="shop_arrow" href="#" class="inline-block bg-[#1d2127] text-white px-14 py-5 text-lg font-black">
+              JETZT KAUFEN →
             </a>
           </div>
 
@@ -90,3 +100,66 @@
   </button>
 
 </section>
+
+<script>
+  let currentSlide = 0;
+  const slider = document.getElementById("slider");
+  const totalSlides = slider.children.length;
+
+  function showSlide(index) {
+    if (index < 0) {
+      currentSlide = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentSlide = 0;
+    } else {
+      currentSlide = index;
+    }
+
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  const translations = {
+    de: {
+      slide1_title: "Moderne Sicherheitstechnologie",
+      slide1_offer: "BIS ZU 30% RABATT",
+      slide1_product: "Überwachungskameras",
+      slide2_title: "Zutrittskontrollsysteme",
+      slide2_offer: "BIS ZU",
+      slide2_discount: "20% RABATT",
+      starting: "AB",
+      shop: "JETZT KAUFEN",
+      shop_arrow: "JETZT KAUFEN →"
+    },
+    en: {
+      slide1_title: "Modern Security Technology",
+      slide1_offer: "GET UP TO 30% OFF",
+      slide1_product: "Surveillance Cameras",
+      slide2_title: "Access Control Systems",
+      slide2_offer: "UP TO",
+      slide2_discount: "20% OFF",
+      starting: "STARTING AT",
+      shop: "SHOP NOW",
+      shop_arrow: "SHOP NOW →"
+    }
+  };
+
+  function setLanguage(lang) {
+    document.querySelectorAll("[data-key]").forEach((el) => {
+      const key = el.getAttribute("data-key");
+
+      if (translations[lang][key]) {
+        el.innerHTML = translations[lang][key];
+      }
+    });
+  }
+
+  setLanguage("de");
+</script>
