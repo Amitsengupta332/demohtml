@@ -18,3 +18,15 @@ function prevSlide() {
 }
 
 setInterval(nextSlide, 5000);
+
+function playPromoVideo() {
+  const video = document.getElementById("promoVideo");
+  const button = document.getElementById("playVideoBtn");
+  const overlay = document.getElementById("videoOverlay");
+
+  video.play();
+  video.setAttribute("controls", "true");
+
+  button.style.display = "none";
+  overlay.style.display = "none";
+}

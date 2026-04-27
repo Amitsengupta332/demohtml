@@ -14,6 +14,7 @@
   <div id="banner"></div>
   <div id="best-sellers"></div>
   <div id="takeMoment"></div>
+  <div id="videoSection"></div>
 
   <script>
     async function loadComponents() {
@@ -31,6 +32,9 @@
 
       const takeMoment = await fetch("components/take-moment.html");
       document.getElementById("takeMoment").innerHTML = await takeMoment.text();
+
+      const videoSection = await fetch("components/video-section.html");
+      document.getElementById("videoSection").innerHTML = await videoSection.text();
 
       const script = document.createElement("script");
       script.src = "assets/js/slider.js";
