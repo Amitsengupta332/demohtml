@@ -15,6 +15,7 @@
   <div id="best-sellers"></div>
   <div id="takeMoment"></div>
   <div id="videoSection"></div>
+  <div id="footer"></div>
 
   <script>
     async function loadComponents() {
@@ -28,13 +29,18 @@
       document.getElementById("banner").innerHTML = await banner.text();
 
       const bestSellers = await fetch("components/best-sellers.html");
-      document.getElementById("best-sellers").innerHTML = await bestSellers.text();
+      document.getElementById("best-sellers").innerHTML =
+        await bestSellers.text();
 
       const takeMoment = await fetch("components/take-moment.html");
       document.getElementById("takeMoment").innerHTML = await takeMoment.text();
 
       const videoSection = await fetch("components/video-section.html");
-      document.getElementById("videoSection").innerHTML = await videoSection.text();
+      document.getElementById("videoSection").innerHTML =
+        await videoSection.text();
+
+      const footer = await fetch("components/footer.html");
+      document.getElementById("footer").innerHTML = await footer.text();
 
       const script = document.createElement("script");
       script.src = "assets/js/slider.js";
