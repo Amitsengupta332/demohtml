@@ -12,6 +12,7 @@
   <div id="navbar"></div>
   <div id="hero"></div>
   <div id="banner"></div>
+  <div id="banner2"></div>
   <div id="best-sellers"></div>
   <div id="takeMoment"></div>
   <div id="videoSection"></div>
@@ -27,6 +28,9 @@
 
       const banner = await fetch("components/banner-section.html");
       document.getElementById("banner").innerHTML = await banner.text();
+
+      const banner2 = await fetch("components/banner.html");
+      document.getElementById("banner2").innerHTML = await banner2.text();
 
       const bestSellers = await fetch("components/best-sellers.html");
       document.getElementById("best-sellers").innerHTML =
