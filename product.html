@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-[#222]">
+
+  <section class="px-8 py-10">
+    <div class="max-w-[1320px] mx-auto">
+
+      <!-- Breadcrumb -->
+      <div class="text-xs text-gray-400 uppercase mb-8 flex gap-3">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Shop</span>
+        <span>/</span>
+        <span id="breadcrumbName">Product</span>
+      </div>
+
+      <div class="grid grid-cols-[120px_1fr_1fr] gap-8">
+
+        <!-- Thumbnails -->
+        <div class="flex flex-col gap-3">
+          <button onclick="changeImage(0)" class="thumb border border-gray-800 h-[120px] flex items-center justify-center bg-[#f7f7f7]">
+            <img id="thumb1" class="h-[95px] object-contain" />
+          </button>
+
+          <button onclick="changeImage(1)" class="thumb h-[120px] flex items-center justify-center bg-[#f7f7f7]">
+            <img id="thumb2" class="h-[95px] object-contain" />
+          </button>
+
+          <button onclick="changeImage(2)" class="thumb h-[120px] flex items-center justify-center bg-[#f7f7f7]">
+            <img id="thumb3" class="h-[95px] object-contain" />
+          </button>
+
+          <button onclick="changeImage(3)" class="thumb h-[120px] flex items-center justify-center bg-[#f7f7f7]">
+            <img id="thumb4" class="h-[95px] object-contain" />
+          </button>
+        </div>
+
+        <!-- Main Image -->
+        <div class="relative bg-[#f7f7f7] h-[520px] flex items-center justify-center">
+          <span class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-2">
+            HOT
+          </span>
+
+          <img id="mainImage" class="h-[390px] object-contain" />
+        </div>
+
+        <!-- Product Info -->
+        <div>
+          <h1 id="productName" class="text-3xl font-bold mb-2"></h1>
+
+          <div class="flex items-center gap-3 mb-6">
+            <p class="text-gray-400 text-lg">★★★★★</p>
+            <p class="text-sm text-gray-400">( There are no reviews yet. )</p>
+          </div>
+
+          <div class="w-10 h-px bg-gray-300 mb-6"></div>
+
+          <p id="productPrice" class="text-3xl font-bold mb-5"></p>
+
+          <p id="productDesc" class="text-gray-600 leading-8 text-lg mb-7"></p>
+
+          <div class="space-y-3 text-sm mb-8">
+            <p><strong>SKU:</strong> <span class="text-gray-500">1234567902</span></p>
+            <p><strong>CATEGORY:</strong> <span id="productCategory" class="text-gray-500 uppercase"></span></p>
+          </div>
+
+          <!-- Color -->
+          <div class="flex items-center gap-4 mb-6">
+            <p class="font-bold text-sm">COLOR:</p>
+            <button class="w-6 h-6 rounded-full bg-[#222]"></button>
+            <button class="w-6 h-6 rounded-full bg-red-400"></button>
+            <button class="w-6 h-6 rounded-full bg-white border border-gray-300"></button>
+          </div>
+
+          <!-- Size -->
+          <div class="flex items-center gap-4 mb-8">
+            <p class="font-bold text-sm">SIZE:</p>
+            <button class="border border-gray-200 px-4 py-2 text-sm">L</button>
+            <button class="border border-gray-200 px-4 py-2 text-sm">SM</button>
+          </div>
+
+          <div class="border-t border-b border-gray-200 py-5 flex items-center gap-3 mb-6">
+
+            <!-- Quantity -->
+            <div class="flex border border-gray-200 h-12">
+              <button onclick="decreaseQty()" class="w-10 text-xl">−</button>
+              <input id="qty" value="1" readonly class="w-12 text-center font-bold outline-none" />
+              <button onclick="increaseQty()" class="w-10 text-xl">+</button>
+            </div>
+
+            <button class="bg-[#8f9398] hover:bg-black text-white h-12 px-10 font-bold text-sm flex items-center gap-2">
+              🛍 ADD TO CART
+            </button>
+          </div>
+
+          <!-- Social / Wishlist -->
+          <div class="flex items-center gap-4 text-sm mb-8">
+            <button class="w-8 h-8 rounded-full border border-gray-200">f</button>
+            <button class="w-8 h-8 rounded-full border border-gray-200">x</button>
+            <button class="w-8 h-8 rounded-full border border-gray-200">in</button>
+            <button class="w-8 h-8 rounded-full border border-gray-200">G+</button>
+            <button class="w-8 h-8 rounded-full border border-gray-200">✉</button>
+
+            <button class="font-bold">♡ ADD TO WISHLIST</button>
+            <button class="font-bold">⚖ COMPARE</button>
+          </div>
+
+          <!-- Accordion -->
+          <div class="border-t border-gray-200 pt-5">
+            <h3 class="font-bold flex items-center gap-2">
+              ⌃ SHIPPING & RETURNS
+            </h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const products = {
+      1: {
+        name: "Hourglass Ambient Lighting Bronzer",
+        category: "Makeup",
+        price: "$12.00",
+        desc: "Elevate your makeup experience with premium quality and elegant finishing. Crafted with precision and attention to detail.",
+        image: "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+      },
+
+      2: {
+        name: "Hourglass Veil Hydrating Skin Tint",
+        category: "Makeup",
+        price: "$35.00",
+        desc: "A smooth hydrating product designed for a clean, modern and comfortable everyday look.",
+        image: "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+      },
+
+      3: {
+        name: "Yves Saint Laurent Touche Eclat",
+        category: "Makeup",
+        price: "$23.00",
+        desc: "Premium beauty product with stylish design, smooth texture and long lasting comfort.",
+        image: "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+      },
+
+      4: {
+        name: "Clarins Lip Comfort Oil",
+        category: "Accessories",
+        price: "$20.00",
+        desc: "A comfortable and stylish product made for daily use with a clean premium look.",
+        image: "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+      },
+
+      5: {
+        name: "Clarins Natural Lip Perfector 12ml",
+        category: "Makeup",
+        price: "$16.00",
+        desc: "Natural finish product with lightweight feel and premium quality.",
+        image: "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+      },
+
+      6: {
+        name: "Dermalogica Intensive Moisture Balance",
+        category: "Makeup",
+        price: "$15.00",
+        desc: "Moisture rich product crafted for comfort, care and elegant daily use.",
+        image: "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+      },
+
+      7: {
+        name: "Yves Saint Laurent Luxurious Volume",
+        category: "Makeup",
+        price: "$9.00",
+        desc: "Luxurious volume product with premium finish and beautiful styling.",
+        image: "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+      },
+
+      8: {
+        name: "Clarins Sos Primer Matifying 30ml",
+        category: "Makeup",
+        price: "$27.00",
+        desc: "Matifying primer with smooth finish and premium everyday performance.",
+        image: "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id") || "1";
+    const product = products[id] || products[1];
+
+    function loadProduct() {
+      document.getElementById("productName").innerText = product.name;
+      document.getElementById("breadcrumbName").innerText = product.name;
+      document.getElementById("productCategory").innerText = product.category;
+      document.getElementById("productPrice").innerText = product.price;
+      document.getElementById("productDesc").innerText = product.desc;
+
+      document.getElementById("mainImage").src = product.image;
+
+      document.getElementById("thumb1").src = product.image;
+      document.getElementById("thumb2").src = product.image;
+      document.getElementById("thumb3").src = product.image;
+      document.getElementById("thumb4").src = product.image;
+    }
+
+    function changeImage(index) {
+      document.getElementById("mainImage").src = product.image;
+
+      document.querySelectorAll(".thumb").forEach((btn) => {
+        btn.classList.remove("border", "border-gray-800");
+      });
+
+      document.querySelectorAll(".thumb")[index].classList.add("border", "border-gray-800");
+    }
+
+    function increaseQty() {
+      const qty = document.getElementById("qty");
+      qty.value = Number(qty.value) + 1;
+    }
+
+    function decreaseQty() {
+      const qty = document.getElementById("qty");
+      if (Number(qty.value) > 1) {
+        qty.value = Number(qty.value) - 1;
+      }
+    }
+
+    loadProduct();
+  </script>
+
+</body>
+</html>
