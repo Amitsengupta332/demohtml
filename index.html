@@ -1,24 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet"
+  />
 
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
 
-<head>
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
-    rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>Porto Clone</title>
 </head>
 
 <body>
+
+  <!-- Components -->
   <div id="navbar"></div>
   <div id="hero"></div>
   <div id="banner"></div>
@@ -27,6 +30,9 @@
   <div id="takeMoment"></div>
   <div id="videoSection"></div>
   <div id="footer"></div>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
     async function loadComponents() {
@@ -57,6 +63,10 @@
       const footer = await fetch("components/footer.html");
       document.getElementById("footer").innerHTML = await footer.text();
 
+      // 🔥 IMPORTANT: icons render AFTER components load
+      lucide.createIcons();
+
+      // Extra scripts
       const sliderScript = document.createElement("script");
       sliderScript.src = "assets/js/slider.js";
       document.body.appendChild(sliderScript);
@@ -68,4 +78,6 @@
 
     loadComponents();
   </script>
+
 </body>
+</html>

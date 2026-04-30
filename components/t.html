@@ -16,17 +16,27 @@
       <a href="#">BUY PORTO!</a>
     </nav>
 
-    <div class="flex items-center gap-6 text-3xl">
-      <span>⌕</span>
-      <span>♙</span>
-      <span>♡</span>
+    <div class="flex items-center gap-6">
 
+      <!-- Search -->
+      <i data-lucide="search" class="w-6 h-6"></i>
+
+      <!-- User -->
+      <i data-lucide="user" class="w-6 h-6"></i>
+
+      <!-- Wishlist -->
+      <i data-lucide="heart" class="w-6 h-6"></i>
+
+      <!-- Cart -->
       <div class="relative">
-        <span>▢</span>
-        <span class="absolute -top-2 -right-3 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+
+        <span id="cartCount"
+          class="absolute -top-2 -right-3 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
           0
         </span>
       </div>
+
     </div>
 
   </div>
