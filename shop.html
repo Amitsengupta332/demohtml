@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop - Makeup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-white text-[#222]">
+
+  <!-- TOP BAR -->
+  <div class="bg-[#f7eee9] text-[11px]">
+    <div class="max-w-[1320px] mx-auto px-8 h-9 flex items-center justify-between">
+      <div class="flex items-center gap-5">
+        <a href="#">f</a>
+        <a href="#">x</a>
+        <a href="#">◎</a>
+      </div>
+
+      <p>
+        Sale up to <strong>50% OFF</strong> on selected items +
+      </p>
+
+      <div class="flex items-center gap-5">
+        <button type="button">USD⌄</button>
+        <button type="button">ENG⌄</button>
+        <a href="#">ⓘ Need Help?</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-white">
+    <div class="max-w-[1320px] mx-auto px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3 w-[260px]">
+        <i data-lucide="search" class="w-5 h-5"></i>
+        <input type="text" placeholder="Search for Products..."
+          class="text-xs outline-none w-full placeholder:text-gray-400" />
+      </div>
+
+      <a href="index.html" class="text-4xl font-extrabold tracking-[-0.08em]">
+        PORTO
+      </a>
+
+      <div class="flex items-center gap-6">
+        <i data-lucide="user" class="w-5 h-5"></i>
+        <i data-lucide="heart" class="w-5 h-5"></i>
+
+        <button id="cartButton" type="button" class="relative">
+          <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+          <span id="cartCount"
+            class="absolute -top-2 -right-3 bg-black text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+            0
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="border-t border-gray-100">
+      <div
+        class="max-w-[1320px] mx-auto px-8 h-12 flex items-center justify-center gap-9 text-[11px] font-bold tracking-[0.18em]">
+        <a href="#">SKINCARE⌄</a>
+        <a href="shop.html">MAKEUP⌄</a>
+        <a href="#">HAIRCARE⌄</a>
+        <a href="#">FRAGRANCES⌄</a>
+        <a href="#">BATH & BODY⌄</a>
+        <a href="#">ACCESSORIES⌄</a>
+        <a href="#">BRANDS⌄</a>
+        <a href="#">MORE⌄</a>
+        <a href="#">SALE</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CART OVERLAY -->
+  <div id="cartOverlay" class="fixed inset-0 bg-black/40 z-[90] hidden"></div>
+
+  <!-- CART DRAWER -->
+  <aside id="cartDrawer"
+    class="fixed top-0 right-0 w-[320px] max-w-full h-screen bg-white z-[100] translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
+
+    <div class="bg-[#36aeb3] text-white px-4 py-3 flex items-center justify-between">
+      <h2 class="text-xl font-bold">Einkaufswagen</h2>
+
+      <button id="cartClose" type="button" class="text-white">
+        <i data-lucide="x" class="w-7 h-7"></i>
+      </button>
+    </div>
+
+    <div class="px-4 py-3 text-[#007c89] text-sm font-semibold border-b">
+      <span id="cartDrawerCount">0 Stück</span>
+    </div>
+
+    <div id="cartItems" class="flex-1 overflow-y-auto px-4 py-4">
+      <p class="text-sm text-gray-500">Your cart is empty.</p>
+    </div>
+
+    <div class="border-t bg-white px-4 py-4">
+      <div class="flex items-start justify-between mb-4">
+        <p class="text-[#007c89] font-bold">SUMME:</p>
+
+        <div class="text-right">
+          <p id="cartTotal" class="font-bold text-lg">0,00 €</p>
+          <p id="cartNetTotal" class="text-xs text-gray-500">( Netto : 0,00 € )</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <a href="cart.html" class="bg-[#36aeb3] text-white py-3 text-center font-bold skew-x-[-10deg]">
+          <span class="inline-block skew-x-[10deg]">Warenkorb</span>
+        </a>
+
+        <a href="checkout.html" class="bg-gray-600 text-white py-3 text-center font-bold skew-x-[-10deg]">
+          <span class="inline-block skew-x-[10deg]">Kasse</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- FLOATING BUTTONS -->
+  <div class="fixed right-0 top-[140px] z-40 hidden lg:block">
+    <a href="#" class="w-16 h-16 bg-white shadow flex flex-col items-center justify-center text-[10px] font-bold border-b">
+      🛒
+      <span>Buy Now</span>
+    </a>
+    <a href="#" class="w-16 h-16 bg-white shadow flex flex-col items-center justify-center text-[10px] font-bold border-b">
+      ⚙
+      <span>Prebuilts</span>
+    </a>
+    <a href="#" class="w-16 h-16 bg-white shadow flex flex-col items-center justify-center text-[10px] font-bold border-b">
+      🎧
+      <span>Studios</span>
+    </a>
+    <a href="#" class="w-16 h-16 bg-white shadow flex flex-col items-center justify-center text-[10px] font-bold">
+      🛠
+      <span>Hire Us</span>
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative h-[310px] bg-[#b49c88] overflow-hidden">
+    <img src="assets/images/makeup-banner.jpg" alt="Makeup"
+      class="absolute inset-0 w-full h-full object-cover" />
+
+    <div class="absolute inset-0 bg-black/10"></div>
+
+    <div class="relative max-w-[1320px] mx-auto px-8 h-full flex items-center">
+      <h1 class="text-white text-6xl font-bold">Makeup</h1>
+    </div>
+  </section>
+
+  <!-- MAIN SHOP CONTENT -->
+  <main class="max-w-[1320px] mx-auto px-8 py-14">
+    <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10">
+
+      <!-- SIDEBAR -->
+      <aside class="hidden lg:block">
+        <div class="border-b border-gray-200 pb-6 mb-6">
+          <div class="flex items-center justify-between mb-5">
+            <h3 class="text-sm font-bold">Category</h3>
+            <span class="font-bold">−</span>
+          </div>
+
+          <ul class="space-y-4 text-sm text-gray-500">
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Bath & Body</a></li>
+            <li><a href="#">Fragrances</a></li>
+            <li><a href="#">Haircare</a></li>
+            <li><a href="#" class="font-bold text-black">Makeup</a></li>
+            <li><a href="#">Skincare</a></li>
+          </ul>
+        </div>
+
+        <div class="border-b border-gray-200 pb-6 mb-6">
+          <div class="flex items-center justify-between mb-5">
+            <h3 class="text-sm font-bold">Price</h3>
+            <span class="font-bold">−</span>
+          </div>
+
+          <div class="relative h-1 bg-[#eee] mb-5">
+            <div class="absolute left-0 right-0 top-0 h-1 bg-[#ead8c7]"></div>
+            <span class="absolute -top-1 left-0 w-3 h-3 rounded-full bg-[#ead8c7]"></span>
+            <span class="absolute -top-1 right-0 w-3 h-3 rounded-full bg-[#ead8c7]"></span>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <p class="text-xs">Price: <strong>$0 — $40</strong></p>
+            <button class="bg-[#f5f2ef] px-5 py-2 text-xs font-bold">Filter</button>
+          </div>
+        </div>
+
+        <div class="border-b border-gray-200 pb-6 mb-6">
+          <div class="flex items-center justify-between mb-5">
+            <h3 class="text-sm font-bold">Color</h3>
+            <span class="font-bold">−</span>
+          </div>
+
+          <ul class="space-y-3 text-sm text-gray-500">
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-black border"></span>
+              Black
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-red-300 border"></span>
+              Crimson
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="w-5 h-5 rounded-full bg-white border"></span>
+              White
+            </li>
+          </ul>
+        </div>
+
+        <div class="border-b border-gray-200 pb-6 mb-6">
+          <div class="flex items-center justify-between mb-5">
+            <h3 class="text-sm font-bold">Brands</h3>
+            <span class="font-bold">−</span>
+          </div>
+
+          <ul class="space-y-4 text-sm text-gray-500">
+            <li class="flex justify-between"><span>Avant Garde</span><span>(2)</span></li>
+            <li class="flex justify-between"><span>CTM</span><span>(3)</span></li>
+            <li class="flex justify-between"><span>David Smith</span><span>(4)</span></li>
+            <li class="flex justify-between"><span>Golden</span><span>(3)</span></li>
+          </ul>
+        </div>
+
+        <div class="pt-40">
+          <div class="flex items-center justify-between mb-5">
+            <h3 class="text-sm font-bold">Brands</h3>
+            <span class="font-bold">−</span>
+          </div>
+
+          <ul class="space-y-4 text-sm text-gray-500">
+            <li class="flex justify-between"><span>Avant Garde</span><span>(2)</span></li>
+            <li class="flex justify-between"><span>CTM</span><span>(3)</span></li>
+            <li class="flex justify-between"><span>David Smith</span><span>(4)</span></li>
+            <li class="flex justify-between"><span>Golden</span><span>(3)</span></li>
+            <li class="flex justify-between"><span>Golden Grid</span><span>(2)</span></li>
+            <li class="flex justify-between"><span>Ron Jones</span><span>(3)</span></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- PRODUCTS -->
+      <section>
+        <div class="flex items-center justify-between mb-6">
+          <p class="text-sm text-gray-500">Showing 1–9 of 17 results</p>
+
+          <div class="flex items-center gap-3">
+            <select class="bg-[#f8f8f8] text-xs px-4 py-3 outline-none">
+              <option>Default Sorting</option>
+              <option>Sort by price</option>
+              <option>Sort by latest</option>
+            </select>
+
+            <select class="bg-[#f8f8f8] text-xs px-4 py-3 outline-none">
+              <option>9</option>
+              <option>12</option>
+              <option>18</option>
+            </select>
+
+            <button class="w-10 h-10 border border-black flex items-center justify-center">
+              <i data-lucide="grid-3x3" class="w-4 h-4"></i>
+            </button>
+            <button class="w-10 h-10 flex items-center justify-center">
+              <i data-lucide="list" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+
+          <!-- Product 1 -->
+          <div class="group bg-[#f7f7f7] text-center relative overflow-hidden">
+            <div class="relative h-[360px] flex items-center justify-center">
+              <a href="product.html?id=8">
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+                  class="h-[230px] object-contain" alt="Clarins Sos Primer Matifying" />
+              </a>
+
+              <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">♡</button>
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">⌕</button>
+              </div>
+
+              <button type="button"
+                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-xs font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition"
+                data-id="8" data-name="Clarins Sos Primer Matifying 30ml" data-price="27.00"
+                data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
+                ADD TO CART
+              </button>
+            </div>
+
+            <a href="product.html?id=8" class="block bg-white pt-4 pb-7">
+              <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+              <h3 class="text-sm font-medium truncate px-5">Clarins Sos Primer Matifying...</h3>
+              <p class="text-gray-400 text-sm">★★★★★</p>
+              <p class="text-lg font-bold">$27.00</p>
+            </a>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="group bg-[#f7f7f7] text-center relative overflow-hidden">
+            <div class="relative h-[360px] flex items-center justify-center">
+              <a href="product.html?id=6">
+                <img src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+                  class="h-[230px] object-contain" alt="Dermalogica Invisible Physical" />
+              </a>
+
+              <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">♡</button>
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">⌕</button>
+              </div>
+
+              <button type="button"
+                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-xs font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition"
+                data-id="6" data-name="Dermalogica Intensive Moisture Balance" data-price="15.00"
+                data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
+                ADD TO CART
+              </button>
+            </div>
+
+            <a href="product.html?id=6" class="block bg-white pt-4 pb-7">
+              <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+              <h3 class="text-sm font-medium truncate px-5">Dermalogica Invisible Physica...</h3>
+              <p class="text-gray-400 text-sm">★★★★★</p>
+              <p class="text-lg font-bold">$20.00</p>
+            </a>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="group bg-[#f7f7f7] text-center relative overflow-hidden">
+            <span class="absolute top-5 left-5 bg-red-400 text-white text-[10px] font-bold px-3 py-1 z-10">-50%</span>
+
+            <div class="relative h-[360px] flex items-center justify-center">
+              <a href="product.html?id=7">
+                <img src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+                  class="h-[230px] object-contain" alt="Yves Saint Laurent Luxurious" />
+              </a>
+
+              <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">♡</button>
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">⌕</button>
+              </div>
+
+              <button type="button"
+                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-xs font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition"
+                data-id="7" data-name="Yves Saint Laurent Luxurious Volume" data-price="9.00"
+                data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
+                ADD TO CART
+              </button>
+            </div>
+
+            <a href="product.html?id=7" class="block bg-white pt-4 pb-7">
+              <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+              <h3 class="text-sm font-medium truncate px-5">Yves Saint Laurent Luxurious...</h3>
+              <p class="text-gray-400 text-sm">★★★★★</p>
+              <p class="text-lg font-bold">
+                <span class="text-sm text-gray-400 line-through font-normal">$18.00</span>
+                $9.00
+              </p>
+            </a>
+          </div>
+
+          <!-- Product 4 -->
+          <div class="group bg-[#f7f7f7] text-center relative overflow-hidden">
+            <div class="relative h-[360px] flex items-center justify-center">
+              <a href="product.html?id=1">
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+                  class="h-[230px] object-contain" alt="Hourglass Ambient Lighting" />
+              </a>
+
+              <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">♡</button>
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">⌕</button>
+              </div>
+
+              <button type="button"
+                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-xs font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition"
+                data-id="1" data-name="Hourglass Ambient Lighting Bronzer" data-price="12.00"
+                data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
+                ADD TO CART
+              </button>
+            </div>
+
+            <a href="product.html?id=1" class="block bg-white pt-4 pb-7">
+              <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+              <h3 class="text-sm font-medium truncate px-5">Hourglass Ambient Lighting...</h3>
+              <p class="text-gray-400 text-sm">★★★★★</p>
+              <p class="text-lg font-bold">$12.00</p>
+            </a>
+          </div>
+
+          <!-- Product 5 -->
+          <div class="group bg-[#f7f7f7] text-center relative overflow-hidden">
+            <div class="relative h-[360px] flex items-center justify-center">
+              <a href="product.html?id=5">
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+                  class="h-[230px] object-contain" alt="Clarins Natural Lip Perfector" />
+              </a>
+
+              <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">♡</button>
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">⌕</button>
+              </div>
+
+              <button type="button"
+                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-xs font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition"
+                data-id="5" data-name="Clarins Natural Lip Perfector 12ml" data-price="16.00"
+                data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
+                ADD TO CART
+              </button>
+            </div>
+
+            <a href="product.html?id=5" class="block bg-white pt-4 pb-7">
+              <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+              <h3 class="text-sm font-medium truncate px-5">Clarins Natural Lip Perfector...</h3>
+              <p class="text-gray-400 text-sm">★★★★★</p>
+              <p class="text-lg font-bold">$16.00</p>
+            </a>
+          </div>
+
+          <!-- Product 6 -->
+          <div class="group bg-[#f7f7f7] text-center relative overflow-hidden">
+            <div class="relative h-[360px] flex items-center justify-center">
+              <a href="product.html?id=3">
+                <img src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+                  class="h-[230px] object-contain" alt="Yves Saint Laurent Touche" />
+              </a>
+
+              <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">♡</button>
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">⌕</button>
+              </div>
+
+              <button type="button"
+                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-xs font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition"
+                data-id="3" data-name="Yves Saint Laurent Touche Eclat" data-price="23.00"
+                data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
+                ADD TO CART
+              </button>
+            </div>
+
+            <a href="product.html?id=3" class="block bg-white pt-4 pb-7">
+              <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+              <h3 class="text-sm font-medium truncate px-5">Yves Saint Laurent Touche...</h3>
+              <p class="text-gray-400 text-sm">★★★★★</p>
+              <p class="text-lg font-bold">$23.00</p>
+            </a>
+          </div>
+
+          <!-- Product 7 -->
+          <div class="group bg-[#f7f7f7] text-center relative overflow-hidden">
+            <div class="relative h-[360px] flex items-center justify-center">
+              <a href="product.html?id=2">
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+                  class="h-[230px] object-contain" alt="Hourglass Veil Hydrating" />
+              </a>
+
+              <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">♡</button>
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">⌕</button>
+              </div>
+
+              <button type="button"
+                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-xs font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition"
+                data-id="2" data-name="Hourglass Veil Hydrating Skin Tint" data-price="35.00"
+                data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
+                ADD TO CART
+              </button>
+            </div>
+
+            <a href="product.html?id=2" class="block bg-white pt-4 pb-7">
+              <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+              <h3 class="text-sm font-medium truncate px-5">Hourglass Veil Hydrating Skin...</h3>
+              <p class="text-gray-400 text-sm">★★★★★</p>
+              <p class="text-lg font-bold">$35.00</p>
+            </a>
+          </div>
+
+          <!-- Product 8 -->
+          <div class="group bg-[#f7f7f7] text-center relative overflow-hidden">
+            <div class="relative h-[360px] flex items-center justify-center">
+              <a href="product.html?id=4">
+                <img src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+                  class="h-[230px] object-contain" alt="Hourglass Sublime Blush" />
+              </a>
+
+              <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">♡</button>
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">⌕</button>
+              </div>
+
+              <button type="button"
+                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-xs font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition"
+                data-id="4" data-name="Clarins Lip Comfort Oil" data-price="20.00"
+                data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
+                ADD TO CART
+              </button>
+            </div>
+
+            <a href="product.html?id=4" class="block bg-white pt-4 pb-7">
+              <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+              <h3 class="text-sm font-medium truncate px-5">Hourglass Sublime Blush...</h3>
+              <p class="text-gray-400 text-sm">★★★★★</p>
+              <p class="text-lg font-bold">$20.00</p>
+            </a>
+          </div>
+
+          <!-- Product 9 -->
+          <div class="group bg-[#f7f7f7] text-center relative overflow-hidden">
+            <div class="relative h-[360px] flex items-center justify-center">
+              <a href="product.html?id=9">
+                <img src="assets/images/anviz_vp30_rfid_access_control.png"
+                  class="h-[230px] object-contain" alt="Mac Cosmetics Peachstock" />
+              </a>
+
+              <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">♡</button>
+                <button type="button" class="w-10 h-10 rounded-full bg-white shadow hover:bg-black hover:text-white">⌕</button>
+              </div>
+
+              <button type="button"
+                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-xs font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition"
+                data-id="9" data-name="Mielle Rosemary Mint Strength" data-price="10.00"
+                data-image="assets/images/anviz_vp30_rfid_access_control.png">
+                ADD TO CART
+              </button>
+            </div>
+
+            <a href="product.html?id=9" class="block bg-white pt-4 pb-7">
+              <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+              <h3 class="text-sm font-medium truncate px-5">Mac Cosmetics Peachstock...</h3>
+              <p class="text-gray-400 text-sm">★★★★★</p>
+              <p class="text-lg font-bold">$30.00 – $35.00</p>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="flex justify-end mt-12">
+          <div class="flex items-center gap-2">
+            <a href="#" class="w-9 h-9 bg-black text-white flex items-center justify-center text-sm font-bold">1</a>
+            <a href="#" class="w-9 h-9 bg-[#f4f4f4] flex items-center justify-center text-sm">2</a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center text-xl">›</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- RECENTLY VIEWED -->
+  <section class="max-w-[1320px] mx-auto px-8 pb-20">
+    <h2 class="text-2xl font-semibold mb-6">Recently Viewed</h2>
+
+    <div class="overflow-hidden whitespace-nowrap text-gray-400 tracking-[0.28em] text-lg mb-16">
+      SHOP NEW ARRIVALS&nbsp;&nbsp; ○ &nbsp;&nbsp;PAY WITH MULTIPLE CREDIT CARDS&nbsp;&nbsp; ○ &nbsp;&nbsp;30% OFF IF YOU SPEND $100 OR MORE
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="relative h-[310px] bg-[#e8ad8f] overflow-hidden">
+        <img src="assets/images/banner-1.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+        <div class="relative z-10 p-8 text-white">
+          <p class="text-xs mb-3">Beauty That Inspires</p>
+          <h3 class="text-3xl font-bold leading-tight">Premium<br>Cosmetics</h3>
+          <p class="text-xs mt-4">UP TO <span class="text-3xl font-bold">25</span>% OFF</p>
+          <a href="#" class="inline-block bg-white text-black text-xs tracking-[0.25em] font-bold px-10 py-4 mt-10">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="relative h-[310px] bg-[#d9aab4] overflow-hidden">
+        <img src="assets/images/banner-2.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+        <div class="relative z-10 text-center p-8 text-white">
+          <p class="text-xs mb-3">Inside and Out</p>
+          <h3 class="text-3xl font-bold leading-tight">Skin Routine</h3>
+          <p class="text-xs tracking-[0.18em] font-bold">EFFORTLESS CONFIDENCE EVERY DAY</p>
+          <a href="#" class="inline-block bg-white text-black text-xs tracking-[0.25em] font-bold px-12 py-4 mt-28">SHOP NOW</a>
+        </div>
+      </div>
+
+      <div class="relative h-[310px] bg-[#c6beb4] overflow-hidden">
+        <img src="assets/images/banner-3.jpg" class="absolute inset-0 w-full h-full object-cover" alt="">
+        <div class="relative z-10 text-center p-8 text-white">
+          <p class="text-xs mb-3">Radiate Beauty</p>
+          <h3 class="text-3xl font-bold leading-tight">Shine Beautifully</h3>
+          <p class="text-xs mt-4">UP TO <span class="text-3xl font-bold">50</span>% OFF</p>
+          <a href="#" class="inline-block bg-white text-black text-xs tracking-[0.25em] font-bold px-12 py-4 mt-20">SHOP NOW</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="bg-[#f7eee9] py-28">
+    <div class="text-center max-w-[680px] mx-auto px-8">
+      <h2 class="text-4xl font-bold mb-8">Get 10% OFF in Your First Order</h2>
+
+      <div class="flex">
+        <input type="email" placeholder="E-mail" class="flex-1 h-14 px-6 text-sm outline-none">
+        <button class="h-14 px-14 bg-[#222] text-white text-xs font-bold tracking-[0.25em]">SUBSCRIBE</button>
+      </div>
+
+      <p class="text-xs text-gray-500 mt-6">
+        By subscribing, you agree to our
+        <a href="#" class="underline">Terms of Use</a>
+        and
+        <a href="#" class="underline">Privacy Policy</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white">
+    <div class="max-w-[1320px] mx-auto px-8 py-20 grid grid-cols-1 md:grid-cols-5 gap-10">
+      <div>
+        <h2 class="text-4xl font-extrabold tracking-[-0.08em] mb-6">PORTO</h2>
+        <p class="text-sm text-gray-500 leading-7">
+          portotheme@portotheme.com<br>
+          (800) 123-4567<br>
+          100 Porto Ave TF, New York, USA
+        </p>
+        <div class="flex gap-5 mt-6">
+          <a href="#">f</a>
+          <a href="#">𝕏</a>
+          <a href="#">◎</a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold tracking-[0.2em] mb-6">PORTO</h3>
+        <ul class="space-y-3 text-sm text-gray-500">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Stores</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold tracking-[0.2em] mb-6">CATEGORIES</h3>
+        <ul class="space-y-3 text-sm text-gray-500">
+          <li><a href="#">Skincare</a></li>
+          <li><a href="#">Makeup</a></li>
+          <li><a href="#">Haircare</a></li>
+          <li><a href="#">Fragrances</a></li>
+          <li><a href="#">Bath & Body</a></li>
+          <li><a href="#">Accessories</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold tracking-[0.2em] mb-6">SUPPORT</h3>
+        <ul class="space-y-3 text-sm text-gray-500">
+          <li><a href="#">Help & FAQs</a></li>
+          <li><a href="#">Login / Register</a></li>
+          <li><a href="#">Track Your Order</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Accessibility</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold tracking-[0.2em] mb-6">PAYMENT METHODS</h3>
+        <div class="flex gap-2 flex-wrap">
+          <span class="bg-[#f5f5f5] px-3 py-2 text-xs font-bold">VISA</span>
+          <span class="bg-[#f5f5f5] px-3 py-2 text-xs font-bold">PayPal</span>
+          <span class="bg-[#f5f5f5] px-3 py-2 text-xs font-bold">stripe</span>
+          <span class="bg-[#f5f5f5] px-3 py-2 text-xs font-bold">Visa</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-100 py-8 text-center text-xs text-gray-500">
+      Porto eCommerce. © 2026 All Rights Reserved
+    </div>
+  </footer>
+
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    class="fixed bottom-5 right-5 w-10 h-10 bg-gray-700 text-white">
+    ⌃
+  </button>
+
+  <script>
+    lucide.createIcons();
+
+    function getCart() {
+      return JSON.parse(localStorage.getItem("cart")) || [];
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function formatPrice(price) {
+      return Number(price).toFixed(2).replace(".", ",") + " €";
+    }
+
+    function updateCartCount() {
+      const cart = getCart();
+      const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
+      const cartCount = document.getElementById("cartCount");
+      const cartDrawerCount = document.getElementById("cartDrawerCount");
+
+      if (cartCount) cartCount.innerText = totalItems;
+      if (cartDrawerCount) cartDrawerCount.innerText = `${totalItems} Stück`;
+    }
+
+    function renderCartDrawer() {
+      const cart = getCart();
+      const cartItems = document.getElementById("cartItems");
+      const cartTotal = document.getElementById("cartTotal");
+      const cartNetTotal = document.getElementById("cartNetTotal");
+
+      if (!cartItems || !cartTotal || !cartNetTotal) return;
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = `<p class="text-sm text-gray-500">Your cart is empty.</p>`;
+        cartTotal.innerText = "0,00 €";
+        cartNetTotal.innerText = "( Netto : 0,00 € )";
+        updateCartCount();
+        return;
+      }
+
+      let total = 0;
+
+      cartItems.innerHTML = cart.map((item) => {
+        const itemTotal = Number(item.price) * Number(item.quantity);
+        total += itemTotal;
+
+        return `
+          <div class="flex gap-3 border-b pb-4 mb-4">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain bg-gray-100" />
+
+            <div class="flex-1">
+              <h3 class="text-sm font-semibold leading-snug mb-1">${item.name}</h3>
+              <p class="text-xs text-gray-500 mb-2">${item.quantity} × ${formatPrice(item.price)}</p>
+
+              <div class="flex items-center gap-2">
+                <button type="button" class="cart-minus border w-7 h-7 text-sm" data-id="${item.id}">−</button>
+                <span class="text-sm font-bold">${item.quantity}</span>
+                <button type="button" class="cart-plus border w-7 h-7 text-sm" data-id="${item.id}">+</button>
+                <button type="button" class="cart-remove ml-auto text-red-500 text-xs font-bold" data-id="${item.id}">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      cartTotal.innerText = formatPrice(total);
+      cartNetTotal.innerText = `( Netto : ${formatPrice(total)} )`;
+
+      updateCartCount();
+      bindCartDrawerButtons();
+    }
+
+    function bindCartDrawerButtons() {
+      document.querySelectorAll(".cart-minus").forEach((button) => {
+        button.onclick = function () {
+          const id = this.dataset.id;
+          const cart = getCart();
+          const item = cart.find((product) => product.id === id);
+
+          if (!item) return;
+
+          item.quantity -= 1;
+
+          const updatedCart = cart.filter((product) => product.quantity > 0);
+
+          saveCart(updatedCart);
+          renderCartDrawer();
+        };
+      });
+
+      document.querySelectorAll(".cart-plus").forEach((button) => {
+        button.onclick = function () {
+          const id = this.dataset.id;
+          const cart = getCart();
+          const item = cart.find((product) => product.id === id);
+
+          if (!item) return;
+
+          item.quantity += 1;
+
+          saveCart(cart);
+          renderCartDrawer();
+        };
+      });
+
+      document.querySelectorAll(".cart-remove").forEach((button) => {
+        button.onclick = function () {
+          const id = this.dataset.id;
+          const cart = getCart().filter((product) => product.id !== id);
+
+          saveCart(cart);
+          renderCartDrawer();
+        };
+      });
+    }
+
+    function openCartDrawer() {
+      const cartOverlay = document.getElementById("cartOverlay");
+      const cartDrawer = document.getElementById("cartDrawer");
+
+      if (cartOverlay) cartOverlay.classList.remove("hidden");
+      if (cartDrawer) cartDrawer.classList.remove("translate-x-full");
+
+      renderCartDrawer();
+    }
+
+    function closeCartDrawer() {
+      const cartOverlay = document.getElementById("cartOverlay");
+      const cartDrawer = document.getElementById("cartDrawer");
+
+      if (cartOverlay) cartOverlay.classList.add("hidden");
+      if (cartDrawer) cartDrawer.classList.add("translate-x-full");
+    }
+
+    function addToCart(button) {
+      const id = button.dataset.id;
+      const name = button.dataset.name;
+      const price = Number(button.dataset.price);
+      const image = button.dataset.image;
+
+      const cart = getCart();
+      const existingProduct = cart.find((item) => item.id === id);
+
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      } else {
+        cart.push({
+          id: id,
+          name: name,
+          price: price,
+          image: image,
+          quantity: 1
+        });
+      }
+
+      saveCart(cart);
+      updateCartCount();
+      renderCartDrawer();
+      openCartDrawer();
+    }
+
+    document.querySelectorAll(".add-to-cart").forEach((button) => {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        addToCart(this);
+      });
+    });
+
+    const cartButton = document.getElementById("cartButton");
+    const cartClose = document.getElementById("cartClose");
+    const cartOverlay = document.getElementById("cartOverlay");
+
+    if (cartButton) cartButton.addEventListener("click", openCartDrawer);
+    if (cartClose) cartClose.addEventListener("click", closeCartDrawer);
+    if (cartOverlay) cartOverlay.addEventListener("click", closeCartDrawer);
+
+    updateCartCount();
+    renderCartDrawer();
+  </script>
+
+</body>
+
+</html>
