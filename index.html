@@ -63,7 +63,7 @@
       const footer = await fetch("components/footer.html");
       document.getElementById("footer").innerHTML = await footer.text();
 
-      // 🔥 IMPORTANT: icons render AFTER components load
+      // Icons render AFTER components load
       lucide.createIcons();
 
       // Extra scripts

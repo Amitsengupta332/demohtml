@@ -12,3 +12,16 @@ body {
   object-fit: cover;
   object-position: center top;
 }
+
+.checkout-input {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  padding: 11px 14px;
+  font-size: 13px;
+  outline: none;
+  border-radius: 2px;
+}
+
+.checkout-input:focus {
+  border-color: #078b94;
+}

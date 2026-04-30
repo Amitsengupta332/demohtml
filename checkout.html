@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <title>Checkout - Porto Clone</title>
+</head>
+
+<body class="bg-white font-[Poppins]">
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Spacer because navbar is absolute -->
+  <div class="h-[115px]"></div>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white border-y">
+    <div class="max-w-[1270px] mx-auto px-6 py-4 text-sm">
+      <a href="index.html" class="text-black">CLS-Computer</a>
+      <span class="mx-2 text-gray-500">›</span>
+      <span class="text-gray-500">Kasse</span>
+    </div>
+  </div>
+
+  <!-- Checkout Page -->
+  <main class="max-w-[1270px] mx-auto px-6 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-6">
+
+      <!-- LEFT COLUMN -->
+      <div class="space-y-6">
+
+        <!-- Customer Data -->
+        <section class="border rounded overflow-hidden bg-white">
+          <div class="bg-[#333333] text-white text-center py-3 font-bold">
+            Kundendaten eingeben
+          </div>
+
+          <div class="p-5 space-y-4 text-sm">
+            <label class="flex items-center gap-2">
+              <input type="radio" name="accountType" checked />
+              Neues Konto erstellen
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input type="radio" name="accountType" />
+              Gast-Checkout
+            </label>
+
+            <button class="bg-[#078b94] text-white px-5 py-2 rounded font-bold">
+              Anmelden (Bestandskunde)
+            </button>
+          </div>
+        </section>
+
+        <!-- Billing Address -->
+        <section class="border rounded overflow-hidden bg-white">
+          <div class="bg-[#333333] text-white text-center py-3 font-bold">
+            Rechnungsadresse
+          </div>
+
+          <div class="p-5 space-y-3">
+            <input class="checkout-input" placeholder="E-Mail Adresse" />
+
+            <select class="checkout-input">
+              <option>Herr</option>
+              <option>Frau</option>
+            </select>
+
+            <input class="checkout-input" placeholder="Vorname" />
+            <input class="checkout-input" placeholder="Nachname" />
+            <input class="checkout-input" placeholder="Firma" />
+
+            <div class="grid grid-cols-2 gap-3">
+              <input class="checkout-input" placeholder="Straße" />
+              <input class="checkout-input" placeholder="Hausnummer" />
+            </div>
+
+            <select class="checkout-input">
+              <option>Region auswählen</option>
+            </select>
+
+            <input class="checkout-input" placeholder="Stadt" />
+            <input class="checkout-input" placeholder="Postleitzahl" />
+
+            <select class="checkout-input">
+              <option>Germany</option>
+            </select>
+
+            <input class="checkout-input" placeholder="Telefonnummer" />
+
+            <label class="flex items-center gap-2 text-xs text-gray-600">
+              <input type="checkbox" />
+              Meine Rechnungs- und Lieferadresse ist identisch
+            </label>
+          </div>
+        </section>
+
+        <!-- Shipping Address -->
+        <section class="border rounded overflow-hidden bg-white">
+          <div class="bg-[#333333] text-white text-center py-3 font-bold">
+            Versandadresse
+          </div>
+
+          <div class="p-5 space-y-3">
+            <select class="checkout-input">
+              <option>Herr</option>
+              <option>Frau</option>
+            </select>
+
+            <input class="checkout-input" placeholder="Vorname" />
+            <input class="checkout-input" placeholder="Nachname" />
+            <input class="checkout-input" placeholder="Firma" />
+
+            <div class="grid grid-cols-2 gap-3">
+              <input class="checkout-input" placeholder="Straße" />
+              <input class="checkout-input" placeholder="Hausnummer" />
+            </div>
+
+            <select class="checkout-input">
+              <option>Region auswählen</option>
+            </select>
+
+            <input class="checkout-input" placeholder="Stadt" />
+            <input class="checkout-input" placeholder="Postleitzahl" />
+
+            <select class="checkout-input">
+              <option>Germany</option>
+            </select>
+
+            <input class="checkout-input" placeholder="Telefonnummer" />
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="space-y-6">
+
+        <!-- Top Options -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Shipping -->
+          <section class="border rounded overflow-hidden bg-white">
+            <div class="bg-[#333333] text-white text-center py-3 font-bold">
+              Versandart
+            </div>
+
+            <div class="p-5 space-y-4 text-sm">
+              <label class="flex items-center justify-between gap-3">
+                <span>
+                  <input type="radio" name="shipping" />
+                  Abholung - Abholung&nbsp; 0,00 €
+                </span>
+                <span class="text-xl">🚚</span>
+              </label>
+
+              <label class="flex items-center justify-between gap-3">
+                <span>
+                  <input type="radio" name="shipping" />
+                  Versand - DHL Paket&nbsp; 6,90 €
+                </span>
+                <span class="text-xl font-bold text-yellow-500">DHL</span>
+              </label>
+
+              <label class="flex items-center justify-between gap-3">
+                <span>
+                  <input type="radio" name="shipping" checked />
+                  Versand - UPS&nbsp; 6,90 €
+                </span>
+                <span class="text-xl">📦</span>
+              </label>
+            </div>
+          </section>
+
+          <!-- Payment -->
+          <section class="border rounded overflow-hidden bg-white">
+            <div class="bg-[#333333] text-white text-center py-3 font-bold">
+              Zahlungsart
+            </div>
+
+            <div class="p-5 space-y-3 text-sm">
+              <label class="flex items-center justify-between gap-3">
+                <span>
+                  <input type="radio" name="payment" />
+                  Bar bei Abholung&nbsp; 0,00 €
+                </span>
+                <span>💶</span>
+              </label>
+
+              <label class="flex items-center justify-between gap-3">
+                <span>
+                  <input type="radio" name="payment" />
+                  Überweisung / Vorkasse&nbsp; 0,00 €
+                </span>
+                <span>🏦</span>
+              </label>
+
+              <label class="flex items-center justify-between gap-3">
+                <span>
+                  <input type="radio" name="payment" />
+                  Nachnahme&nbsp; 8,00 €
+                </span>
+                <span>🚚</span>
+              </label>
+
+              <label class="flex items-center justify-between gap-3">
+                <span>
+                  <input type="radio" name="payment" checked />
+                  Credit Cards&nbsp; 0,00 €
+                </span>
+                <span class="font-bold text-blue-700">VISA</span>
+              </label>
+
+              <label class="flex items-center justify-between gap-3">
+                <span>
+                  <input type="radio" name="payment" />
+                  easyCredit-Ratenkauf&nbsp; 0,00 €
+                </span>
+                <span class="font-bold text-blue-500">easyCredit</span>
+              </label>
+
+              <label class="flex items-center justify-between gap-3">
+                <span>
+                  <input type="radio" name="payment" />
+                  PayPal&nbsp; 0,00 €
+                </span>
+                <span class="font-bold text-blue-600">PayPal</span>
+              </label>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Confirm Payment -->
+        <section class="border rounded overflow-hidden bg-white">
+          <div class="bg-[#333333] text-white text-center py-3 font-bold">
+            Zahlung bestätigen
+          </div>
+
+          <div class="grid grid-cols-[1.7fr_1fr_1fr_1fr] bg-[#d9edf3] text-[#00596a] text-sm font-bold">
+            <div class="px-4 py-3">Produkt</div>
+            <div class="px-4 py-3 text-center">Preis</div>
+            <div class="px-4 py-3 text-center">Anzahl</div>
+            <div class="px-4 py-3 text-center">Preis</div>
+          </div>
+
+          <div id="checkoutItems">
+            <!-- JS render -->
+          </div>
+
+          <div class="bg-[#eeeeee] text-sm">
+            <div class="flex justify-end gap-8 px-6 py-3 border-b">
+              <strong>Zwischensumme netto :</strong>
+              <span id="checkoutSubtotalNet" class="font-bold text-[#00596a]">0,00 €</span>
+            </div>
+
+            <div class="flex justify-end gap-8 px-6 py-3 border-b">
+              <strong>Gesamtsumme netto :</strong>
+              <span id="checkoutTotalNet" class="font-bold text-[#00596a]">0,00 €</span>
+            </div>
+
+            <div class="flex justify-end gap-8 px-6 py-3 border-b">
+              <strong>19% MwSt. :</strong>
+              <span id="checkoutTax" class="font-bold text-[#00596a]">0,00 €</span>
+            </div>
+
+            <div class="flex justify-end gap-8 px-6 py-3">
+              <strong>Gesamtsumme brutto :</strong>
+              <span id="checkoutTotalGross" class="font-bold text-[#00596a]">0,00 €</span>
+            </div>
+          </div>
+
+          <div class="p-5 text-right">
+            <button class="bg-white border px-5 py-3 rounded text-sm shadow-sm">
+              Gutscheincode
+            </button>
+          </div>
+        </section>
+
+        <!-- Comment -->
+        <textarea
+          class="w-full h-[95px] border rounded p-4 text-sm outline-none"
+          placeholder="Kommentar schreiben"
+        ></textarea>
+
+        <div class="space-y-3 text-sm">
+          <label class="flex items-center gap-2">
+            <input type="checkbox" />
+            Ich habe die <a href="#" class="text-[#078b94]">AGB</a> gelesen und stimme diesen ausdrücklich zu.<span class="text-red-500">*</span>
+          </label>
+
+          <label class="flex items-center gap-2">
+            <input type="checkbox" />
+            Ich habe die <a href="#" class="text-[#078b94]">Widerrufsbelehrung</a> gelesen.<span class="text-red-500">*</span>
+          </label>
+        </div>
+
+        <button class="bg-[#078b94] text-white w-[280px] py-4 rounded font-bold">
+          Kaufen
+        </button>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    async function loadCheckoutComponents() {
+      const navbar = await fetch("components/navbar.html");
+      document.getElementById("navbar").innerHTML = await navbar.text();
+
+      const footer = await fetch("components/footer.html");
+      document.getElementById("footer").innerHTML = await footer.text();
+
+      lucide.createIcons();
+
+      const cartScript = document.createElement("script");
+      cartScript.src = "assets/js/cart.js";
+      document.body.appendChild(cartScript);
+
+      const checkoutScript = document.createElement("script");
+      checkoutScript.src = "assets/js/checkout-page.js";
+      document.body.appendChild(checkoutScript);
+    }
+
+    loadCheckoutComponents();
+  </script>
+
+</body>
+</html>
