@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Product Details</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body class="bg-white text-[#222]">
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Spacer because navbar is absolute -->
+  <div class="h-[115px]"></div>
 
   <section class="px-8 py-10">
     <div class="max-w-[1320px] mx-auto">
@@ -32,23 +48,14 @@
             HOT
           </span>
 
-          <!-- Previous Button -->
-          <button
-            onclick="prevImage()"
-            type="button"
+          <button onclick="prevImage()" type="button"
             class="absolute left-3 top-1/2 -translate-y-1/2 bg-white w-10 h-10 shadow text-2xl z-10 hover:bg-black hover:text-white">
             ‹
           </button>
 
-          <img
-            id="mainImage"
-            onclick="openModal()"
-            class="h-[390px] object-contain cursor-zoom-in" />
+          <img id="mainImage" onclick="openModal()" class="h-[390px] object-contain cursor-zoom-in" />
 
-          <!-- Next Button -->
-          <button
-            onclick="nextImage()"
-            type="button"
+          <button onclick="nextImage()" type="button"
             class="absolute right-3 top-1/2 -translate-y-1/2 bg-white w-10 h-10 shadow text-2xl z-10 hover:bg-black hover:text-white">
             ›
           </button>
@@ -96,17 +103,16 @@
           <div class="border-t border-b border-gray-200 py-5 flex items-center gap-3 mb-6">
             <div class="flex border border-gray-200 h-12">
               <button onclick="decreaseQty()" type="button" class="w-10 text-xl">−</button>
-              <input
-                id="qty"
-                value="1"
-                readonly
-                class="w-12 text-center font-bold outline-none" />
+              <input id="qty" value="1" readonly class="w-12 text-center font-bold outline-none" />
               <button onclick="increaseQty()" type="button" class="w-10 text-xl">+</button>
             </div>
 
             <button
+              id="productAddToCart"
               type="button"
-              class="bg-[#8f9398] hover:bg-black text-white h-12 px-10 font-bold text-sm flex items-center gap-2">
+              class="add-to-cart bg-[#8f9398] hover:bg-black text-white h-12 px-10 font-bold text-sm flex items-center gap-2"
+              data-quantity-input="qty"
+            >
               ADD TO CART
             </button>
           </div>
@@ -136,31 +142,21 @@
   </section>
 
   <!-- IMAGE MODAL -->
-  <div
-    id="imageModal"
-    class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+  <div id="imageModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
 
-    <button
-      onclick="closeModal()"
-      type="button"
-      class="absolute top-5 right-5 text-white text-3xl z-20">
+    <button onclick="closeModal()" type="button" class="absolute top-5 right-5 text-white text-3xl z-20">
       ×
     </button>
 
-    <button
-      onclick="prevImage(); syncModalImage();"
-      type="button"
+    <button onclick="prevImage(); syncModalImage();" type="button"
       class="absolute left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white text-4xl z-20 hover:bg-black hover:text-white">
       ‹
     </button>
 
-    <img
-      id="modalImage"
+    <img id="modalImage"
       class="max-h-[80%] max-w-[90%] transition-transform duration-300 cursor-zoom-in object-contain" />
 
-    <button
-      onclick="nextImage(); syncModalImage();"
-      type="button"
+    <button onclick="nextImage(); syncModalImage();" type="button"
       class="absolute right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white text-4xl z-20 hover:bg-black hover:text-white">
       ›
     </button>
@@ -174,36 +170,31 @@
       <div class="grid grid-cols-4 gap-5">
 
         <!-- Related Product 1 -->
-        <div
-          onclick="goProduct(1)"
+        <div onclick="goProduct(1)"
           class="group cursor-pointer bg-[#ffffff] border border-gray-100 text-center relative overflow-hidden">
 
           <div class="relative h-[300px] flex items-center justify-center">
-            <img
-              src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
-              class="h-[210px] object-contain"
+            <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png" class="h-[210px] object-contain"
               alt="Hourglass Ambient Lighting Bronzer" />
 
             <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
-              <button
-                onclick="event.stopPropagation()"
-                type="button"
+              <button onclick="event.stopPropagation()" type="button"
                 class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
                 ♡
               </button>
 
-              <button
-                onclick="event.stopPropagation()"
-                type="button"
+              <button onclick="event.stopPropagation()" type="button"
                 class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
                 ⌕
               </button>
             </div>
 
-            <button
-              onclick="event.stopPropagation()"
-              type="button"
-              class="absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white">
+            <button onclick="event.stopPropagation()" type="button"
+              class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+              data-id="1"
+              data-name="Hourglass Ambient Lighting Bronzer"
+              data-price="12.00"
+              data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
               ADD TO CART
             </button>
           </div>
@@ -219,36 +210,31 @@
         </div>
 
         <!-- Related Product 2 -->
-        <div
-          onclick="goProduct(2)"
+        <div onclick="goProduct(2)"
           class="group cursor-pointer bg-[#ffffff] border border-gray-100 text-center relative overflow-hidden">
 
           <div class="relative h-[300px] flex items-center justify-center">
-            <img
-              src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
-              class="h-[210px] object-contain"
+            <img src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png" class="h-[210px] object-contain"
               alt="Hourglass Veil Hydrating Skin Tint" />
 
             <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
-              <button
-                onclick="event.stopPropagation()"
-                type="button"
+              <button onclick="event.stopPropagation()" type="button"
                 class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
                 ♡
               </button>
 
-              <button
-                onclick="event.stopPropagation()"
-                type="button"
+              <button onclick="event.stopPropagation()" type="button"
                 class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
                 ⌕
               </button>
             </div>
 
-            <button
-              onclick="event.stopPropagation()"
-              type="button"
-              class="absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white">
+            <button onclick="event.stopPropagation()" type="button"
+              class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+              data-id="2"
+              data-name="Hourglass Veil Hydrating Skin Tint"
+              data-price="35.00"
+              data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
               ADD TO CART
             </button>
           </div>
@@ -264,36 +250,31 @@
         </div>
 
         <!-- Related Product 3 -->
-        <div
-          onclick="goProduct(3)"
+        <div onclick="goProduct(3)"
           class="group cursor-pointer bg-[#ffffff] border border-gray-100 text-center relative overflow-hidden">
 
           <div class="relative h-[300px] flex items-center justify-center">
-            <img
-              src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
-              class="h-[210px] object-contain"
+            <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png" class="h-[210px] object-contain"
               alt="Yves Saint Laurent Touche Eclat" />
 
             <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
-              <button
-                onclick="event.stopPropagation()"
-                type="button"
+              <button onclick="event.stopPropagation()" type="button"
                 class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
                 ♡
               </button>
 
-              <button
-                onclick="event.stopPropagation()"
-                type="button"
+              <button onclick="event.stopPropagation()" type="button"
                 class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
                 ⌕
               </button>
             </div>
 
-            <button
-              onclick="event.stopPropagation()"
-              type="button"
-              class="absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white">
+            <button onclick="event.stopPropagation()" type="button"
+              class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+              data-id="3"
+              data-name="Yves Saint Laurent Touche Eclat"
+              data-price="23.00"
+              data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
               ADD TO CART
             </button>
           </div>
@@ -309,36 +290,31 @@
         </div>
 
         <!-- Related Product 4 -->
-        <div
-          onclick="goProduct(4)"
+        <div onclick="goProduct(4)"
           class="group cursor-pointer bg-[#ffffff] border border-gray-100 text-center relative overflow-hidden">
 
           <div class="relative h-[300px] flex items-center justify-center">
-            <img
-              src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
-              class="h-[210px] object-contain"
+            <img src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png" class="h-[210px] object-contain"
               alt="Clarins Lip Comfort Oil" />
 
             <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
-              <button
-                onclick="event.stopPropagation()"
-                type="button"
+              <button onclick="event.stopPropagation()" type="button"
                 class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
                 ♡
               </button>
 
-              <button
-                onclick="event.stopPropagation()"
-                type="button"
+              <button onclick="event.stopPropagation()" type="button"
                 class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
                 ⌕
               </button>
             </div>
 
-            <button
-              onclick="event.stopPropagation()"
-              type="button"
-              class="absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white">
+            <button onclick="event.stopPropagation()" type="button"
+              class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+              data-id="4"
+              data-name="Clarins Lip Comfort Oil"
+              data-price="20.00"
+              data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
               ADD TO CART
             </button>
           </div>
@@ -363,6 +339,7 @@
         name: "Hourglass Ambient Lighting Bronzer",
         category: "Makeup",
         price: "$12.00",
+        cartPrice: "12.00",
         desc: "Elevate your makeup experience with premium quality and elegant finishing.",
         images: [
           "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
@@ -376,6 +353,7 @@
         name: "Hourglass Veil Hydrating Skin Tint",
         category: "Makeup",
         price: "$35.00",
+        cartPrice: "35.00",
         desc: "A smooth hydrating product designed for a clean, modern and comfortable everyday look.",
         images: [
           "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
@@ -389,6 +367,7 @@
         name: "Yves Saint Laurent Touche Eclat",
         category: "Makeup",
         price: "$23.00",
+        cartPrice: "23.00",
         desc: "Premium beauty product with stylish design, smooth texture and long lasting comfort.",
         images: [
           "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
@@ -402,6 +381,7 @@
         name: "Clarins Lip Comfort Oil",
         category: "Accessories",
         price: "$20.00",
+        cartPrice: "20.00",
         desc: "A comfortable and stylish product made for daily use with a clean premium look.",
         images: [
           "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
@@ -415,6 +395,7 @@
         name: "Clarins Natural Lip Perfector 12ml",
         category: "Makeup",
         price: "$16.00",
+        cartPrice: "16.00",
         desc: "Natural finish product with lightweight feel and premium quality.",
         images: [
           "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
@@ -428,6 +409,7 @@
         name: "Dermalogica Intensive Moisture Balance",
         category: "Makeup",
         price: "$15.00",
+        cartPrice: "15.00",
         desc: "Moisture rich product crafted for comfort, care and elegant daily use.",
         images: [
           "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
@@ -441,6 +423,7 @@
         name: "Yves Saint Laurent Luxurious Volume",
         category: "Makeup",
         price: "$9.00",
+        cartPrice: "9.00",
         desc: "Luxurious volume product with premium finish and beautiful styling.",
         images: [
           "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
@@ -454,12 +437,97 @@
         name: "Clarins Sos Primer Matifying 30ml",
         category: "Makeup",
         price: "$27.00",
+        cartPrice: "27.00",
         desc: "Matifying primer with smooth finish and premium everyday performance.",
         images: [
           "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
           "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
           "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
           "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+        ]
+      },
+
+      9: {
+        name: "Mielle Rosemary Mint Strength",
+        category: "Makeup",
+        price: "$10.00",
+        cartPrice: "10.00",
+        desc: "A strengthening beauty product designed for daily care with a smooth premium finish.",
+        images: [
+          "assets/images/anviz_vp30_rfid_access_control.png",
+          "assets/images/anviz_vp30_rfid_access_control.png",
+          "assets/images/anviz_vp30_rfid_access_control.png",
+          "assets/images/anviz_vp30_rfid_access_control.png"
+        ]
+      },
+
+      10: {
+        name: "Fenty Beauty Pro Filt’r",
+        category: "Makeup",
+        price: "$7.50",
+        cartPrice: "7.50",
+        desc: "A lightweight beauty product with a clean finish and comfortable everyday feel.",
+        images: [
+          "assets/images/anviz_facedeep_5_ai_based_smart_face_recognition_terminal.png",
+          "assets/images/anviz_facedeep_5_ai_based_smart_face_recognition_terminal.png",
+          "assets/images/anviz_facedeep_5_ai_based_smart_face_recognition_terminal.png",
+          "assets/images/anviz_facedeep_5_ai_based_smart_face_recognition_terminal.png"
+        ]
+      },
+
+      11: {
+        name: "Mielle Rosemary Pom & Honey",
+        category: "Makeup",
+        price: "$20.00 - $50.00",
+        cartPrice: "20.00",
+        desc: "A premium product with multiple price options, made for smooth everyday beauty care.",
+        images: [
+          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
+          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
+          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
+          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png"
+        ]
+      },
+
+      12: {
+        name: "Mielle Rosemary Mint Strength",
+        category: "Makeup",
+        price: "$10.00",
+        cartPrice: "10.00",
+        desc: "A strengthening product with a clean look, smooth feel and premium everyday performance.",
+        images: [
+          "assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png",
+          "assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png",
+          "assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png",
+          "assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png"
+        ]
+      },
+
+      13: {
+        name: "Hourglass Ambient Lighting",
+        category: "Makeup",
+        price: "$12.00",
+        cartPrice: "12.00",
+        desc: "A premium beauty product with elegant styling and a polished everyday finish.",
+        images: [
+          "assets/images/secugen-hamster-plus-hsdu03p.jpg",
+          "assets/images/secugen-hamster-plus-hsdu03p.jpg",
+          "assets/images/secugen-hamster-plus-hsdu03p.jpg",
+          "assets/images/secugen-hamster-plus-hsdu03p.jpg"
+        ]
+      },
+
+      14: {
+        name: "CHI Browmance Eye Pencil",
+        category: "Makeup",
+        price: "$8.00",
+        cartPrice: "8.00",
+        desc: "A smooth eye pencil designed for clean definition, comfort and daily use.",
+        images: [
+          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
+          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
+          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
+          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png"
         ]
       }
     };
@@ -478,6 +546,13 @@
       document.getElementById("productCategory").innerText = product.category;
       document.getElementById("productPrice").innerText = product.price;
       document.getElementById("productDesc").innerText = product.desc;
+
+      const productAddToCart = document.getElementById("productAddToCart");
+
+      productAddToCart.setAttribute("data-id", id);
+      productAddToCart.setAttribute("data-name", product.name);
+      productAddToCart.setAttribute("data-price", product.cartPrice);
+      productAddToCart.setAttribute("data-image", product.images[0]);
 
       renderThumbnails();
       changeImage(0);
@@ -589,5 +664,24 @@
     loadProduct();
   </script>
 
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    async function loadProductPageComponents() {
+      const navbar = await fetch("components/navbar.html");
+      document.getElementById("navbar").innerHTML = await navbar.text();
+
+      lucide.createIcons();
+
+      const cartScript = document.createElement("script");
+      cartScript.src = "assets/js/cart.js";
+      document.body.appendChild(cartScript);
+    }
+
+    loadProductPageComponents();
+  </script>
+
 </body>
+
 </html>

@@ -47,7 +47,7 @@ function updateCartDrawer() {
   cartItems.innerHTML = cart
     .map((item) => {
       const itemTotal = item.price * item.quantity;
-      const netTotal = itemTotal / 1.19;
+      const netTotal = itemTotal * 0.84;
 
       return `
         <div class="flex gap-3 border-b pb-4 mb-4">
@@ -105,7 +105,7 @@ function updateCartDrawer() {
     .join("");
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const netTotal = total / 1.19;
+  const netTotal = total * 0.84;
 
   if (cartTotal) {
     cartTotal.textContent = formatEuro(total);
@@ -122,20 +122,20 @@ function updateCartDrawer() {
   bindCartDrawerButtons();
 }
 
-function addToCart(product, quantity = 1) {
+function addToCart(product) {
   const cart = getCart();
 
   const existingProduct = cart.find((item) => item.id === product.id);
 
   if (existingProduct) {
-    existingProduct.quantity += quantity;
+    existingProduct.quantity += 1;
   } else {
     cart.push({
       id: product.id,
       name: product.name,
       price: product.price,
       image: product.image,
-      quantity: quantity
+      quantity: 1
     });
   }
 
@@ -241,18 +241,6 @@ function initCart() {
       event.preventDefault();
       event.stopPropagation();
 
-      let quantity = 1;
-
-      const quantityInputId = this.dataset.quantityInput;
-
-      if (quantityInputId) {
-        const quantityInput = document.getElementById(quantityInputId);
-
-        if (quantityInput) {
-          quantity = Number(quantityInput.value) || 1;
-        }
-      }
-
       const product = {
         id: this.dataset.id,
         name: this.dataset.name,
@@ -260,7 +248,7 @@ function initCart() {
         image: this.dataset.image
       };
 
-      addToCart(product, quantity);
+      addToCart(product);
       openCartDrawer();
     });
   });
