@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-[#222]">
+
+  <section class="px-8 py-10">
+    <div class="max-w-[1320px] mx-auto">
+
+      <!-- Breadcrumb -->
+      <div class="text-xs text-gray-400 uppercase mb-8 flex gap-3">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Shop</span>
+        <span>/</span>
+        <span id="breadcrumbName">Product</span>
+      </div>
+
+      <div class="grid grid-cols-[120px_1fr_1fr] gap-8">
+
+        <!-- Thumbnails -->
+        <div id="thumbnailList" class="flex flex-col gap-3"></div>
+
+        <!-- Main Image -->
+        <div class="relative bg-[#f7f7f7] h-[520px] flex items-center justify-center">
+          <span class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-2 z-10">
+            HOT
+          </span>
+
+          <!-- Previous Button -->
+          <button
+            onclick="prevImage()"
+            type="button"
+            class="absolute left-3 top-1/2 -translate-y-1/2 bg-white w-10 h-10 shadow text-2xl z-10 hover:bg-black hover:text-white">
+            ‹
+          </button>
+
+          <img
+            id="mainImage"
+            onclick="openModal()"
+            class="h-[390px] object-contain cursor-zoom-in" />
+
+          <!-- Next Button -->
+          <button
+            onclick="nextImage()"
+            type="button"
+            class="absolute right-3 top-1/2 -translate-y-1/2 bg-white w-10 h-10 shadow text-2xl z-10 hover:bg-black hover:text-white">
+            ›
+          </button>
+        </div>
+
+        <!-- Product Info -->
+        <div>
+          <h1 id="productName" class="text-3xl font-bold mb-2"></h1>
+
+          <div class="flex items-center gap-3 mb-6">
+            <p class="text-gray-400 text-lg">★★★★★</p>
+            <p class="text-sm text-gray-400">( There are no reviews yet. )</p>
+          </div>
+
+          <div class="w-10 h-px bg-gray-300 mb-6"></div>
+
+          <p id="productPrice" class="text-3xl font-bold mb-5"></p>
+
+          <p id="productDesc" class="text-gray-600 leading-8 text-lg mb-7"></p>
+
+          <div class="space-y-3 text-sm mb-8">
+            <p><strong>SKU:</strong> <span class="text-gray-500">1234567902</span></p>
+            <p>
+              <strong>CATEGORY:</strong>
+              <span id="productCategory" class="text-gray-500 uppercase"></span>
+            </p>
+          </div>
+
+          <!-- Color -->
+          <div class="flex items-center gap-4 mb-6">
+            <p class="font-bold text-sm">COLOR:</p>
+            <button type="button" class="w-6 h-6 rounded-full bg-[#222]"></button>
+            <button type="button" class="w-6 h-6 rounded-full bg-red-400"></button>
+            <button type="button" class="w-6 h-6 rounded-full bg-white border border-gray-300"></button>
+          </div>
+
+          <!-- Size -->
+          <div class="flex items-center gap-4 mb-8">
+            <p class="font-bold text-sm">SIZE:</p>
+            <button type="button" class="border border-gray-200 px-4 py-2 text-sm">L</button>
+            <button type="button" class="border border-gray-200 px-4 py-2 text-sm">SM</button>
+          </div>
+
+          <!-- Quantity + Add To Cart -->
+          <div class="border-t border-b border-gray-200 py-5 flex items-center gap-3 mb-6">
+            <div class="flex border border-gray-200 h-12">
+              <button onclick="decreaseQty()" type="button" class="w-10 text-xl">−</button>
+              <input
+                id="qty"
+                value="1"
+                readonly
+                class="w-12 text-center font-bold outline-none" />
+              <button onclick="increaseQty()" type="button" class="w-10 text-xl">+</button>
+            </div>
+
+            <button
+              type="button"
+              class="bg-[#8f9398] hover:bg-black text-white h-12 px-10 font-bold text-sm flex items-center gap-2">
+              ADD TO CART
+            </button>
+          </div>
+
+          <!-- Social / Wishlist -->
+          <div class="flex items-center gap-4 text-sm mb-8">
+            <button type="button" class="w-8 h-8 rounded-full border border-gray-200">f</button>
+            <button type="button" class="w-8 h-8 rounded-full border border-gray-200">x</button>
+            <button type="button" class="w-8 h-8 rounded-full border border-gray-200">in</button>
+            <button type="button" class="w-8 h-8 rounded-full border border-gray-200">G+</button>
+            <button type="button" class="w-8 h-8 rounded-full border border-gray-200">✉</button>
+
+            <button type="button" class="font-bold">♡ ADD TO WISHLIST</button>
+            <button type="button" class="font-bold">⚖ COMPARE</button>
+          </div>
+
+          <!-- Accordion -->
+          <div class="border-t border-gray-200 pt-5">
+            <h3 class="font-bold flex items-center gap-2">
+              ⌃ SHIPPING & RETURNS
+            </h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE MODAL -->
+  <div
+    id="imageModal"
+    class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+
+    <button
+      onclick="closeModal()"
+      type="button"
+      class="absolute top-5 right-5 text-white text-3xl z-20">
+      ×
+    </button>
+
+    <button
+      onclick="prevImage(); syncModalImage();"
+      type="button"
+      class="absolute left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white text-4xl z-20 hover:bg-black hover:text-white">
+      ‹
+    </button>
+
+    <img
+      id="modalImage"
+      class="max-h-[80%] max-w-[90%] transition-transform duration-300 cursor-zoom-in object-contain" />
+
+    <button
+      onclick="nextImage(); syncModalImage();"
+      type="button"
+      class="absolute right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white text-4xl z-20 hover:bg-black hover:text-white">
+      ›
+    </button>
+  </div>
+
+  <!-- RELATED PRODUCTS -->
+  <section class="px-8 py-16 bg-white">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="text-2xl font-semibold mb-8">Related Products</h2>
+
+      <div class="grid grid-cols-4 gap-5">
+
+        <!-- Related Product 1 -->
+        <div
+          onclick="goProduct(1)"
+          class="group cursor-pointer bg-[#ffffff] border border-gray-100 text-center relative overflow-hidden">
+
+          <div class="relative h-[300px] flex items-center justify-center">
+            <img
+              src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+              class="h-[210px] object-contain"
+              alt="Hourglass Ambient Lighting Bronzer" />
+
+            <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+              <button
+                onclick="event.stopPropagation()"
+                type="button"
+                class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
+                ♡
+              </button>
+
+              <button
+                onclick="event.stopPropagation()"
+                type="button"
+                class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
+                ⌕
+              </button>
+            </div>
+
+            <button
+              onclick="event.stopPropagation()"
+              type="button"
+              class="absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white">
+              ADD TO CART
+            </button>
+          </div>
+
+          <div class="bg-[#EFF5FA] pb-7 px-4">
+            <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+            <h3 class="text-sm font-medium truncate mb-2">
+              Hourglass Ambient Lighting Bronzer
+            </h3>
+            <p class="text-gray-400 text-sm mb-1">★★★★☆</p>
+            <p class="text-lg font-bold">$12.00</p>
+          </div>
+        </div>
+
+        <!-- Related Product 2 -->
+        <div
+          onclick="goProduct(2)"
+          class="group cursor-pointer bg-[#ffffff] border border-gray-100 text-center relative overflow-hidden">
+
+          <div class="relative h-[300px] flex items-center justify-center">
+            <img
+              src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+              class="h-[210px] object-contain"
+              alt="Hourglass Veil Hydrating Skin Tint" />
+
+            <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+              <button
+                onclick="event.stopPropagation()"
+                type="button"
+                class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
+                ♡
+              </button>
+
+              <button
+                onclick="event.stopPropagation()"
+                type="button"
+                class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
+                ⌕
+              </button>
+            </div>
+
+            <button
+              onclick="event.stopPropagation()"
+              type="button"
+              class="absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white">
+              ADD TO CART
+            </button>
+          </div>
+
+          <div class="bg-[#EFF5FA] pb-7 px-4">
+            <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+            <h3 class="text-sm font-medium truncate mb-2">
+              Hourglass Veil Hydrating Skin Tint
+            </h3>
+            <p class="text-gray-400 text-sm mb-1">★★★★☆</p>
+            <p class="text-lg font-bold">$35.00</p>
+          </div>
+        </div>
+
+        <!-- Related Product 3 -->
+        <div
+          onclick="goProduct(3)"
+          class="group cursor-pointer bg-[#ffffff] border border-gray-100 text-center relative overflow-hidden">
+
+          <div class="relative h-[300px] flex items-center justify-center">
+            <img
+              src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+              class="h-[210px] object-contain"
+              alt="Yves Saint Laurent Touche Eclat" />
+
+            <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+              <button
+                onclick="event.stopPropagation()"
+                type="button"
+                class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
+                ♡
+              </button>
+
+              <button
+                onclick="event.stopPropagation()"
+                type="button"
+                class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
+                ⌕
+              </button>
+            </div>
+
+            <button
+              onclick="event.stopPropagation()"
+              type="button"
+              class="absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white">
+              ADD TO CART
+            </button>
+          </div>
+
+          <div class="bg-[#EFF5FA] pb-7 px-4">
+            <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
+            <h3 class="text-sm font-medium truncate mb-2">
+              Yves Saint Laurent Touche Eclat
+            </h3>
+            <p class="text-gray-400 text-sm mb-1">★★★★☆</p>
+            <p class="text-lg font-bold">$23.00</p>
+          </div>
+        </div>
+
+        <!-- Related Product 4 -->
+        <div
+          onclick="goProduct(4)"
+          class="group cursor-pointer bg-[#ffffff] border border-gray-100 text-center relative overflow-hidden">
+
+          <div class="relative h-[300px] flex items-center justify-center">
+            <img
+              src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+              class="h-[210px] object-contain"
+              alt="Clarins Lip Comfort Oil" />
+
+            <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+              <button
+                onclick="event.stopPropagation()"
+                type="button"
+                class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
+                ♡
+              </button>
+
+              <button
+                onclick="event.stopPropagation()"
+                type="button"
+                class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">
+                ⌕
+              </button>
+            </div>
+
+            <button
+              onclick="event.stopPropagation()"
+              type="button"
+              class="absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white">
+              ADD TO CART
+            </button>
+          </div>
+
+          <div class="bg-[#EFF5FA] pb-7 px-4">
+            <p class="text-[10px] text-gray-400 uppercase mb-1">ACCESSORIES</p>
+            <h3 class="text-sm font-medium truncate mb-2">
+              Clarins Lip Comfort Oil
+            </h3>
+            <p class="text-gray-400 text-sm mb-1">★★★★☆</p>
+            <p class="text-lg font-bold">$20.00</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const products = {
+      1: {
+        name: "Hourglass Ambient Lighting Bronzer",
+        category: "Makeup",
+        price: "$12.00",
+        desc: "Elevate your makeup experience with premium quality and elegant finishing.",
+        images: [
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+        ]
+      },
+
+      2: {
+        name: "Hourglass Veil Hydrating Skin Tint",
+        category: "Makeup",
+        price: "$35.00",
+        desc: "A smooth hydrating product designed for a clean, modern and comfortable everyday look.",
+        images: [
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+        ]
+      },
+
+      3: {
+        name: "Yves Saint Laurent Touche Eclat",
+        category: "Makeup",
+        price: "$23.00",
+        desc: "Premium beauty product with stylish design, smooth texture and long lasting comfort.",
+        images: [
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+        ]
+      },
+
+      4: {
+        name: "Clarins Lip Comfort Oil",
+        category: "Accessories",
+        price: "$20.00",
+        desc: "A comfortable and stylish product made for daily use with a clean premium look.",
+        images: [
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+        ]
+      },
+
+      5: {
+        name: "Clarins Natural Lip Perfector 12ml",
+        category: "Makeup",
+        price: "$16.00",
+        desc: "Natural finish product with lightweight feel and premium quality.",
+        images: [
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+        ]
+      },
+
+      6: {
+        name: "Dermalogica Intensive Moisture Balance",
+        category: "Makeup",
+        price: "$15.00",
+        desc: "Moisture rich product crafted for comfort, care and elegant daily use.",
+        images: [
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+        ]
+      },
+
+      7: {
+        name: "Yves Saint Laurent Luxurious Volume",
+        category: "Makeup",
+        price: "$9.00",
+        desc: "Luxurious volume product with premium finish and beautiful styling.",
+        images: [
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+        ]
+      },
+
+      8: {
+        name: "Clarins Sos Primer Matifying 30ml",
+        category: "Makeup",
+        price: "$27.00",
+        desc: "Matifying primer with smooth finish and premium everyday performance.",
+        images: [
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+        ]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id") || "1";
+    const product = products[id] || products[1];
+
+    let currentIndex = 0;
+    let currentImage = product.images[0];
+    let zoomed = false;
+
+    function loadProduct() {
+      document.getElementById("productName").innerText = product.name;
+      document.getElementById("breadcrumbName").innerText = product.name;
+      document.getElementById("productCategory").innerText = product.category;
+      document.getElementById("productPrice").innerText = product.price;
+      document.getElementById("productDesc").innerText = product.desc;
+
+      renderThumbnails();
+      changeImage(0);
+    }
+
+    function renderThumbnails() {
+      const thumbnailList = document.getElementById("thumbnailList");
+      thumbnailList.innerHTML = "";
+
+      product.images.forEach((image, index) => {
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className =
+          "thumb h-[120px] flex items-center justify-center bg-[#f7f7f7] cursor-pointer";
+
+        button.onclick = function () {
+          changeImage(index);
+        };
+
+        button.innerHTML = `
+          <img
+            src="${image}"
+            class="h-[95px] object-contain pointer-events-none"
+            alt="Product thumbnail ${index + 1}" />
+        `;
+
+        thumbnailList.appendChild(button);
+      });
+    }
+
+    function changeImage(index) {
+      currentIndex = index;
+      currentImage = product.images[currentIndex];
+
+      document.getElementById("mainImage").src = currentImage;
+
+      document.querySelectorAll(".thumb").forEach((btn) => {
+        btn.classList.remove("border", "border-gray-800");
+      });
+
+      const activeThumb = document.querySelectorAll(".thumb")[currentIndex];
+
+      if (activeThumb) {
+        activeThumb.classList.add("border", "border-gray-800");
+      }
+
+      if (!document.getElementById("imageModal").classList.contains("hidden")) {
+        syncModalImage();
+      }
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % product.images.length;
+      changeImage(currentIndex);
+    }
+
+    function prevImage() {
+      currentIndex =
+        (currentIndex - 1 + product.images.length) % product.images.length;
+
+      changeImage(currentIndex);
+    }
+
+    function openModal() {
+      document.getElementById("imageModal").classList.remove("hidden");
+      document.getElementById("imageModal").classList.add("flex");
+      syncModalImage();
+    }
+
+    function syncModalImage() {
+      const modalImage = document.getElementById("modalImage");
+
+      modalImage.src = currentImage;
+      modalImage.style.transform = "scale(1)";
+      zoomed = false;
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").classList.add("hidden");
+      document.getElementById("imageModal").classList.remove("flex");
+
+      document.getElementById("modalImage").style.transform = "scale(1)";
+      zoomed = false;
+    }
+
+    document.getElementById("modalImage").onclick = function () {
+      zoomed = !zoomed;
+      this.style.transform = zoomed ? "scale(2)" : "scale(1)";
+    };
+
+    function increaseQty() {
+      const qty = document.getElementById("qty");
+      qty.value = Number(qty.value) + 1;
+    }
+
+    function decreaseQty() {
+      const qty = document.getElementById("qty");
+
+      if (Number(qty.value) > 1) {
+        qty.value = Number(qty.value) - 1;
+      }
+    }
+
+    function goProduct(productId) {
+      window.location.href = `product.html?id=${productId}`;
+    }
+
+    loadProduct();
+  </script>
+
+</body>
+</html>
