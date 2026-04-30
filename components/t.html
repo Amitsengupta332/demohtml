@@ -1,188 +1,33 @@
-<section class="px-8 py-20 bg-white">
-  <div class="max-w-[1050px] mx-auto">
-    <!-- Heading -->
-    <div class="text-center mb-10">
-      <h2 class="text-2xl font-semibold leading-snug">
-        Take a moment for yourself.<br />
-        Let beauty become a part of you.
-      </h2>
+<header class="absolute top-0 left-0 w-full z-50">
+  <div class="px-10 py-7 flex items-center justify-between">
 
-      <div class="w-14 h-[2px] bg-[#e8d5c3] mx-auto my-4"></div>
-
-      <a
-        href="#"
-        class="inline-block bg-[#e8d5c3] text-black px-10 py-3 text-xs font-bold tracking-[0.2em] hover:bg-black hover:text-white transition">
-        VIEW ALL
-      </a>
+    <div>
+      <h1 class="text-4xl font-black leading-none">PORTO</h1>
+      <p class="text-sm text-gray-400 text-center -mt-1">eCommerce</p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-8 items-start">
-      <!-- LEFT SIDE (UNCHANGED) -->
-      <div class="lg:sticky lg:top-10">
-        <img
-          src="assets/images/output.avif"
-          alt="Take a moment"
-          class="w-full object-cover block" />
-      </div>
+    <nav class="hidden lg:flex items-center gap-8 text-sm font-bold">
+      <a href="#">HOME</a>
+      <a href="#">CATEGORIES ▼</a>
+      <a href="#">PRODUCTS ▼</a>
+      <a href="#">PAGES ▼</a>
+      <a href="#">FEATURES ▼</a>
+      <a href="#">BLOG</a>
+      <a href="#">BUY PORTO!</a>
+    </nav>
 
-      <!-- RIGHT PRODUCTS (ONLY FIXED STRUCTURE) -->
-      <div class="space-y-8">
-        <!-- Group 1 -->
-        <div>
-          <div class="grid grid-cols-2 gap-4">
-            <!-- CARD -->
-            <div
-              class="group bg-white border border-gray-100 text-center relative overflow-hidden h-[400px] flex flex-col">
-              <span
-                class="absolute top-3 left-3 bg-red-400 text-white text-[10px] font-bold px-2 py-1 z-10"
-                >-50%</span
-              >
+    <div class="flex items-center gap-6 text-3xl">
+      <span>⌕</span>
+      <span>♙</span>
+      <span>♡</span>
 
-              <div
-                class="relative h-[250px] flex items-center justify-center flex-shrink-0">
-                <img
-                  src="assets/images/shop54-product-22-1-300x300.jpg"
-                  class="h-[115px] object-contain" />
-
-                <button
-                  class="absolute bottom-0 left-3 right-3 bg-[#ead8c7] text-black py-2 text-[10px] font-bold tracking-[0.18em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white">
-                  ADD TO CART
-                </button>
-              </div>
-
-              <div class="bg-[#EFF5FA] w-full mt-auto py-4 px-3">
-                <p class="text-[9px] text-gray-400 uppercase">MAKEUP</p>
-                <h4 class="text-[11px] font-medium truncate">
-                  Mielle Rosemary Mint Strength...
-                </h4>
-                <p class="text-gray-400 text-[11px]">★★★★☆</p>
-                <p class="font-bold text-xs">
-                  <span class="line-through text-gray-400 font-normal"
-                    >$20.00</span
-                  >
-                  $10.00
-                </p>
-              </div>
-            </div>
-
-            <!-- CARD -->
-            <div
-              class="group bg-white border border-gray-100 text-center relative overflow-hidden h-[400px] flex flex-col">
-              <span
-                class="absolute top-3 left-3 bg-red-400 text-white text-[10px] font-bold px-2 py-1 z-10"
-                >-50%</span
-              >
-
-              <div
-                class="relative h-[250px] flex items-center justify-center flex-shrink-0">
-                <img
-                  src="assets/images/shop54-product-18-1-300x300.jpg"
-                  class="h-[115px] object-contain" />
-              </div>
-
-              <div class="bg-[#EFF5FA] w-full mt-auto py-4 px-3">
-                <p class="text-[9px] text-gray-400 uppercase">MAKEUP</p>
-                <h4 class="text-[11px] font-medium truncate">
-                  Fenty Beauty Pro Filt’r...
-                </h4>
-                <p class="text-gray-400 text-[11px]">★★★★☆</p>
-                <p class="font-bold text-xs">$7.50</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Group 2 -->
-        <div>
-          <div class="grid grid-cols-2 gap-4">
-            <div
-              class="group bg-white border border-gray-100 text-center relative overflow-hidden h-[400px] flex flex-col">
-              <div
-                class="relative h-[250px] flex items-center justify-center flex-shrink-0">
-                <img
-                  src="assets/images/shop54-product-17-1-300x300.jpg"
-                  class="h-[115px]" />
-              </div>
-
-              <div class="bg-[#EFF5FA] w-full mt-auto py-4 px-3">
-                <p class="text-[9px] text-gray-400 uppercase">MAKEUP</p>
-                <h4 class="text-[11px] truncate">
-                  Mielle Rosemary Pom & Honey...
-                </h4>
-                <p class="text-gray-400 text-[11px]">★★★★☆</p>
-                <p class="font-bold text-xs">$20.00 - $50.00</p>
-              </div>
-            </div>
-
-            <div
-              class="group bg-white border border-gray-100 text-center relative overflow-hidden h-[400px] flex flex-col">
-              <span
-                class="absolute top-3 left-3 bg-red-400 text-white text-[10px] px-2 py-1"
-                >-50%</span
-              >
-
-              <div
-                class="relative h-[250px] flex items-center justify-center flex-shrink-0">
-                <img
-                  src="assets/images/shop54-product-22-1-300x300.jpg"
-                  class="h-[115px]" />
-              </div>
-
-              <div class="bg-[#EFF5FA] w-full mt-auto py-4 px-3">
-                <p class="text-[9px] text-gray-400 uppercase">MAKEUP</p>
-                <h4 class="text-[11px] truncate">
-                  Mielle Rosemary Mint Strength...
-                </h4>
-                <p class="text-gray-400 text-[11px]">★★★★☆</p>
-                <p class="font-bold text-xs">
-                  <span class="line-through text-gray-400">$20.00</span> $10.00
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Group 3 -->
-        <div>
-          <div class="grid grid-cols-2 gap-4">
-            <div
-              class="group bg-white border border-gray-100 text-center relative overflow-hidden h-[400px] flex flex-col">
-              <div
-                class="relative h-[250px] flex items-center justify-center flex-shrink-0">
-                <img
-                  src="assets/images/shop54-product-21-1-300x300.jpg"
-                  class="h-[115px]" />
-              </div>
-
-              <div class="bg-[#EFF5FA] w-full mt-auto py-4 px-3">
-                <p class="text-[9px] text-gray-400 uppercase">MAKEUP</p>
-                <h4 class="text-[11px] truncate">
-                  Hourglass Ambient Lighting...
-                </h4>
-                <p class="text-gray-400 text-[11px]">★★★★☆</p>
-                <p class="font-bold text-xs">$12.00</p>
-              </div>
-            </div>
-
-            <div
-              class="group bg-white border border-gray-100 text-center relative overflow-hidden h-[400px] flex flex-col">
-              <div
-                class="relative h-[250px] flex items-center justify-center flex-shrink-0">
-                <img
-                  src="assets/images/shop54-product-19-1-300x300.jpg"
-                  class="h-[115px]" />
-              </div>
-
-              <div class="bg-[#EFF5FA] w-full mt-auto py-4 px-3">
-                <p class="text-[9px] text-gray-400 uppercase">MAKEUP</p>
-                <h4 class="text-[11px] truncate">CHI Browmance Eye Pencil</h4>
-                <p class="text-gray-400 text-[11px]">★★★★☆</p>
-                <p class="font-bold text-xs">$8.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="relative">
+        <span>▢</span>
+        <span class="absolute -top-2 -right-3 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+          0
+        </span>
       </div>
     </div>
+
   </div>
-</section>
+</header>

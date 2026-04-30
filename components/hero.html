@@ -1,45 +1,37 @@
 <section class="relative w-full h-screen min-h-[720px] overflow-hidden">
 
-  <!-- LANGUAGE SWITCH -->
-  <div class="absolute top-6 right-8 z-[100] flex gap-2">
-    <button onclick="setLanguage('de')" class="bg-[#1d2127] text-white px-4 py-2 font-bold">
-      DE
-    </button>
-    <button onclick="setLanguage('en')" class="bg-white text-[#1d2127] px-4 py-2 font-bold">
-      EN
-    </button>
-  </div>
-
   <div id="slider" class="flex h-full transition-transform duration-700 ease-in-out">
 
     <!-- SLIDE 1 -->
     <div class="relative w-full h-full flex-shrink-0">
-      <img src="assets/images/cameras_4k.avif" class="slide-img" alt="Überwachungskameras">
+      <img
+        src="assets/images/cameras_4k.avif"
+        class="slide-img"
+        alt="Überwachungskameras"
+      >
 
       <div class="absolute inset-0 flex items-center">
-        <div class="ml-[13%] mt-20 max-w-[620px]">
+        <div class="ml-[13%] mt-12 max-w-[560px]">
 
-          <h2 data-key="slide1_title" class="script-font text-[58px] leading-none text-gray-500 mb-4">
+          <h2
+            data-key="slide1_title"
+            class="script-font text-[46px] lg:text-[56px] leading-none text-gray-500 mb-5"
+          >
             Moderne Sicherheitstechnologie
           </h2>
 
-          <p data-key="slide1_offer" class="text-[33px] tracking-[0.15em] font-bold mb-2">
-            BIS ZU 30% RABATT
-          </p>
-
-          <h1 data-key="slide1_product" class="text-[76px] lg:text-[86px] font-black leading-[0.95] mb-8">
+          <h1
+            data-key="slide1_product"
+            class="text-[54px] lg:text-[72px] font-black leading-[0.95] mb-8 text-black"
+          >
             Überwachungskameras
           </h1>
 
-          <div class="flex items-center gap-5 mb-8">
-            <span data-key="starting" class="text-xl font-black">AB</span>
-
-            <span class="bg-white px-3 py-1 text-3xl font-black">
-              €199<sup class="text-base">99</sup>
-            </span>
-          </div>
-
-          <a data-key="shop" href="#" class="inline-block bg-[#1d2127] text-white px-12 py-5 text-lg font-black">
+          <a
+            data-key="shop"
+            href="#"
+            class="inline-block bg-[#1d2127] text-white px-10 py-4 text-base font-black tracking-wide hover:bg-black transition-colors duration-300"
+          >
             JETZT KAUFEN
           </a>
 
@@ -49,40 +41,36 @@
 
     <!-- SLIDE 2 -->
     <div class="relative w-full h-full flex-shrink-0">
-      <img src="assets/images/final_hero_4k.avif" class="slide-img" alt="Zutrittskontrollsysteme">
+      <img
+        src="assets/images/final_hero_4k.avif"
+        class="slide-img"
+        alt="Zutrittskontrollsysteme"
+      >
 
       <div class="absolute inset-0 flex items-center">
-        <div class="ml-[13%] mt-20 max-w-[680px]">
+        <div class="ml-[13%] mt-12 max-w-[620px]">
 
-          <h2 data-key="slide2_title" class="script-font text-[70px] leading-none text-gray-700 mb-5">
+          <h2
+            data-key="slide2_title"
+            class="script-font text-[46px] lg:text-[56px] leading-none text-gray-700 mb-5"
+          >
             Zutrittskontrollsysteme
           </h2>
 
-          <div class="flex items-center gap-4 mb-8">
-            <span data-key="slide2_offer" class="rotate-[-90deg] text-2xl font-medium tracking-widest">
-              BIS ZU
-            </span>
+          <h1
+            data-key="slide2_subtitle"
+            class="text-[54px] lg:text-[72px] font-black leading-[0.95] mb-8 text-black"
+          >
+            Moderne Zugangssicherheit
+          </h1>
 
-            <h1 data-key="slide2_discount" class="text-[100px] lg:text-[110px] font-black leading-none">
-              20% RABATT
-            </h1>
-          </div>
-
-          <div class="w-16 h-1 bg-black mb-7"></div>
-
-          <div class="flex items-center gap-10">
-            <div class="flex items-center gap-3">
-              <span data-key="starting" class="text-xl font-black">AB</span>
-
-              <span class="bg-white px-3 py-1 text-4xl font-black">
-                €19<sup class="text-lg">99</sup>
-              </span>
-            </div>
-
-            <a data-key="shop_arrow" href="#" class="inline-block bg-[#1d2127] text-white px-14 py-5 text-lg font-black">
-              JETZT KAUFEN →
-            </a>
-          </div>
+          <a
+            data-key="shop_arrow"
+            href="#"
+            class="inline-block bg-[#1d2127] text-white px-10 py-4 text-base font-black tracking-wide hover:bg-black transition-colors duration-300"
+          >
+            JETZT KAUFEN →
+          </a>
 
         </div>
       </div>
@@ -91,11 +79,19 @@
   </div>
 
   <!-- ARROWS -->
-  <button onclick="prevSlide()" class="absolute left-6 top-1/2 -translate-y-1/2 z-50 text-5xl">
+  <button
+    onclick="prevSlide()"
+    aria-label="Previous slide"
+    class="absolute left-6 top-1/2 -translate-y-1/2 z-50 text-5xl font-light text-black hover:scale-110 transition-transform duration-300"
+  >
     ‹
   </button>
 
-  <button onclick="nextSlide()" class="absolute right-6 top-1/2 -translate-y-1/2 z-50 text-5xl">
+  <button
+    onclick="nextSlide()"
+    aria-label="Next slide"
+    class="absolute right-6 top-1/2 -translate-y-1/2 z-50 text-5xl font-light text-black hover:scale-110 transition-transform duration-300"
+  >
     ›
   </button>
 
@@ -126,26 +122,22 @@
     showSlide(currentSlide - 1);
   }
 
+  setInterval(nextSlide, 5000);
+
   const translations = {
     de: {
       slide1_title: "Moderne Sicherheitstechnologie",
-      slide1_offer: "BIS ZU 30% RABATT",
       slide1_product: "Überwachungskameras",
       slide2_title: "Zutrittskontrollsysteme",
-      slide2_offer: "BIS ZU",
-      slide2_discount: "20% RABATT",
-      starting: "AB",
+      slide2_subtitle: "Moderne Zugangssicherheit",
       shop: "JETZT KAUFEN",
       shop_arrow: "JETZT KAUFEN →"
     },
     en: {
       slide1_title: "Modern Security Technology",
-      slide1_offer: "GET UP TO 30% OFF",
       slide1_product: "Surveillance Cameras",
       slide2_title: "Access Control Systems",
-      slide2_offer: "UP TO",
-      slide2_discount: "20% OFF",
-      starting: "STARTING AT",
+      slide2_subtitle: "Modern Access Security",
       shop: "SHOP NOW",
       shop_arrow: "SHOP NOW →"
     }

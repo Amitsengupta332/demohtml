@@ -8,6 +8,16 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
 <body>
   <div id="navbar"></div>
   <div id="hero"></div>
@@ -37,7 +47,8 @@
         await bestSellers.text();
 
       const takeMoment = await fetch("components/take-moment.html");
-      document.getElementById("takeMoment").innerHTML = await takeMoment.text();
+      document.getElementById("takeMoment").innerHTML =
+        await takeMoment.text();
 
       const videoSection = await fetch("components/video-section.html");
       document.getElementById("videoSection").innerHTML =
@@ -46,9 +57,13 @@
       const footer = await fetch("components/footer.html");
       document.getElementById("footer").innerHTML = await footer.text();
 
-      const script = document.createElement("script");
-      script.src = "assets/js/slider.js";
-      document.body.appendChild(script);
+      const sliderScript = document.createElement("script");
+      sliderScript.src = "assets/js/slider.js";
+      document.body.appendChild(sliderScript);
+
+      const cartScript = document.createElement("script");
+      cartScript.src = "assets/js/cart.js";
+      document.body.appendChild(cartScript);
     }
 
     loadComponents();

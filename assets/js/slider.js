@@ -1,6 +1,6 @@
 let index = 0;
 const slider = document.getElementById("slider");
-const totalSlides = 2;
+const totalSlides = slider ? slider.children.length : 0;
 
 function updateSlider() {
   if (!slider) return;
@@ -8,12 +8,8 @@ function updateSlider() {
 }
 
 function nextSlide() {
+  if (!totalSlides) return;
   index = (index + 1) % totalSlides;
-  updateSlider();
-}
-
-function prevSlide() {
-  index = (index - 1 + totalSlides) % totalSlides;
   updateSlider();
 }
 
