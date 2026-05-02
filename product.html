@@ -11,8 +11,7 @@
 
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
-    rel="stylesheet"
-  />
+    rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
@@ -37,7 +36,7 @@
         <span id="breadcrumbName">Product</span>
       </div>
 
-      <div class="grid grid-cols-[120px_1fr_1fr] gap-8">
+      <div class="grid grid-cols-[120px_1fr_1fr] gap-8 items-start">
 
         <!-- Thumbnails -->
         <div id="thumbnailList" class="flex flex-col gap-3"></div>
@@ -62,7 +61,7 @@
         </div>
 
         <!-- Product Info -->
-        <div>
+        <div class="col-start-3 row-start-1">
           <h1 id="productName" class="text-3xl font-bold mb-2"></h1>
 
           <div class="flex items-center gap-3 mb-6">
@@ -103,16 +102,16 @@
           <div class="border-t border-b border-gray-200 py-5 flex items-center gap-3 mb-6">
             <div class="flex border border-gray-200 h-12">
               <button onclick="decreaseQty()" type="button" class="w-10 text-xl">−</button>
-              <input id="qty" value="1" readonly class="w-12 text-center font-bold outline-none" />
+
+              <input id="qty" type="number" min="1" value="1" oninput="validateQty()" onblur="validateQty()"
+                class="w-12 text-center font-bold outline-none" />
+
               <button onclick="increaseQty()" type="button" class="w-10 text-xl">+</button>
             </div>
 
-            <button
-              id="productAddToCart"
-              type="button"
+            <button id="productAddToCart" type="button"
               class="add-to-cart bg-[#8f9398] hover:bg-black text-white h-12 px-10 font-bold text-sm flex items-center gap-2"
-              data-quantity-input="qty"
-            >
+              data-quantity-input="qty">
               ADD TO CART
             </button>
           </div>
@@ -128,12 +127,61 @@
             <button type="button" class="font-bold">♡ ADD TO WISHLIST</button>
             <button type="button" class="font-bold">⚖ COMPARE</button>
           </div>
+        </div>
 
-          <!-- Accordion -->
-          <div class="border-t border-gray-200 pt-5">
-            <h3 class="font-bold flex items-center gap-2">
-              ⌃ SHIPPING & RETURNS
-            </h3>
+        <!-- Description / Details / Specifications -->
+        <div class="col-start-2 col-span-1 border border-gray-200">
+          <div class="flex border-b border-gray-200">
+            <button onclick="showTab('description', this)" type="button"
+              class="tab-btn flex-1 py-4 font-bold text-sm bg-black text-white">
+              DESCRIPTION
+            </button>
+
+            <button onclick="showTab('details', this)" type="button"
+              class="tab-btn flex-1 py-4 font-bold text-sm bg-white text-black">
+              DETAILS
+            </button>
+
+            <button onclick="showTab('specifications', this)" type="button"
+              class="tab-btn flex-1 py-4 font-bold text-sm bg-white text-black">
+              SPECIFICATIONS
+            </button>
+          </div>
+
+          <div class="p-6 text-gray-600 leading-7 text-sm">
+            <div id="descriptionTab" class="tab-content">
+              <p id="tabDescription"></p>
+            </div>
+
+            <div id="detailsTab" class="tab-content hidden">
+              <ul class="list-disc pl-5 space-y-2">
+                <li>Premium quality product</li>
+                <li>Comfortable for daily use</li>
+                <li>Modern and elegant design</li>
+                <li>Easy to carry and use</li>
+              </ul>
+            </div>
+
+            <div id="specificationsTab" class="tab-content hidden">
+              <table class="w-full text-left">
+                <tr class="border-b">
+                  <th class="py-2">Brand</th>
+                  <td class="py-2">Beauty Store</td>
+                </tr>
+                <tr class="border-b">
+                  <th class="py-2">Category</th>
+                  <td id="specCategory" class="py-2"></td>
+                </tr>
+                <tr class="border-b">
+                  <th class="py-2">SKU</th>
+                  <td class="py-2">1234567902</td>
+                </tr>
+                <tr>
+                  <th class="py-2">Availability</th>
+                  <td class="py-2">In Stock</td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
 
@@ -191,9 +239,7 @@
 
             <button onclick="event.stopPropagation()" type="button"
               class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
-              data-id="1"
-              data-name="Hourglass Ambient Lighting Bronzer"
-              data-price="12.00"
+              data-id="1" data-name="Hourglass Ambient Lighting Bronzer" data-price="12.00"
               data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
               ADD TO CART
             </button>
@@ -231,9 +277,7 @@
 
             <button onclick="event.stopPropagation()" type="button"
               class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
-              data-id="2"
-              data-name="Hourglass Veil Hydrating Skin Tint"
-              data-price="35.00"
+              data-id="2" data-name="Hourglass Veil Hydrating Skin Tint" data-price="35.00"
               data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
               ADD TO CART
             </button>
@@ -271,9 +315,7 @@
 
             <button onclick="event.stopPropagation()" type="button"
               class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
-              data-id="3"
-              data-name="Yves Saint Laurent Touche Eclat"
-              data-price="23.00"
+              data-id="3" data-name="Yves Saint Laurent Touche Eclat" data-price="23.00"
               data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
               ADD TO CART
             </button>
@@ -311,9 +353,7 @@
 
             <button onclick="event.stopPropagation()" type="button"
               class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
-              data-id="4"
-              data-name="Clarins Lip Comfort Oil"
-              data-price="20.00"
+              data-id="4" data-name="Clarins Lip Comfort Oil" data-price="20.00"
               data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
               ADD TO CART
             </button>
@@ -547,6 +587,9 @@
       document.getElementById("productPrice").innerText = product.price;
       document.getElementById("productDesc").innerText = product.desc;
 
+      document.getElementById("tabDescription").innerText = product.desc;
+      document.getElementById("specCategory").innerText = product.category;
+
       const productAddToCart = document.getElementById("productAddToCart");
 
       productAddToCart.setAttribute("data-id", id);
@@ -644,17 +687,57 @@
       this.style.transform = zoomed ? "scale(2)" : "scale(1)";
     };
 
+    function validateQty() {
+      const qty = document.getElementById("qty");
+      let value = Number(qty.value);
+
+      if (!value || value < 1) {
+        qty.value = 1;
+      } else {
+        qty.value = Math.floor(value);
+      }
+    }
+
     function increaseQty() {
       const qty = document.getElementById("qty");
-      qty.value = Number(qty.value) + 1;
+      let value = Number(qty.value);
+
+      if (!value || value < 1) {
+        value = 1;
+      }
+
+      qty.value = value + 1;
     }
 
     function decreaseQty() {
       const qty = document.getElementById("qty");
+      let value = Number(qty.value);
 
-      if (Number(qty.value) > 1) {
-        qty.value = Number(qty.value) - 1;
+      if (!value || value < 1) {
+        value = 1;
       }
+
+      if (value > 1) {
+        qty.value = value - 1;
+      } else {
+        qty.value = 1;
+      }
+    }
+
+    function showTab(tabName, clickedButton) {
+      document.querySelectorAll(".tab-content").forEach((tab) => {
+        tab.classList.add("hidden");
+      });
+
+      document.querySelectorAll(".tab-btn").forEach((btn) => {
+        btn.classList.remove("bg-black", "text-white");
+        btn.classList.add("bg-white", "text-black");
+      });
+
+      document.getElementById(`${tabName}Tab`).classList.remove("hidden");
+
+      clickedButton.classList.remove("bg-white", "text-black");
+      clickedButton.classList.add("bg-black", "text-white");
     }
 
     function goProduct(productId) {
