@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,8 +11,7 @@
   <!-- Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
-    rel="stylesheet"
-  />
+    rel="stylesheet" />
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
@@ -26,6 +26,7 @@
   <div id="hero"></div>
   <div id="banner"></div>
   <div id="banner2"></div>
+  <div id="trainingCalendar"></div>
   <div id="best-sellers"></div>
   <div id="takeMoment"></div>
   <div id="videoSection"></div>
@@ -48,6 +49,11 @@
       const banner2 = await fetch("components/banner.html");
       document.getElementById("banner2").innerHTML = await banner2.text();
 
+      const trainingCalendar = await fetch("components/training-calendar.html");
+      document.getElementById("trainingCalendar").innerHTML =
+        await trainingCalendar.text();
+
+
       const bestSellers = await fetch("components/best-sellers.html");
       document.getElementById("best-sellers").innerHTML =
         await bestSellers.text();
@@ -59,6 +65,8 @@
       const videoSection = await fetch("components/video-section.html");
       document.getElementById("videoSection").innerHTML =
         await videoSection.text();
+
+
 
       const footer = await fetch("components/footer.html");
       document.getElementById("footer").innerHTML = await footer.text();
@@ -80,4 +88,5 @@
   </script>
 
 </body>
+
 </html>
