@@ -36,28 +36,97 @@
         <span id="breadcrumbName">Product</span>
       </div>
 
-      <div class="grid grid-cols-[120px_1fr_1fr] gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[120px_1fr_1fr] gap-8 items-start">
 
         <!-- Thumbnails -->
-        <div id="thumbnailList" class="flex flex-col gap-3"></div>
+        <div id="thumbnailList" class="flex lg:flex-col gap-3"></div>
 
-        <!-- Main Image -->
-        <div class="relative bg-[#f7f7f7] h-[520px] flex items-center justify-center">
-          <span class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-2 z-10">
-            HOT
-          </span>
+        <!-- Main Image + Description Card -->
+        <div class="space-y-8">
 
-          <button onclick="prevImage()" type="button"
-            class="absolute left-3 top-1/2 -translate-y-1/2 bg-white w-10 h-10 shadow text-2xl z-10 hover:bg-black hover:text-white">
-            ‹
-          </button>
+          <!-- Main Image -->
+          <div class="relative h-[520px] flex items-center justify-center">
+            <span class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-2 z-10">
+              HOT
+            </span>
 
-          <img id="mainImage" onclick="openModal()" class="h-[390px] object-contain cursor-zoom-in" />
+            <button onclick="prevImage()" type="button"
+              class="absolute left-3 top-1/2 -translate-y-1/2 bg-white w-10 h-10 shadow text-2xl z-10 hover:bg-black hover:text-white">
+              ‹
+            </button>
 
-          <button onclick="nextImage()" type="button"
-            class="absolute right-3 top-1/2 -translate-y-1/2 bg-white w-10 h-10 shadow text-2xl z-10 hover:bg-black hover:text-white">
-            ›
-          </button>
+            <img id="mainImage" onclick="openModal()" class="h-[390px] object-contain cursor-zoom-in" />
+
+            <button onclick="nextImage()" type="button"
+              class="absolute right-3 top-1/2 -translate-y-1/2 bg-white w-10 h-10 shadow text-2xl z-10 hover:bg-black hover:text-white">
+              ›
+            </button>
+          </div>
+
+          <!-- Description / Details / Specifications -->
+          <div class="-ml-[150px]">
+            <div class="flex gap-10 border-b border-gray-200">
+              <button onclick="showTab('description', this)" type="button"
+                class="tab-btn relative py-4 font-bold text-sm text-black after:absolute after:left-0 after:right-0 after:-bottom-px after:h-[3px] after:bg-black">
+                DESCRIPTION
+              </button>
+
+              <button onclick="showTab('details', this)" type="button"
+                class="tab-btn relative py-4 font-bold text-sm text-black after:absolute after:left-0 after:right-0 after:-bottom-px after:h-[3px] after:bg-transparent">
+                DETAILS
+              </button>
+
+              <button onclick="showTab('specifications', this)" type="button"
+                class="tab-btn relative py-4 font-bold text-sm text-black after:absolute after:left-0 after:right-0 after:-bottom-px after:h-[3px] after:bg-transparent">
+                SPECIFICATIONS
+              </button>
+            </div>
+
+            <div class="py-7 text-gray-600 leading-7 text-sm bg-white">
+              <div id="descriptionTab" class="tab-content">
+                <p id="tabDescription"></p>
+              </div>
+
+              <div id="detailsTab" class="tab-content hidden">
+                <ul id="tabDetails" class="list-disc pl-5 space-y-2"></ul>
+              </div>
+
+              <div id="specificationsTab" class="tab-content hidden">
+                <table class="w-full text-left">
+                  <tr class="border-b">
+                    <th class="py-2">Brand</th>
+                    <td id="specBrand" class="py-2"></td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <th class="py-2">Category</th>
+                    <td id="specCategory" class="py-2"></td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <th class="py-2">SKU</th>
+                    <td id="specSku" class="py-2"></td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <th class="py-2">Size</th>
+                    <td id="specSize" class="py-2"></td>
+                  </tr>
+
+                  <tr class="border-b">
+                    <th class="py-2">Color</th>
+                    <td id="specColor" class="py-2"></td>
+                  </tr>
+
+                  <tr>
+                    <th class="py-2">Availability</th>
+                    <td id="specAvailability" class="py-2"></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <!-- Product Info -->
@@ -76,7 +145,7 @@
           <p id="productDesc" class="text-gray-600 leading-8 text-lg mb-7"></p>
 
           <div class="space-y-3 text-sm mb-8">
-            <p><strong>SKU:</strong> <span class="text-gray-500">1234567902</span></p>
+            <p><strong>SKU:</strong> <span id="productSku" class="text-gray-500">1234567902</span></p>
             <p>
               <strong>CATEGORY:</strong>
               <span id="productCategory" class="text-gray-500 uppercase"></span>
@@ -114,10 +183,8 @@
               data-quantity-input="qty">
               ADD TO CART
             </button>
-          </div>
 
-          <!-- Social / Wishlist -->
-          <div class="flex items-center gap-4 text-sm mb-8">
+            <!-- <div class="flex items-center gap-4 text-sm mb-8 flex-wrap">
             <button type="button" class="w-8 h-8 rounded-full border border-gray-200">f</button>
             <button type="button" class="w-8 h-8 rounded-full border border-gray-200">x</button>
             <button type="button" class="w-8 h-8 rounded-full border border-gray-200">in</button>
@@ -126,66 +193,20 @@
 
             <button type="button" class="font-bold">♡ ADD TO WISHLIST</button>
             <button type="button" class="font-bold">⚖ COMPARE</button>
+          </div> -->
           </div>
 
-          <!-- Accordion -->
+          <!-- Social / Wishlist -->
+          <!-- <div class="flex items-center gap-4 text-sm mb-8 flex-wrap">
+            <button type="button" class="w-8 h-8 rounded-full border border-gray-200">f</button>
+            <button type="button" class="w-8 h-8 rounded-full border border-gray-200">x</button>
+            <button type="button" class="w-8 h-8 rounded-full border border-gray-200">in</button>
+            <button type="button" class="w-8 h-8 rounded-full border border-gray-200">G+</button>
+            <button type="button" class="w-8 h-8 rounded-full border border-gray-200">✉</button>
 
-          <!-- Description / Details / Specifications -->
-          <div class="mt-8 border border-gray-200">
-            <div class="flex border-b border-gray-200">
-              <button onclick="showTab('description', this)" type="button"
-                class="tab-btn flex-1 py-4 font-bold text-sm bg-black text-white">
-                DESCRIPTION
-              </button>
-
-              <button onclick="showTab('details', this)" type="button"
-                class="tab-btn flex-1 py-4 font-bold text-sm bg-white text-black">
-                DETAILS
-              </button>
-
-              <button onclick="showTab('specifications', this)" type="button"
-                class="tab-btn flex-1 py-4 font-bold text-sm bg-white text-black">
-                SPECIFICATIONS
-              </button>
-            </div>
-
-            <div class="p-6 text-gray-600 leading-7 text-sm">
-              <div id="descriptionTab" class="tab-content">
-                <p id="tabDescription"></p>
-              </div>
-
-              <div id="detailsTab" class="tab-content hidden">
-                <ul class="list-disc pl-5 space-y-2">
-                  <li>Premium quality product</li>
-                  <li>Comfortable for daily use</li>
-                  <li>Modern and elegant design</li>
-                  <li>Easy to carry and use</li>
-                </ul>
-              </div>
-
-              <div id="specificationsTab" class="tab-content hidden">
-                <table class="w-full text-left">
-                  <tr class="border-b">
-                    <th class="py-2">Brand</th>
-                    <td class="py-2">Beauty Store</td>
-                  </tr>
-                  <tr class="border-b">
-                    <th class="py-2">Category</th>
-                    <td id="specCategory" class="py-2"></td>
-                  </tr>
-                  <tr class="border-b">
-                    <th class="py-2">SKU</th>
-                    <td class="py-2">1234567902</td>
-                  </tr>
-                  <tr>
-                    <th class="py-2">Availability</th>
-                    <td class="py-2">In Stock</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-
+            <button type="button" class="font-bold">♡ ADD TO WISHLIST</button>
+            <button type="button" class="font-bold">⚖ COMPARE</button>
+          </div> -->
         </div>
 
       </div>
@@ -218,7 +239,7 @@
     <div class="max-w-[1200px] mx-auto">
       <h2 class="text-2xl font-semibold mb-8">Related Products</h2>
 
-      <div class="grid grid-cols-4 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
         <!-- Related Product 1 -->
         <div onclick="goProduct(1)"
@@ -241,7 +262,7 @@
             </div>
 
             <button onclick="event.stopPropagation()" type="button"
-              class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+              class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
               data-id="1" data-name="Hourglass Ambient Lighting Bronzer" data-price="12.00"
               data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
               ADD TO CART
@@ -279,7 +300,7 @@
             </div>
 
             <button onclick="event.stopPropagation()" type="button"
-              class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+              class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
               data-id="2" data-name="Hourglass Veil Hydrating Skin Tint" data-price="35.00"
               data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
               ADD TO CART
@@ -317,7 +338,7 @@
             </div>
 
             <button onclick="event.stopPropagation()" type="button"
-              class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+              class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
               data-id="3" data-name="Yves Saint Laurent Touche Eclat" data-price="23.00"
               data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
               ADD TO CART
@@ -355,7 +376,7 @@
             </div>
 
             <button onclick="event.stopPropagation()" type="button"
-              class="add-to-cart absolute bottom-0 left-5 right-5 bg-[#ead8c7] text-black py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+              class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
               data-id="4" data-name="Clarins Lip Comfort Oil" data-price="20.00"
               data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
               ADD TO CART
@@ -377,202 +398,280 @@
   </section>
 
   <script>
+    function createProduct({
+      name,
+      category,
+      brand,
+      sku,
+      price,
+      cartPrice,
+      desc,
+      image,
+      details,
+      size = "L / SM",
+      color = "Black, Crimson, White",
+      availability = "In Stock"
+    }) {
+      return {
+        name,
+        category,
+        brand,
+        sku,
+        price,
+        cartPrice,
+        desc,
+        details,
+        specs: {
+          brand,
+          sku,
+          size,
+          color,
+          availability
+        },
+        images: [image, image, image, image]
+      };
+    }
+
     const products = {
-      1: {
+      1: createProduct({
         name: "Hourglass Ambient Lighting Bronzer",
         category: "Makeup",
+        brand: "Hourglass",
+        sku: "HG-AMB-001",
         price: "$12.00",
         cartPrice: "12.00",
         desc: "Elevate your makeup experience with premium quality and elegant finishing.",
-        images: [
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+        image: "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+        details: [
+          "Soft bronzing finish for a natural glow",
+          "Lightweight texture suitable for daily use",
+          "Designed to blend smoothly on the skin",
+          "Premium compact-style beauty product"
         ]
-      },
+      }),
 
-      2: {
+      2: createProduct({
         name: "Hourglass Veil Hydrating Skin Tint",
         category: "Makeup",
+        brand: "Hourglass",
+        sku: "HG-VHS-002",
         price: "$35.00",
         cartPrice: "35.00",
         desc: "A smooth hydrating product designed for a clean, modern and comfortable everyday look.",
-        images: [
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+        image: "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+        details: [
+          "Hydrating skin tint for a soft natural finish",
+          "Comfortable texture for everyday wear",
+          "Smooth coverage with a lightweight feel",
+          "Ideal for a fresh and polished makeup routine"
         ]
-      },
+      }),
 
-      3: {
+      3: createProduct({
         name: "Yves Saint Laurent Touche Eclat",
         category: "Makeup",
+        brand: "Yves Saint Laurent",
+        sku: "YSL-TE-003",
         price: "$23.00",
         cartPrice: "23.00",
         desc: "Premium beauty product with stylish design, smooth texture and long lasting comfort.",
-        images: [
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+        image: "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+        details: [
+          "Premium beauty finish with elegant styling",
+          "Smooth texture for comfortable application",
+          "Designed for a polished daily look",
+          "Easy to carry and use"
         ]
-      },
+      }),
 
-      4: {
+      4: createProduct({
         name: "Clarins Lip Comfort Oil",
         category: "Accessories",
+        brand: "Clarins",
+        sku: "CL-LCO-004",
         price: "$20.00",
         cartPrice: "20.00",
         desc: "A comfortable and stylish product made for daily use with a clean premium look.",
-        images: [
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+        image: "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+        details: [
+          "Comfortable oil finish for daily use",
+          "Stylish and compact packaging",
+          "Smooth feel with a premium look",
+          "Suitable for beauty and accessory routines"
         ]
-      },
+      }),
 
-      5: {
+      5: createProduct({
         name: "Clarins Natural Lip Perfector 12ml",
         category: "Makeup",
+        brand: "Clarins",
+        sku: "CL-NLP-005",
         price: "$16.00",
         cartPrice: "16.00",
         desc: "Natural finish product with lightweight feel and premium quality.",
-        images: [
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+        image: "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+        size: "12ml",
+        details: [
+          "Natural lip finish with a lightweight feel",
+          "Premium 12ml beauty product",
+          "Comfortable for daily use",
+          "Easy to apply and carry"
         ]
-      },
+      }),
 
-      6: {
+      6: createProduct({
         name: "Dermalogica Intensive Moisture Balance",
         category: "Makeup",
+        brand: "Dermalogica",
+        sku: "DM-IMB-006",
         price: "$15.00",
         cartPrice: "15.00",
         desc: "Moisture rich product crafted for comfort, care and elegant daily use.",
-        images: [
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+        image: "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+        details: [
+          "Moisture-rich formula for daily care",
+          "Comfortable and smooth application",
+          "Elegant product for regular beauty routines",
+          "Premium quality finish"
         ]
-      },
+      }),
 
-      7: {
+      7: createProduct({
         name: "Yves Saint Laurent Luxurious Volume",
         category: "Makeup",
+        brand: "Yves Saint Laurent",
+        sku: "YSL-LV-007",
         price: "$9.00",
         cartPrice: "9.00",
         desc: "Luxurious volume product with premium finish and beautiful styling.",
-        images: [
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
-          "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
+        image: "assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png",
+        details: [
+          "Luxurious volume effect",
+          "Premium finish with stylish design",
+          "Comfortable daily-use beauty product",
+          "Discounted product option"
         ]
-      },
+      }),
 
-      8: {
+      8: createProduct({
         name: "Clarins Sos Primer Matifying 30ml",
         category: "Makeup",
+        brand: "Clarins",
+        sku: "CL-SPM-008",
         price: "$27.00",
         cartPrice: "27.00",
         desc: "Matifying primer with smooth finish and premium everyday performance.",
-        images: [
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
-          "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+        image: "assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png",
+        size: "30ml",
+        details: [
+          "Matifying primer for a smooth finish",
+          "30ml premium everyday product",
+          "Helps create a clean base look",
+          "Lightweight and easy to use"
         ]
-      },
+      }),
 
-      9: {
+      9: createProduct({
         name: "Mielle Rosemary Mint Strength",
         category: "Makeup",
+        brand: "Mielle",
+        sku: "ML-RMS-009",
         price: "$10.00",
         cartPrice: "10.00",
         desc: "A strengthening beauty product designed for daily care with a smooth premium finish.",
-        images: [
-          "assets/images/anviz_vp30_rfid_access_control.png",
-          "assets/images/anviz_vp30_rfid_access_control.png",
-          "assets/images/anviz_vp30_rfid_access_control.png",
-          "assets/images/anviz_vp30_rfid_access_control.png"
+        image: "assets/images/anviz_vp30_rfid_access_control.png",
+        details: [
+          "Strengthening product for daily care",
+          "Smooth premium finish",
+          "Comfortable and easy to use",
+          "Designed for a clean beauty routine"
         ]
-      },
+      }),
 
-      10: {
+      10: createProduct({
         name: "Fenty Beauty Pro Filt’r",
         category: "Makeup",
+        brand: "Fenty Beauty",
+        sku: "FB-PF-010",
         price: "$7.50",
         cartPrice: "7.50",
         desc: "A lightweight beauty product with a clean finish and comfortable everyday feel.",
-        images: [
-          "assets/images/anviz_facedeep_5_ai_based_smart_face_recognition_terminal.png",
-          "assets/images/anviz_facedeep_5_ai_based_smart_face_recognition_terminal.png",
-          "assets/images/anviz_facedeep_5_ai_based_smart_face_recognition_terminal.png",
-          "assets/images/anviz_facedeep_5_ai_based_smart_face_recognition_terminal.png"
+        image: "assets/images/anviz_facedeep_5_ai_based_smart_face_recognition_terminal.png",
+        details: [
+          "Lightweight feel for everyday wear",
+          "Clean and smooth finish",
+          "Comfortable product texture",
+          "Designed for modern beauty routines"
         ]
-      },
+      }),
 
-      11: {
+      11: createProduct({
         name: "Mielle Rosemary Pom & Honey",
         category: "Makeup",
+        brand: "Mielle",
+        sku: "ML-RPH-011",
         price: "$20.00 - $50.00",
         cartPrice: "20.00",
         desc: "A premium product with multiple price options, made for smooth everyday beauty care.",
-        images: [
-          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
-          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
-          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
-          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png"
+        image: "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
+        details: [
+          "Premium product with multiple price options",
+          "Smooth everyday beauty care",
+          "Comfortable and modern design",
+          "Available in different options"
         ]
-      },
+      }),
 
-      12: {
+      12: createProduct({
         name: "Mielle Rosemary Mint Strength",
         category: "Makeup",
+        brand: "Mielle",
+        sku: "ML-RMS-012",
         price: "$10.00",
         cartPrice: "10.00",
         desc: "A strengthening product with a clean look, smooth feel and premium everyday performance.",
-        images: [
-          "assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png",
-          "assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png",
-          "assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png",
-          "assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png"
+        image: "assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png",
+        details: [
+          "Strengthening product with clean styling",
+          "Smooth feel for everyday use",
+          "Premium daily performance",
+          "Easy to carry and apply"
         ]
-      },
+      }),
 
-      13: {
+      13: createProduct({
         name: "Hourglass Ambient Lighting",
         category: "Makeup",
+        brand: "Hourglass",
+        sku: "HG-AL-013",
         price: "$12.00",
         cartPrice: "12.00",
         desc: "A premium beauty product with elegant styling and a polished everyday finish.",
-        images: [
-          "assets/images/secugen-hamster-plus-hsdu03p.jpg",
-          "assets/images/secugen-hamster-plus-hsdu03p.jpg",
-          "assets/images/secugen-hamster-plus-hsdu03p.jpg",
-          "assets/images/secugen-hamster-plus-hsdu03p.jpg"
+        image: "assets/images/secugen-hamster-plus-hsdu03p.jpg",
+        details: [
+          "Premium beauty product",
+          "Elegant styling for a polished look",
+          "Comfortable for everyday use",
+          "Smooth and clean finish"
         ]
-      },
+      }),
 
-      14: {
+      14: createProduct({
         name: "CHI Browmance Eye Pencil",
         category: "Makeup",
+        brand: "CHI",
+        sku: "CHI-BEP-014",
         price: "$8.00",
         cartPrice: "8.00",
         desc: "A smooth eye pencil designed for clean definition, comfort and daily use.",
-        images: [
-          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
-          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
-          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
-          "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png"
+        image: "assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png",
+        details: [
+          "Smooth eye pencil for clean definition",
+          "Comfortable for daily use",
+          "Modern and elegant design",
+          "Easy to carry and apply"
         ]
-      }
+      })
     };
 
     const params = new URLSearchParams(window.location.search);
@@ -589,9 +688,25 @@
       document.getElementById("productCategory").innerText = product.category;
       document.getElementById("productPrice").innerText = product.price;
       document.getElementById("productDesc").innerText = product.desc;
+      document.getElementById("productSku").innerText = product.specs.sku;
 
       document.getElementById("tabDescription").innerText = product.desc;
+
+      const tabDetails = document.getElementById("tabDetails");
+      tabDetails.innerHTML = "";
+
+      product.details.forEach((detail) => {
+        const li = document.createElement("li");
+        li.innerText = detail;
+        tabDetails.appendChild(li);
+      });
+
+      document.getElementById("specBrand").innerText = product.specs.brand;
       document.getElementById("specCategory").innerText = product.category;
+      document.getElementById("specSku").innerText = product.specs.sku;
+      document.getElementById("specSize").innerText = product.specs.size;
+      document.getElementById("specColor").innerText = product.specs.color;
+      document.getElementById("specAvailability").innerText = product.specs.availability;
 
       const productAddToCart = document.getElementById("productAddToCart");
 
@@ -613,18 +728,18 @@
 
         button.type = "button";
         button.className =
-          "thumb h-[120px] flex items-center justify-center bg-[#f7f7f7] cursor-pointer";
+          "thumb h-[120px] w-[120px] lg:w-auto flex items-center justify-center cursor-pointer border border-black";
 
         button.onclick = function () {
           changeImage(index);
         };
 
         button.innerHTML = `
-          <img
-            src="${image}"
-            class="h-[95px] object-contain pointer-events-none"
-            alt="Product thumbnail ${index + 1}" />
-        `;
+      <img
+        src="${image}"
+        class="h-[95px] object-contain pointer-events-none"
+        alt="Product thumbnail ${index + 1}" />
+    `;
 
         thumbnailList.appendChild(button);
       });
@@ -637,13 +752,15 @@
       document.getElementById("mainImage").src = currentImage;
 
       document.querySelectorAll(".thumb").forEach((btn) => {
-        btn.classList.remove("border", "border-gray-800");
+        btn.classList.remove("border-blue-500");
+        btn.classList.add("border-black");
       });
 
       const activeThumb = document.querySelectorAll(".thumb")[currentIndex];
 
       if (activeThumb) {
-        activeThumb.classList.add("border", "border-gray-800");
+        activeThumb.classList.remove("border-black");
+        activeThumb.classList.add("border-blue-500");
       }
 
       if (!document.getElementById("imageModal").classList.contains("hidden")) {
@@ -733,14 +850,14 @@
       });
 
       document.querySelectorAll(".tab-btn").forEach((btn) => {
-        btn.classList.remove("bg-black", "text-white");
-        btn.classList.add("bg-white", "text-black");
+        btn.classList.remove("after:bg-black");
+        btn.classList.add("after:bg-transparent");
       });
 
       document.getElementById(`${tabName}Tab`).classList.remove("hidden");
 
-      clickedButton.classList.remove("bg-white", "text-black");
-      clickedButton.classList.add("bg-black", "text-white");
+      clickedButton.classList.remove("after:bg-transparent");
+      clickedButton.classList.add("after:bg-black");
     }
 
     function goProduct(productId) {

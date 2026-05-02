@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blog Detail</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body class="bg-white text-[#222]">
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Spacer because navbar is absolute -->
+  <div class="h-[115px]"></div>
+
+  <!-- BLOG HERO -->
+  <section class="h-[300px] bg-cover bg-center" id="blogHero">
+    <div class="h-full bg-black/40 flex items-center">
+      <div class="max-w-[1320px] mx-auto px-8 w-full text-white">
+        <p id="blogCategory" class="text-sm font-bold uppercase tracking-[0.2em] mb-3"></p>
+
+        <h1 id="blogHeroTitle" class="text-5xl font-bold mb-4">
+          Blog Detail
+        </h1>
+
+        <p id="blogDate" class="text-lg font-light"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG DETAIL CONTENT -->
+  <main class="bg-white px-8 py-16">
+    <div class="max-w-[1320px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_330px] gap-10">
+
+        <!-- Main Blog -->
+        <article>
+          <img
+            id="blogImage"
+            src=""
+            alt=""
+            class="w-full h-[450px] object-cover mb-8"
+          />
+
+          <h2 id="blogTitle" class="text-4xl font-bold text-[#222] mb-6"></h2>
+
+          <p id="blogIntro" class="text-gray-600 leading-8 text-lg mb-6"></p>
+
+          <div id="blogContent" class="space-y-8 text-gray-600 leading-8 text-base"></div>
+
+          <div class="mt-10 flex items-center gap-4">
+            <a
+              href="index.html"
+              class="inline-block bg-[#00a99d] hover:bg-black text-white px-7 py-3 text-xs font-bold tracking-[0.18em] transition"
+            >
+              BACK TO HOME
+            </a>
+
+            <a
+              href="blog.html"
+              class="inline-block bg-black hover:bg-[#00a99d] text-white px-7 py-3 text-xs font-bold tracking-[0.18em] transition"
+            >
+              ALL BLOGS
+            </a>
+          </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="space-y-8">
+
+          <!-- Search -->
+          <div class="border border-gray-100 p-6">
+            <h3 class="text-lg font-bold mb-4">Search</h3>
+
+            <div class="flex border border-gray-200 h-12">
+              <input
+                type="text"
+                placeholder="Search blog..."
+                class="flex-1 px-4 text-sm outline-none"
+              />
+
+              <button type="button" class="w-12 flex items-center justify-center bg-[#00a99d] text-white">
+                <i data-lucide="search" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Recent Posts -->
+          <div class="border border-gray-100 p-6">
+            <h3 class="text-lg font-bold mb-4">Recent Posts</h3>
+
+            <div class="space-y-5">
+
+              <a href="blog-detail.html?id=1" class="flex gap-4 group">
+                <img
+                  src="assets/images/Office-PC-unter-1000E-kaufen.avif"
+                  alt="Recent post"
+                  class="w-20 h-20 object-cover"
+                />
+
+                <div>
+                  <h4 class="text-sm font-bold group-hover:text-[#00a99d]">
+                    How to Choose the Right PC
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-1">May 02, 2026</p>
+                </div>
+              </a>
+
+              <a href="blog-detail.html?id=2" class="flex gap-4 group">
+                <img
+                  src="assets/images/alt.avif"
+                  alt="Recent post"
+                  class="w-20 h-20 object-cover"
+                />
+
+                <div>
+                  <h4 class="text-sm font-bold group-hover:text-[#00a99d]">
+                    Why Mini PCs Are Popular
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-1">May 02, 2026</p>
+                </div>
+              </a>
+
+              <a href="blog-detail.html?id=3" class="flex gap-4 group">
+                <img
+                  src="assets/images/High-End-Gaming-PC-ab-2000E.avif"
+                  alt="Recent post"
+                  class="w-20 h-20 object-cover"
+                />
+
+                <div>
+                  <h4 class="text-sm font-bold group-hover:text-[#00a99d]">
+                    Smart Business Systems
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-1">May 02, 2026</p>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="border border-gray-100 p-6">
+            <h3 class="text-lg font-bold mb-4">Categories</h3>
+
+            <ul class="space-y-3 text-gray-600 text-sm">
+              <li><a href="#" class="hover:text-[#00a99d]">PC Guide</a></li>
+              <li><a href="#" class="hover:text-[#00a99d]">Technology</a></li>
+              <li><a href="#" class="hover:text-[#00a99d]">Products</a></li>
+              <li><a href="#" class="hover:text-[#00a99d]">Gaming PC</a></li>
+              <li><a href="#" class="hover:text-[#00a99d]">Office PC</a></li>
+            </ul>
+          </div>
+
+          <!-- Tags -->
+          <div class="border border-gray-100 p-6">
+            <h3 class="text-lg font-bold mb-4">Tags</h3>
+
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="bg-[#f5f5f5] hover:bg-[#00a99d] hover:text-white px-3 py-2 text-xs">
+                Gaming PC
+              </a>
+
+              <a href="#" class="bg-[#f5f5f5] hover:bg-[#00a99d] hover:text-white px-3 py-2 text-xs">
+                Office PC
+              </a>
+
+              <a href="#" class="bg-[#f5f5f5] hover:bg-[#00a99d] hover:text-white px-3 py-2 text-xs">
+                Mini PC
+              </a>
+
+              <a href="#" class="bg-[#f5f5f5] hover:bg-[#00a99d] hover:text-white px-3 py-2 text-xs">
+                Security
+              </a>
+
+              <a href="#" class="bg-[#f5f5f5] hover:bg-[#00a99d] hover:text-white px-3 py-2 text-xs">
+                Workstation
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    class="fixed bottom-5 right-5 w-10 h-10 bg-gray-700 text-white">
+    ⌃
+  </button>
+
+  <script>
+    const blogs = {
+      1: {
+        title: "How to Choose the Right PC for Gaming, Office and Work",
+        category: "PC Guide",
+        date: "May 02, 2026",
+        image: "assets/images/Office-PC-unter-1000E-kaufen.avif",
+        intro:
+          "Choosing the right PC depends on your requirements, budget, software, and future upgrade needs.",
+        content: [
+          {
+            heading: "Understand your main use case",
+            text:
+              "Before buying a PC, you should decide what the system will mainly be used for. A gaming PC needs strong graphics performance, while an office PC should focus on reliability, quiet operation, and smooth multitasking."
+          },
+          {
+            heading: "Choose the right processor and RAM",
+            text:
+              "The processor controls overall speed and performance. For simple office work, a modern entry-level or mid-range CPU is enough. For gaming, streaming, editing, and professional work, a stronger processor with more cores is recommended. RAM is also important because it affects multitasking and software performance."
+          },
+          {
+            heading: "Graphics card, storage, and cooling",
+            text:
+              "A dedicated graphics card is important for gaming, video editing, 3D work, and GPU-heavy applications. SSD storage makes the system faster and more responsive. Good cooling keeps the PC stable and helps protect the components during long use."
+          }
+        ]
+      },
+
+      2: {
+        title: "Why Mini PCs Are Becoming Popular for Modern Workspaces",
+        category: "Technology",
+        date: "May 02, 2026",
+        image: "assets/images/alt.avif",
+        intro:
+          "Mini PCs are compact, energy-efficient, and ideal for clean modern workspaces.",
+        content: [
+          {
+            heading: "Compact size with practical performance",
+            text:
+              "Mini PCs are designed for users who need a small computer without sacrificing everyday performance. They are perfect for offices, shops, classrooms, reception desks, and home workstations."
+          },
+          {
+            heading: "Energy efficient and quiet",
+            text:
+              "Many Mini PCs consume less power than traditional desktop computers. They also produce less heat and noise, making them suitable for quiet environments where comfort and efficiency are important."
+          },
+          {
+            heading: "Perfect for modern desk setups",
+            text:
+              "Because of their small form factor, Mini PCs can be placed behind a monitor, under a desk, or in compact spaces. They help create a clean workspace while still supporting browsing, office apps, video meetings, and business tools."
+          }
+        ]
+      },
+
+      3: {
+        title: "New Product Solutions for Security and Smart Business Systems",
+        category: "Products",
+        date: "May 02, 2026",
+        image: "assets/images/High-End-Gaming-PC-ab-2000E.avif",
+        intro:
+          "Smart business systems help companies improve safety, control access, and manage daily operations more efficiently.",
+        content: [
+          {
+            heading: "Smart security for business",
+            text:
+              "Modern companies need reliable tools for safety and control. Security cameras, access control systems, attendance devices, and smart terminals help protect workplaces and improve management."
+          },
+          {
+            heading: "Access control and attendance solutions",
+            text:
+              "Access control systems allow businesses to manage who can enter specific areas. Attendance systems help track employee time, reduce manual work, and improve daily reporting."
+          },
+          {
+            heading: "Reliable technology for daily use",
+            text:
+              "The right business technology should be easy to use, stable, and suitable for long-term operation. Smart systems can support offices, shops, warehouses, schools, and other professional environments."
+          }
+        ]
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id") || "1";
+    const blog = blogs[id] || blogs[1];
+
+    function loadBlogDetail() {
+      document.title = blog.title;
+
+      document.getElementById("blogHero").style.backgroundImage = `url('${blog.image}')`;
+      document.getElementById("blogHeroTitle").innerText = blog.title;
+      document.getElementById("blogCategory").innerText = blog.category;
+      document.getElementById("blogDate").innerText = blog.date;
+
+      document.getElementById("blogImage").src = blog.image;
+      document.getElementById("blogImage").alt = blog.title;
+      document.getElementById("blogTitle").innerText = blog.title;
+      document.getElementById("blogIntro").innerText = blog.intro;
+
+      const blogContent = document.getElementById("blogContent");
+      blogContent.innerHTML = "";
+
+      blog.content.forEach((section) => {
+        const block = document.createElement("div");
+
+        block.innerHTML = `
+          <h3 class="text-2xl font-bold text-[#222] mb-3">
+            ${section.heading}
+          </h3>
+
+          <p>
+            ${section.text}
+          </p>
+        `;
+
+        blogContent.appendChild(block);
+      });
+    }
+
+    async function loadBlogComponents() {
+      const navbar = await fetch("components/navbar.html");
+      document.getElementById("navbar").innerHTML = await navbar.text();
+
+      const footer = await fetch("components/footer.html");
+      document.getElementById("footer").innerHTML = await footer.text();
+
+      lucide.createIcons();
+
+      const cartScript = document.createElement("script");
+      cartScript.src = "assets/js/cart.js";
+      document.body.appendChild(cartScript);
+    }
+
+    loadBlogDetail();
+    loadBlogComponents();
+  </script>
+
+</body>
+
+</html>

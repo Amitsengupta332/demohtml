@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blog & News</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body class="bg-white text-[#222]">
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Spacer because navbar is absolute -->
+  <div class="h-[115px]"></div>
+
+  <!-- BLOG HERO -->
+  <section
+    class="h-[300px] bg-cover bg-center"
+    style="background-image: url('assets/images/products_02.jpg');"
+  >
+    <div class="h-full bg-black/30 flex items-center">
+      <div class="max-w-[1320px] mx-auto px-8 w-full text-white">
+        <h1 class="text-5xl font-bold mb-4">
+          Blog & News
+        </h1>
+
+        <p class="text-xl font-light">
+          Latest updates, technology news, product guides and helpful articles.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG LISTING -->
+  <main class="bg-white px-8 py-16">
+    <div class="max-w-[1320px] mx-auto">
+
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-extrabold text-[#222] mb-3">
+          Latest Blog Posts
+        </h2>
+
+        <p class="text-gray-500 text-base">
+          Read our latest guides, product updates and technology news.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_330px] gap-10">
+
+        <!-- BLOG CARDS -->
+        <section>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- Blog 1 -->
+            <article class="group bg-white border border-gray-100 shadow-sm overflow-hidden">
+              <div class="relative h-[260px] overflow-hidden">
+                <img
+                  src="assets/images/Office-PC-unter-1000E-kaufen.avif"
+                  alt="How to choose the right PC"
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+
+                <span class="absolute top-4 left-4 bg-[#00a99d] text-white text-xs font-bold px-4 py-2">
+                  GUIDE
+                </span>
+              </div>
+
+              <div class="p-6">
+                <p class="text-xs text-gray-400 mb-3">
+                  May 02, 2026 / PC Guide
+                </p>
+
+                <h3 class="text-2xl font-bold text-[#222] mb-3 leading-snug">
+                  How to Choose the Right PC for Gaming, Office and Work
+                </h3>
+
+                <p class="text-gray-600 leading-7 mb-5">
+                  Learn what matters most when selecting a PC, from processor and RAM to graphics card,
+                  storage, cooling and upgrade options.
+                </p>
+
+                <a
+                  href="blog-detail.html?id=1"
+                  class="inline-flex items-center text-[#00a99d] hover:text-black font-bold text-sm"
+                >
+                  READ MORE
+                  <span class="ml-2">›</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Blog 2 -->
+            <article class="group bg-white border border-gray-100 shadow-sm overflow-hidden">
+              <div class="relative h-[260px] overflow-hidden">
+                <img
+                  src="assets/images/alt.avif"
+                  alt="Mini PC benefits"
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+
+                <span class="absolute top-4 left-4 bg-[#00a99d] text-white text-xs font-bold px-4 py-2">
+                  NEWS
+                </span>
+              </div>
+
+              <div class="p-6">
+                <p class="text-xs text-gray-400 mb-3">
+                  May 02, 2026 / Technology
+                </p>
+
+                <h3 class="text-2xl font-bold text-[#222] mb-3 leading-snug">
+                  Why Mini PCs Are Becoming Popular for Modern Workspaces
+                </h3>
+
+                <p class="text-gray-600 leading-7 mb-5">
+                  Mini PCs offer compact size, quiet performance and energy efficiency,
+                  making them perfect for offices, shops and home workstations.
+                </p>
+
+                <a
+                  href="blog-detail.html?id=2"
+                  class="inline-flex items-center text-[#00a99d] hover:text-black font-bold text-sm"
+                >
+                  READ MORE
+                  <span class="ml-2">›</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Blog 3 -->
+            <article class="group bg-white border border-gray-100 shadow-sm overflow-hidden">
+              <div class="relative h-[260px] overflow-hidden">
+                <img
+                  src="assets/images/High-End-Gaming-PC-ab-2000E.avif"
+                  alt="Security products"
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+
+                <span class="absolute top-4 left-4 bg-[#00a99d] text-white text-xs font-bold px-4 py-2">
+                  UPDATE
+                </span>
+              </div>
+
+              <div class="p-6">
+                <p class="text-xs text-gray-400 mb-3">
+                  May 02, 2026 / Products
+                </p>
+
+                <h3 class="text-2xl font-bold text-[#222] mb-3 leading-snug">
+                  New Product Solutions for Security and Smart Business Systems
+                </h3>
+
+                <p class="text-gray-600 leading-7 mb-5">
+                  Explore smart access control, attendance devices, cameras and automation
+                  solutions designed for reliable everyday business use.
+                </p>
+
+                <a
+                  href="blog-detail.html?id=3"
+                  class="inline-flex items-center text-[#00a99d] hover:text-black font-bold text-sm"
+                >
+                  READ MORE
+                  <span class="ml-2">›</span>
+                </a>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- SIDEBAR -->
+        <aside class="space-y-8">
+
+          <!-- Search -->
+          <div class="border border-gray-100 p-6">
+            <h3 class="text-lg font-bold mb-4">
+              Search
+            </h3>
+
+            <div class="flex border border-gray-200 h-12">
+              <input
+                type="text"
+                placeholder="Search blog..."
+                class="flex-1 px-4 text-sm outline-none"
+              />
+
+              <button type="button" class="w-12 flex items-center justify-center bg-[#00a99d] text-white">
+                <i data-lucide="search" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="border border-gray-100 p-6">
+            <h3 class="text-lg font-bold mb-4">
+              Categories
+            </h3>
+
+            <ul class="space-y-3 text-gray-600 text-sm">
+              <li><a href="#" class="hover:text-[#00a99d]">PC Guide</a></li>
+              <li><a href="#" class="hover:text-[#00a99d]">Technology</a></li>
+              <li><a href="#" class="hover:text-[#00a99d]">Products</a></li>
+              <li><a href="#" class="hover:text-[#00a99d]">Gaming PC</a></li>
+              <li><a href="#" class="hover:text-[#00a99d]">Office PC</a></li>
+            </ul>
+          </div>
+
+          <!-- Recent Posts -->
+          <div class="border border-gray-100 p-6">
+            <h3 class="text-lg font-bold mb-4">
+              Recent Posts
+            </h3>
+
+            <div class="space-y-5">
+
+              <a href="blog-detail.html?id=1" class="flex gap-4 group">
+                <img
+                  src="assets/images/Office-PC-unter-1000E-kaufen.avif"
+                  alt="Recent post"
+                  class="w-20 h-20 object-cover"
+                />
+
+                <div>
+                  <h4 class="text-sm font-bold group-hover:text-[#00a99d]">
+                    How to Choose the Right PC
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-1">May 02, 2026</p>
+                </div>
+              </a>
+
+              <a href="blog-detail.html?id=2" class="flex gap-4 group">
+                <img
+                  src="assets/images/alt.avif"
+                  alt="Recent post"
+                  class="w-20 h-20 object-cover"
+                />
+
+                <div>
+                  <h4 class="text-sm font-bold group-hover:text-[#00a99d]">
+                    Why Mini PCs Are Popular
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-1">May 02, 2026</p>
+                </div>
+              </a>
+
+              <a href="blog-detail.html?id=3" class="flex gap-4 group">
+                <img
+                  src="assets/images/High-End-Gaming-PC-ab-2000E.avif"
+                  alt="Recent post"
+                  class="w-20 h-20 object-cover"
+                />
+
+                <div>
+                  <h4 class="text-sm font-bold group-hover:text-[#00a99d]">
+                    Smart Business Systems
+                  </h4>
+                  <p class="text-xs text-gray-400 mt-1">May 02, 2026</p>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="border border-gray-100 p-6">
+            <h3 class="text-lg font-bold mb-4">
+              Tags
+            </h3>
+
+            <div class="flex flex-wrap gap-2">
+              <a href="#" class="bg-[#f5f5f5] hover:bg-[#00a99d] hover:text-white px-3 py-2 text-xs">
+                Gaming PC
+              </a>
+
+              <a href="#" class="bg-[#f5f5f5] hover:bg-[#00a99d] hover:text-white px-3 py-2 text-xs">
+                Office PC
+              </a>
+
+              <a href="#" class="bg-[#f5f5f5] hover:bg-[#00a99d] hover:text-white px-3 py-2 text-xs">
+                Mini PC
+              </a>
+
+              <a href="#" class="bg-[#f5f5f5] hover:bg-[#00a99d] hover:text-white px-3 py-2 text-xs">
+                Security
+              </a>
+
+              <a href="#" class="bg-[#f5f5f5] hover:bg-[#00a99d] hover:text-white px-3 py-2 text-xs">
+                Workstation
+              </a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    class="fixed bottom-5 right-5 w-10 h-10 bg-gray-700 text-white">
+    ⌃
+  </button>
+
+  <script>
+    async function loadBlogComponents() {
+      const navbar = await fetch("components/navbar.html");
+      document.getElementById("navbar").innerHTML = await navbar.text();
+
+      const footer = await fetch("components/footer.html");
+      document.getElementById("footer").innerHTML = await footer.text();
+
+      lucide.createIcons();
+
+      const cartScript = document.createElement("script");
+      cartScript.src = "assets/js/cart.js";
+      document.body.appendChild(cartScript);
+    }
+
+    loadBlogComponents();
+  </script>
+
+</body>
+
+</html>

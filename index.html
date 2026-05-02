@@ -24,18 +24,54 @@
   <!-- Components -->
   <div id="navbar"></div>
   <div id="hero"></div>
-  <div id="banner"></div>
+  <!-- <div id="banner"></div> -->
   <div id="banner2"></div>
   <div id="trainingCalendar"></div>
   <div id="best-sellers"></div>
   <div id="takeMoment"></div>
   <div id="videoSection"></div>
+  <div id="homeReadMore"></div>
+  <div id="blogNews"></div>
+  <div id="faq"></div>
   <div id="footer"></div>
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
+    function initFAQ() {
+      const faqToggles = document.querySelectorAll(".faq-toggle");
+
+      faqToggles.forEach((toggle) => {
+        toggle.addEventListener("click", function () {
+          const faqItem = this.closest(".faq-item");
+          const faqContent = faqItem.querySelector(".faq-content");
+          const faqIcon = faqItem.querySelector(".faq-icon");
+
+          faqContent.classList.toggle("hidden");
+
+          if (faqContent.classList.contains("hidden")) {
+            faqIcon.textContent = "+";
+          } else {
+            faqIcon.textContent = "−";
+          }
+        });
+      });
+    }
+
+    function toggleHomeReadMoreText() {
+      const textBox = document.getElementById("homeReadMoreText");
+      const button = document.getElementById("homeReadMoreBtn");
+
+      textBox.classList.toggle("hidden");
+
+      if (textBox.classList.contains("hidden")) {
+        button.innerText = "Read More";
+      } else {
+        button.innerText = "Read Less";
+      }
+    }
+
     async function loadComponents() {
       const navbar = await fetch("components/navbar.html");
       document.getElementById("navbar").innerHTML = await navbar.text();
@@ -43,8 +79,8 @@
       const hero = await fetch("components/hero.html");
       document.getElementById("hero").innerHTML = await hero.text();
 
-      const banner = await fetch("components/banner-section.html");
-      document.getElementById("banner").innerHTML = await banner.text();
+      // const banner = await fetch("components/banner-section.html");
+      // document.getElementById("banner").innerHTML = await banner.text();
 
       const banner2 = await fetch("components/banner.html");
       document.getElementById("banner2").innerHTML = await banner2.text();
@@ -52,7 +88,6 @@
       const trainingCalendar = await fetch("components/training-calendar.html");
       document.getElementById("trainingCalendar").innerHTML =
         await trainingCalendar.text();
-
 
       const bestSellers = await fetch("components/best-sellers.html");
       document.getElementById("best-sellers").innerHTML =
@@ -66,13 +101,24 @@
       document.getElementById("videoSection").innerHTML =
         await videoSection.text();
 
+      const homeReadMore = await fetch("components/home-readmore.html");
+      document.getElementById("homeReadMore").innerHTML =
+        await homeReadMore.text();
 
+      const blogNews = await fetch("components/blog-news.html");
+      document.getElementById("blogNews").innerHTML = await blogNews.text();
+      
+      const faq = await fetch("components/faq.html");
+      document.getElementById("faq").innerHTML = await faq.text();
 
       const footer = await fetch("components/footer.html");
       document.getElementById("footer").innerHTML = await footer.text();
 
       // Icons render AFTER components load
       lucide.createIcons();
+
+      // FAQ works AFTER faq.html loads
+      initFAQ();
 
       // Extra scripts
       const sliderScript = document.createElement("script");

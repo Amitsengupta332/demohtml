@@ -92,6 +92,58 @@
     </div>
   </header>
 
+  <!-- PRODUCTS HERO IMAGE -->
+  <section class="h-[300px] bg-cover bg-center" style="background-image: url('assets/images/products_02.jpg');">
+    <div class="h-full bg-black/10 flex items-center">
+      <div class="max-w-[1320px] mx-auto px-8 w-full text-white">
+        <h1 class="text-5xl font-semibold tracking-wide mb-5">
+          PRODUCTS
+        </h1>
+
+        <p class="text-2xl font-light">
+          Innovative Technology | Reliable Quality | End-to-End Service
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- READ MORE TEXT SECTION -->
+  <section class="bg-white px-8 py-10">
+    <div class="max-w-[1320px] mx-auto">
+      <h2 class="text-4xl font-bold text-[#003b73] mb-4">
+        Build Your Own Custom PC
+      </h2>
+
+      <p class="text-lg leading-8 text-[#111] mb-3">
+        With the CSL PC Configurator, you can precisely tailor your individual desktop system to your requirements.
+        Whether you want a powerful gaming PC, an efficient office PC, or an especially quiet silent system – you retain
+        full control over hardware, design, and performance.
+      </p>
+
+      <div id="readMoreText" class="hidden">
+        <p class="text-lg leading-8 text-[#111] mb-3">
+          Professional assembly and comprehensive testing of your fully assembled PC system is
+          <strong>free of charge!</strong>
+        </p>
+
+        <p class="text-lg leading-8 text-[#111] mb-3">
+          We offer a wide selection of pre-configured PC systems, but sometimes you need something special:
+          a PC with specific desired components tailored to your personal requirements.
+        </p>
+
+        <p class="text-lg leading-8 text-[#111] mb-5">
+          The CSL PC Configurator is designed for this – here you can configure your own PC system precisely.
+          <strong>Create your custom dream system!</strong>
+        </p>
+      </div>
+
+      <button id="readMoreBtn" onclick="toggleReadMoreText()" type="button"
+        class="bg-[#003b73] hover:bg-black text-white px-4 py-2 rounded border-2 border-[#003b73] text-sm font-bold transition">
+        Read more
+      </button>
+    </div>
+  </section>
+
   <!-- CART OVERLAY -->
   <div id="cartOverlay" class="fixed inset-0 bg-black/40 z-[90] hidden"></div>
 
@@ -136,32 +188,6 @@
       </div>
     </div>
   </aside>
-
-  <!-- FLOATING BUTTONS -->
-  <!-- <div class="fixed right-0 top-[140px] z-40 hidden lg:block">
-    <a href="#"
-      class="w-16 h-16 bg-white shadow flex flex-col items-center justify-center text-[10px] font-bold border-b">
-      🛒
-      <span>Buy Now</span>
-    </a>
-
-    <a href="#"
-      class="w-16 h-16 bg-white shadow flex flex-col items-center justify-center text-[10px] font-bold border-b">
-      ⚙
-      <span>Prebuilts</span>
-    </a>
-
-    <a href="#"
-      class="w-16 h-16 bg-white shadow flex flex-col items-center justify-center text-[10px] font-bold border-b">
-      🎧
-      <span>Studios</span>
-    </a>
-
-    <a href="#" class="w-16 h-16 bg-white shadow flex flex-col items-center justify-center text-[10px] font-bold">
-      🛠
-      <span>Hire Us</span>
-    </a>
-  </div> -->
 
   <!-- MAIN SHOP CONTENT -->
   <main class="max-w-[1320px] mx-auto px-8 py-14">
@@ -241,7 +267,8 @@
               </li>
 
               <li>
-                <button type="button" class="color-option flex items-center gap-3 hover:text-black" data-color="Crimson">
+                <button type="button" class="color-option flex items-center gap-3 hover:text-black"
+                  data-color="Crimson">
                   <span class="w-5 h-5 rounded-full bg-red-300 border"></span>
                   Crimson
                 </button>
@@ -377,8 +404,8 @@
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
             <div class="relative h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=8">
-                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
-                  class="h-[210px] object-contain" alt="Clarins Sos Primer Matifying" />
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png" class="h-[210px] object-contain"
+                  alt="Clarins Sos Primer Matifying" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -498,8 +525,8 @@
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
             <div class="relative h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=1">
-                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
-                  class="h-[210px] object-contain" alt="Hourglass Ambient Lighting" />
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png" class="h-[210px] object-contain"
+                  alt="Hourglass Ambient Lighting" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -536,8 +563,8 @@
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
             <div class="relative h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=5">
-                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
-                  class="h-[210px] object-contain" alt="Clarins Natural Lip Perfector" />
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png" class="h-[210px] object-contain"
+                  alt="Clarins Natural Lip Perfector" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -612,8 +639,8 @@
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
             <div class="relative h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=2">
-                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
-                  class="h-[210px] object-contain" alt="Hourglass Veil Hydrating" />
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png" class="h-[210px] object-contain"
+                  alt="Hourglass Veil Hydrating" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -688,8 +715,8 @@
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
             <div class="relative h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=9">
-                <img src="assets/images/anviz_vp30_rfid_access_control.png"
-                  class="h-[210px] object-contain" alt="Mac Cosmetics Peachstock" />
+                <img src="assets/images/anviz_vp30_rfid_access_control.png" class="h-[210px] object-contain"
+                  alt="Mac Cosmetics Peachstock" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -734,6 +761,114 @@
       </section>
     </div>
   </main>
+
+
+  <!-- FAQ SECTION -->
+  <section class="bg-white px-8 py-16">
+    <div class="max-w-[950px] mx-auto">
+      <h2 class="text-3xl font-extrabold text-center mb-10">
+        Häufig gestellte Fragen (FAQ)
+      </h2>
+
+      <div class="faq-list">
+
+        <!-- FAQ 1 -->
+        <div class="faq-item border-b border-gray-300">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
+            <span class="font-bold text-base">
+              Was ist ein PC Konfigurator?
+            </span>
+            <span class="faq-icon text-2xl font-bold">+</span>
+          </button>
+
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+            Ein PC Konfigurator ist ein Online-Tool, mit dem Sie Ihren Computer
+            individuell nach Ihren Anforderungen zusammenstellen können.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item border-b border-gray-300">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
+            <span class="font-bold text-base">
+              Wie kann ich meinen eigenen PC zusammenstellen?
+            </span>
+            <span class="faq-icon text-2xl font-bold">+</span>
+          </button>
+
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+            Sie können Komponenten wie Prozessor, Arbeitsspeicher, Grafikkarte,
+            Speicher, Gehäuse und Betriebssystem auswählen und Ihr System Schritt
+            für Schritt konfigurieren.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item border-b border-gray-300">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
+            <span class="font-bold text-base">
+              Welche Komponenten sind beim PC konfigurieren am wichtigsten?
+            </span>
+            <span class="faq-icon text-2xl font-bold">+</span>
+          </button>
+
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+            Besonders wichtig sind Prozessor, Grafikkarte, Arbeitsspeicher,
+            Mainboard, Netzteil und Speicher, da sie die Leistung und Stabilität
+            des PCs stark beeinflussen.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item border-b border-gray-300">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
+            <span class="font-bold text-base">
+              Worauf sollte man beim Zusammenbau eines PCs achten?
+            </span>
+            <span class="faq-icon text-2xl font-bold">+</span>
+          </button>
+
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+            Achten Sie auf die Kompatibilität der Komponenten, ausreichende
+            Kühlung, ein passendes Netzteil und sauberes Kabelmanagement.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item border-b border-gray-300">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
+            <span class="font-bold text-base">
+              Wie lange dauert die Lieferung eines konfigurierten PCs?
+            </span>
+            <span class="faq-icon text-2xl font-bold">+</span>
+          </button>
+
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+            Die Lieferzeit hängt von Verfügbarkeit, Konfiguration und Versandart
+            ab. In der Regel wird die voraussichtliche Lieferzeit während der
+            Bestellung angezeigt.
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item border-b border-gray-300">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
+            <span class="font-bold text-base">
+              Kann ich meinen PC später aufrüsten?
+            </span>
+            <span class="faq-icon text-2xl font-bold">+</span>
+          </button>
+
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+            Ja, viele PCs können später mit mehr Arbeitsspeicher, größerem
+            Speicher, einer neuen Grafikkarte oder anderen Komponenten erweitert
+            werden.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- NEWSLETTER -->
   <section class="bg-[#f7eee9] py-28">
@@ -837,6 +972,22 @@
   <!-- ICONS -->
   <script>
     lucide.createIcons();
+  </script>
+
+  <!-- READ MORE FUNCTIONALITY -->
+  <script>
+    function toggleReadMoreText() {
+      const readMoreText = document.getElementById("readMoreText");
+      const readMoreBtn = document.getElementById("readMoreBtn");
+
+      readMoreText.classList.toggle("hidden");
+
+      if (readMoreText.classList.contains("hidden")) {
+        readMoreBtn.innerText = "Read more";
+      } else {
+        readMoreBtn.innerText = "Read less";
+      }
+    }
   </script>
 
   <!-- SIDEBAR FUNCTIONALITY -->
@@ -944,6 +1095,30 @@
     }
 
     initSidebarFilters();
+  </script>
+
+  <script>
+    function initFAQ() {
+      const faqToggles = document.querySelectorAll(".faq-toggle");
+
+      faqToggles.forEach((toggle) => {
+        toggle.addEventListener("click", function () {
+          const faqItem = this.closest(".faq-item");
+          const faqContent = faqItem.querySelector(".faq-content");
+          const faqIcon = faqItem.querySelector(".faq-icon");
+
+          faqContent.classList.toggle("hidden");
+
+          if (faqContent.classList.contains("hidden")) {
+            faqIcon.textContent = "+";
+          } else {
+            faqIcon.textContent = "−";
+          }
+        });
+      });
+    }
+
+    initFAQ();
   </script>
 
   <!-- CART FUNCTIONALITY -->
