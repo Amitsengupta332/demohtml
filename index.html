@@ -28,6 +28,7 @@
   <div id="banner2"></div>
   <div id="trainingCalendar"></div>
   <div id="best-sellers"></div>
+  <div id="productSlider"></div>
   <div id="takeMoment"></div>
   <div id="videoSection"></div>
   <div id="homeReadMore"></div>
@@ -72,6 +73,63 @@
       }
     }
 
+    function initProductSlider() {
+      const section = document.getElementById("homeProductSlider");
+      if (!section) return;
+
+      const track = section.querySelector("#productSliderTrack");
+      const prevBtn = section.querySelector("#productPrevBtn");
+      const nextBtn = section.querySelector("#productNextBtn");
+
+      if (!track || !prevBtn || !nextBtn) return;
+
+      let currentIndex = 0;
+
+      function getVisibleCards() {
+        if (window.innerWidth >= 1024) return 4;
+        if (window.innerWidth >= 640) return 2;
+        return 1;
+      }
+
+      function getStep() {
+        const firstCard = track.children[0];
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return firstCard.offsetWidth + gap;
+      }
+
+      function updateSlider() {
+        const totalCards = track.children.length;
+        const visibleCards = getVisibleCards();
+        const maxIndex = Math.max(totalCards - visibleCards, 0);
+
+        currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex);
+
+        track.style.transform = `translateX(-${currentIndex * getStep()}px)`;
+
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === maxIndex;
+      }
+
+      nextBtn.addEventListener("click", function () {
+        const visibleCards = getVisibleCards();
+        const totalCards = track.children.length;
+        const maxIndex = Math.max(totalCards - visibleCards, 0);
+
+        currentIndex = Math.min(currentIndex + visibleCards, maxIndex);
+        updateSlider();
+      });
+
+      prevBtn.addEventListener("click", function () {
+        const visibleCards = getVisibleCards();
+
+        currentIndex = Math.max(currentIndex - visibleCards, 0);
+        updateSlider();
+      });
+
+      window.addEventListener("resize", updateSlider);
+      updateSlider();
+    }
+
     async function loadComponents() {
       const navbar = await fetch("components/navbar.html");
       document.getElementById("navbar").innerHTML = await navbar.text();
@@ -93,6 +151,13 @@
       document.getElementById("best-sellers").innerHTML =
         await bestSellers.text();
 
+      const productSlider = await fetch("components/slider.html");
+      document.getElementById("productSlider").innerHTML =
+        await productSlider.text();
+
+      // Product card slider starts AFTER slider.html is loaded
+      initProductSlider();
+
       const takeMoment = await fetch("components/take-moment.html");
       document.getElementById("takeMoment").innerHTML =
         await takeMoment.text();
@@ -107,7 +172,7 @@
 
       const blogNews = await fetch("components/blog-news.html");
       document.getElementById("blogNews").innerHTML = await blogNews.text();
-      
+
       const faq = await fetch("components/faq.html");
       document.getElementById("faq").innerHTML = await faq.text();
 
@@ -119,11 +184,6 @@
 
       // FAQ works AFTER faq.html loads
       initFAQ();
-
-      // Extra scripts
-      const sliderScript = document.createElement("script");
-      sliderScript.src = "assets/js/slider.js";
-      document.body.appendChild(sliderScript);
 
       const cartScript = document.createElement("script");
       cartScript.src = "assets/js/cart.js";

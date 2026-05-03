@@ -17,69 +17,6 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <title>Checkout - Porto Clone</title>
-
-  <style>
-    .checkout-input {
-      width: 100%;
-      height: 44px;
-      border: 1px solid #e5e7eb;
-      border-radius: 6px;
-      padding: 0 14px;
-      font-size: 13px;
-      color: #111827;
-      background: #fff;
-      outline: none;
-      transition: all .2s ease;
-    }
-
-    .checkout-input::placeholder {
-      color: #9ca3af;
-    }
-
-    .checkout-input:focus {
-      border-color: #078b94;
-      box-shadow: 0 0 0 3px rgba(7, 139, 148, .12);
-    }
-
-    .checkout-card {
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: 0 8px 25px rgba(15, 23, 42, .04);
-    }
-
-    .checkout-card-title {
-      background: linear-gradient(135deg, #080b0d, #1f2933);
-      color: #fff;
-      padding: 15px 20px;
-      font-weight: 800;
-      font-size: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .checkout-radio {
-      accent-color: #078b94;
-    }
-
-    .checkout-checkbox {
-      accent-color: #078b94;
-    }
-
-    .checkout-icon {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-    }
-
-    .payment-logo {
-      font-weight: 800;
-      font-size: 13px;
-      white-space: nowrap;
-    }
-  </style>
 </head>
 
 <body class="bg-[#f8fafc] font-[Poppins] text-[#111827]">
@@ -101,49 +38,163 @@
 
   <!-- Checkout Page -->
   <main class="max-w-[1270px] mx-auto px-6 py-8">
+
+    <!-- TOP ROW -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6 items-start">
+
+      <!-- Customer Data -->
+      <section
+        class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-[0_8px_25px_rgba(15,23,42,0.04)]">
+        <div
+          class="bg-gradient-to-r from-[#080b0d] to-[#1f2933] text-white px-5 py-4 font-extrabold text-[15px] flex items-center gap-3">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" />
+            <path d="M4 20c.9-4 4.1-6 8-6s7.1 2 8 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          Kundendaten eingeben
+        </div>
+
+        <div class="p-5 space-y-4 text-sm min-h-[180px]">
+          <label class="flex items-center gap-3 cursor-pointer">
+            <input class="accent-[#078b94]" type="radio" name="accountType" checked />
+            <span>Neues Konto erstellen</span>
+          </label>
+
+          <label class="flex items-center gap-3 cursor-pointer">
+            <input class="accent-[#078b94]" type="radio" name="accountType" />
+            <span>Gast-Checkout</span>
+          </label>
+
+          <button
+            class="inline-flex items-center gap-2 bg-black hover:bg-[#067780] text-white px-5 py-3 rounded-md font-bold shadow-sm transition">
+            <svg class="w-[17px] h-[17px]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            Anmelden (Bestandskunde)
+          </button>
+        </div>
+      </section>
+
+      <!-- Shipping -->
+      <section
+        class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-[0_8px_25px_rgba(15,23,42,0.04)]">
+        <div
+          class="bg-gradient-to-r from-[#080b0d] to-[#1f2933] text-white px-5 py-4 font-extrabold text-[15px] flex items-center gap-3">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 7h11v9H3V7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            <path d="M14 10h3.5L21 13.5V16h-7v-6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+            <path d="M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8" />
+            <path d="M18 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8" />
+          </svg>
+          Versandart
+        </div>
+
+        <div class="p-5 space-y-4 text-sm min-h-[180px]">
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="flex items-center gap-3">
+              <input class="accent-[#078b94]" type="radio" name="shipping" />
+              <span>Abholung - Abholung&nbsp; 0,00 €</span>
+            </span>
+            <span class="text-[#078b94] font-bold text-xs">SHOP</span>
+          </label>
+
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="flex items-center gap-3">
+              <input class="accent-[#078b94]" type="radio" name="shipping" />
+              <span>Versand - DHL Paket&nbsp; 6,90 €</span>
+            </span>
+            <span class="font-extrabold text-yellow-500 text-sm">DHL</span>
+          </label>
+
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="flex items-center gap-3">
+              <input class="accent-[#078b94]" type="radio" name="shipping" checked />
+              <span>Versand - UPS&nbsp; 6,90 €</span>
+            </span>
+            <span class="font-extrabold text-[#9a5b1d] text-sm">UPS</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Payment -->
+      <section
+        class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-[0_8px_25px_rgba(15,23,42,0.04)]">
+        <div
+          class="bg-gradient-to-r from-[#080b0d] to-[#1f2933] text-white px-5 py-4 font-extrabold text-[15px] flex items-center gap-3">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8" />
+            <path d="M3 9h18" stroke="currentColor" stroke-width="1.8" />
+            <path d="M7 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          Zahlungsart
+        </div>
+
+        <div class="p-5 space-y-3 text-sm min-h-[180px]">
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="flex items-center gap-3">
+              <input class="accent-[#078b94]" type="radio" name="payment" />
+              <span>Bar bei Abholung&nbsp; 0,00 €</span>
+            </span>
+            <span class="text-green-600 font-bold">€</span>
+          </label>
+
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="flex items-center gap-3">
+              <input class="accent-[#078b94]" type="radio" name="payment" />
+              <span>Überweisung / Vorkasse&nbsp; 0,00 €</span>
+            </span>
+            <span>🏦</span>
+          </label>
+
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="flex items-center gap-3">
+              <input class="accent-[#078b94]" type="radio" name="payment" />
+              <span>Nachnahme&nbsp; 8,00 €</span>
+            </span>
+            <span>🚚</span>
+          </label>
+
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="flex items-center gap-3">
+              <input class="accent-[#078b94]" type="radio" name="payment" checked />
+              <span>Credit Cards&nbsp; 0,00 €</span>
+            </span>
+            <span class="font-extrabold text-blue-700 text-sm">VISA</span>
+          </label>
+
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="flex items-center gap-3">
+              <input class="accent-[#078b94]" type="radio" name="payment" />
+              <span>easyCredit-Ratenkauf&nbsp; 0,00 €</span>
+            </span>
+            <span class="font-extrabold text-blue-500 text-sm">easyCredit</span>
+          </label>
+
+          <label class="flex items-center justify-between gap-3 cursor-pointer">
+            <span class="flex items-center gap-3">
+              <input class="accent-[#078b94]" type="radio" name="payment" />
+              <span>PayPal&nbsp; 0,00 €</span>
+            </span>
+            <span class="font-extrabold text-blue-600 text-sm">PayPal</span>
+          </label>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- MAIN TWO COLUMNS -->
     <div class="grid grid-cols-1 lg:grid-cols-[390px_1fr] gap-6 items-start">
 
       <!-- LEFT COLUMN -->
       <div class="space-y-6">
 
-        <!-- Customer Data -->
-        <section class="checkout-card">
-          <div class="checkout-card-title">
-            <svg class="checkout-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.8" />
-              <path d="M4 20c.9-4 4.1-6 8-6s7.1 2 8 6" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" />
-            </svg>
-            Kundendaten eingeben
-          </div>
-
-          <div class="p-5 space-y-4 text-sm">
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input class="checkout-radio" type="radio" name="accountType" checked />
-              <span>Neues Konto erstellen</span>
-            </label>
-
-            <label class="flex items-center gap-3 cursor-pointer">
-              <input class="checkout-radio" type="radio" name="accountType" />
-              <span>Gast-Checkout</span>
-            </label>
-
-            <button
-              class="inline-flex items-center gap-2 bg-[#078b94] hover:bg-[#067780] text-white px-5 py-3 rounded-md font-bold shadow-sm transition">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8" />
-                <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.8"
-                  stroke-linecap="round" />
-              </svg>
-              Anmelden (Bestandskunde)
-            </button>
-          </div>
-        </section>
-
         <!-- Billing Address -->
-        <section class="checkout-card">
-          <div class="checkout-card-title">
-            <svg class="checkout-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <section
+          class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-[0_8px_25px_rgba(15,23,42,0.04)]">
+          <div
+            class="bg-gradient-to-r from-[#080b0d] to-[#1f2933] text-white px-5 py-4 font-extrabold text-[15px] flex items-center gap-3">
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M7 3h7l4 4v14H7V3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
               <path d="M14 3v5h5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
               <path d="M10 12h6M10 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
@@ -152,49 +203,71 @@
           </div>
 
           <div class="p-5 space-y-3">
-            <input class="checkout-input" placeholder="E-Mail Adresse" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="E-Mail Adresse" />
 
-            <select class="checkout-input">
+            <select
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition bg-white">
               <option>Herr</option>
               <option>Frau</option>
             </select>
 
-            <input class="checkout-input" placeholder="Vorname" />
-            <input class="checkout-input" placeholder="Nachname" />
-            <input class="checkout-input" placeholder="Firma" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Vorname" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Nachname" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Firma" />
 
             <div class="grid grid-cols-2 gap-3">
-              <input class="checkout-input" placeholder="Straße" />
-              <input class="checkout-input" placeholder="Hausnummer" />
+              <input
+                class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+                placeholder="Straße" />
+              <input
+                class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+                placeholder="Hausnummer" />
             </div>
 
-            <select class="checkout-input">
+            <select
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition bg-white">
               <option>Region auswählen</option>
             </select>
 
-            <input class="checkout-input" placeholder="Stadt" />
-            <input class="checkout-input" placeholder="Postleitzahl" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Stadt" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Postleitzahl" />
 
-            <select class="checkout-input">
+            <select
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition bg-white">
               <option>Germany</option>
             </select>
 
-            <input class="checkout-input" placeholder="Telefonnummer" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Telefonnummer" />
 
             <label class="flex items-center gap-2 text-xs text-gray-600 cursor-pointer pt-1">
-              <input class="checkout-checkbox" type="checkbox" />
+              <input class="accent-[#078b94]" type="checkbox" />
               Meine Rechnungs- und Lieferadresse ist identisch
             </label>
           </div>
         </section>
 
         <!-- Shipping Address -->
-        <section class="checkout-card">
-          <div class="checkout-card-title">
-            <svg class="checkout-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <section
+          class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-[0_8px_25px_rgba(15,23,42,0.04)]">
+          <div
+            class="bg-gradient-to-r from-[#080b0d] to-[#1f2933] text-white px-5 py-4 font-extrabold text-[15px] flex items-center gap-3">
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M3 8h10v8H3V8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-              <path d="M13 11h3.5L20 14.5V16h-7v-5Z" stroke="currentColor" stroke-width="1.8"
-                stroke-linejoin="round" />
+              <path d="M13 11h3.5L20 14.5V16h-7v-5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
               <path d="M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8" />
               <path d="M17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8" />
               <path d="M6 5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
@@ -203,32 +276,51 @@
           </div>
 
           <div class="p-5 space-y-3">
-            <select class="checkout-input">
+            <select
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition bg-white">
               <option>Herr</option>
               <option>Frau</option>
             </select>
 
-            <input class="checkout-input" placeholder="Vorname" />
-            <input class="checkout-input" placeholder="Nachname" />
-            <input class="checkout-input" placeholder="Firma" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Vorname" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Nachname" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Firma" />
 
             <div class="grid grid-cols-2 gap-3">
-              <input class="checkout-input" placeholder="Straße" />
-              <input class="checkout-input" placeholder="Hausnummer" />
+              <input
+                class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+                placeholder="Straße" />
+              <input
+                class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+                placeholder="Hausnummer" />
             </div>
 
-            <select class="checkout-input">
+            <select
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition bg-white">
               <option>Region auswählen</option>
             </select>
 
-            <input class="checkout-input" placeholder="Stadt" />
-            <input class="checkout-input" placeholder="Postleitzahl" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Stadt" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Postleitzahl" />
 
-            <select class="checkout-input">
+            <select
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition bg-white">
               <option>Germany</option>
             </select>
 
-            <input class="checkout-input" placeholder="Telefonnummer" />
+            <input
+              class="w-full h-11 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+              placeholder="Telefonnummer" />
           </div>
         </section>
 
@@ -237,142 +329,21 @@
       <!-- RIGHT COLUMN -->
       <div class="space-y-6">
 
-        <!-- Top Options -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          <!-- Shipping -->
-          <section class="checkout-card">
-            <div class="checkout-card-title">
-              <svg class="checkout-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M3 7h11v9H3V7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                <path d="M14 10h3.5L21 13.5V16h-7v-6Z" stroke="currentColor" stroke-width="1.8"
-                  stroke-linejoin="round" />
-                <path d="M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8" />
-                <path d="M18 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8" />
-              </svg>
-              Versandart
-            </div>
-
-            <div class="p-5 space-y-4 text-sm">
-              <label class="flex items-center justify-between gap-3 cursor-pointer">
-                <span class="flex items-center gap-3">
-                  <input class="checkout-radio" type="radio" name="shipping" />
-                  Abholung - Abholung&nbsp; 0,00 €
-                </span>
-
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" class="text-[#078b94]"
-                  aria-hidden="true">
-                  <path d="M4 10h16l-1.5-5h-13L4 10Z" stroke="currentColor" stroke-width="1.8"
-                    stroke-linejoin="round" />
-                  <path d="M6 10v9h12v-9" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                  <path d="M9 19v-5h6v5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                </svg>
-              </label>
-
-              <label class="flex items-center justify-between gap-3 cursor-pointer">
-                <span class="flex items-center gap-3">
-                  <input class="checkout-radio" type="radio" name="shipping" />
-                  Versand - DHL Paket&nbsp; 6,90 €
-                </span>
-                <span class="payment-logo text-yellow-500">DHL</span>
-              </label>
-
-              <label class="flex items-center justify-between gap-3 cursor-pointer">
-                <span class="flex items-center gap-3">
-                  <input class="checkout-radio" type="radio" name="shipping" checked />
-                  Versand - UPS&nbsp; 6,90 €
-                </span>
-                <span class="payment-logo text-[#9a5b1d]">UPS</span>
-              </label>
-            </div>
-          </section>
-
-          <!-- Payment -->
-          <section class="checkout-card">
-            <div class="checkout-card-title">
-              <svg class="checkout-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.8" />
-                <path d="M3 9h18" stroke="currentColor" stroke-width="1.8" />
-                <path d="M7 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-              </svg>
-              Zahlungsart
-            </div>
-
-            <div class="p-5 space-y-3 text-sm">
-              <label class="flex items-center justify-between gap-3 cursor-pointer">
-                <span class="flex items-center gap-3">
-                  <input class="checkout-radio" type="radio" name="payment" />
-                  Bar bei Abholung&nbsp; 0,00 €
-                </span>
-                <span class="text-green-600 font-bold">€</span>
-              </label>
-
-              <label class="flex items-center justify-between gap-3 cursor-pointer">
-                <span class="flex items-center gap-3">
-                  <input class="checkout-radio" type="radio" name="payment" />
-                  Überweisung / Vorkasse&nbsp; 0,00 €
-                </span>
-                <span class="text-gray-500">🏦</span>
-              </label>
-
-              <label class="flex items-center justify-between gap-3 cursor-pointer">
-                <span class="flex items-center gap-3">
-                  <input class="checkout-radio" type="radio" name="payment" />
-                  Nachnahme&nbsp; 8,00 €
-                </span>
-
-                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" class="text-[#078b94]"
-                  aria-hidden="true">
-                  <path d="M3 7h11v9H3V7Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
-                  <path d="M14 10h3.5L21 13.5V16h-7v-6Z" stroke="currentColor" stroke-width="1.8"
-                    stroke-linejoin="round" />
-                  <path d="M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8" />
-                  <path d="M18 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.8" />
-                </svg>
-              </label>
-
-              <label class="flex items-center justify-between gap-3 cursor-pointer">
-                <span class="flex items-center gap-3">
-                  <input class="checkout-radio" type="radio" name="payment" checked />
-                  Credit Cards&nbsp; 0,00 €
-                </span>
-                <span class="payment-logo text-blue-700">VISA</span>
-              </label>
-
-              <label class="flex items-center justify-between gap-3 cursor-pointer">
-                <span class="flex items-center gap-3">
-                  <input class="checkout-radio" type="radio" name="payment" />
-                  easyCredit-Ratenkauf&nbsp; 0,00 €
-                </span>
-                <span class="payment-logo text-blue-500">easyCredit</span>
-              </label>
-
-              <label class="flex items-center justify-between gap-3 cursor-pointer">
-                <span class="flex items-center gap-3">
-                  <input class="checkout-radio" type="radio" name="payment" />
-                  PayPal&nbsp; 0,00 €
-                </span>
-                <span class="payment-logo text-blue-600">PayPal</span>
-              </label>
-            </div>
-          </section>
-
-        </div>
-
         <!-- Confirm Payment -->
-        <section class="checkout-card">
-          <div class="checkout-card-title">
-            <svg class="checkout-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 3 20 6v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3Z" stroke="currentColor"
-                stroke-width="1.8" stroke-linejoin="round" />
+        <section
+          class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-[0_8px_25px_rgba(15,23,42,0.04)]">
+          <div
+            class="bg-gradient-to-r from-[#080b0d] to-[#1f2933] text-white px-5 py-4 font-extrabold text-[15px] flex items-center gap-3">
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 3 20 6v6c0 5-3.4 8-8 9-4.6-1-8-4-8-9V6l8-3Z" stroke="currentColor" stroke-width="1.8"
+                stroke-linejoin="round" />
               <path d="m8.5 12 2.2 2.2 4.8-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
             Zahlung bestätigen
           </div>
 
-          <div
-            class="grid grid-cols-[1.7fr_1fr_1fr_1fr] bg-[#e2f3f6] text-[#00596a] text-sm font-bold rounded-t-none">
+          <div class="grid grid-cols-[1.7fr_1fr_1fr_1fr] bg-[#e2f3f6] text-[#00596a] text-sm font-bold">
             <div class="px-5 py-4">Produkt</div>
             <div class="px-5 py-4 text-center">Preis</div>
             <div class="px-5 py-4 text-center">Anzahl</div>
@@ -386,30 +357,32 @@
           <div class="bg-[#f3f4f6] text-sm">
             <div class="flex justify-end items-center gap-8 px-6 py-4 border-b border-gray-200">
               <strong>Zwischensumme netto :</strong>
-              <span id="checkoutSubtotalNet" class="font-bold text-[#00596a] min-w-[80px] text-right">0,00 €</span>
+              <span id="checkoutSubtotalNet" class="font-bold text-[#00596a] min-w-[85px] text-right">0,00 €</span>
             </div>
 
             <div class="flex justify-end items-center gap-8 px-6 py-4 border-b border-gray-200">
               <strong>Gesamtsumme netto :</strong>
-              <span id="checkoutTotalNet" class="font-bold text-[#00596a] min-w-[80px] text-right">0,00 €</span>
+              <span id="checkoutTotalNet" class="font-bold text-[#00596a] min-w-[85px] text-right">0,00 €</span>
             </div>
 
             <div class="flex justify-end items-center gap-8 px-6 py-4 border-b border-gray-200">
               <strong>19% MwSt. :</strong>
-              <span id="checkoutTax" class="font-bold text-[#00596a] min-w-[80px] text-right">0,00 €</span>
+              <span id="checkoutTax" class="font-bold text-[#00596a] min-w-[85px] text-right">0,00 €</span>
             </div>
 
             <div class="flex justify-end items-center gap-8 px-6 py-4 bg-[#eeeeee]">
               <strong>Gesamtsumme brutto :</strong>
-              <span id="checkoutTotalGross" class="font-extrabold text-[#078b94] min-w-[80px] text-right">0,00 €</span>
+              <span id="checkoutTotalGross" class="font-extrabold text-[#078b94] min-w-[85px] text-right">0,00 €</span>
             </div>
           </div>
 
           <div class="p-5">
             <div class="flex flex-col sm:flex-row gap-3">
-              <input class="checkout-input flex-1" placeholder="Gutscheincode" />
+              <input
+                class="w-full h-12 border border-gray-200 rounded-md px-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition placeholder:text-gray-400"
+                placeholder="Gutscheincode" />
               <button
-                class="border border-[#078b94] text-[#00596a] hover:bg-[#078b94] hover:text-white px-7 py-3 rounded-md text-sm font-bold transition">
+                class="shrink-0 border border-[#078b94] text-[#00596a] hover:bg-black hover:text-white px-8 py-3 rounded-md text-sm font-bold transition">
                 Einlösen
               </button>
             </div>
@@ -417,9 +390,10 @@
         </section>
 
         <!-- Comment + Terms -->
-        <section class="checkout-card p-5 space-y-5">
+        <section
+          class="bg-white border border-gray-200 rounded-lg p-5 space-y-5 shadow-[0_8px_25px_rgba(15,23,42,0.04)]">
           <div class="flex items-center gap-2 text-sm text-gray-700">
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg class="w-[19px] h-[19px]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path
                 d="M4 6.5A3.5 3.5 0 0 1 7.5 3h9A3.5 3.5 0 0 1 20 6.5v5A3.5 3.5 0 0 1 16.5 15H10l-5 4v-4.8A3.5 3.5 0 0 1 4 11.5v-5Z"
                 stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
@@ -428,12 +402,11 @@
           </div>
 
           <textarea
-            class="w-full h-[120px] border border-gray-200 rounded-md p-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition resize-y"
-            placeholder=""></textarea>
+            class="w-full h-[120px] border border-gray-200 rounded-md p-4 text-sm outline-none focus:border-[#078b94] focus:ring-4 focus:ring-[#078b94]/10 transition resize-y"></textarea>
 
           <div class="space-y-3 text-sm">
             <label class="flex items-start gap-3 cursor-pointer">
-              <input class="checkout-checkbox mt-1" type="checkbox" />
+              <input class="accent-[#078b94] mt-1" type="checkbox" />
               <span>
                 Ich habe die <a href="#" class="text-[#078b94] font-medium">AGB</a> gelesen und stimme diesen
                 ausdrücklich zu. <span class="text-red-500">*</span>
@@ -441,7 +414,7 @@
             </label>
 
             <label class="flex items-start gap-3 cursor-pointer">
-              <input class="checkout-checkbox mt-1" type="checkbox" />
+              <input class="accent-[#078b94] mt-1" type="checkbox" />
               <span>
                 Ich habe die <a href="#" class="text-[#078b94] font-medium">Widerrufsbelehrung</a> gelesen.
                 <span class="text-red-500">*</span>
@@ -450,11 +423,10 @@
           </div>
 
           <button
-            class="inline-flex items-center justify-center gap-3 bg-[#078b94] hover:bg-[#067780] text-white w-[260px] max-w-full py-4 rounded-md font-extrabold shadow-sm transition">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            class="inline-flex items-center justify-center gap-3 bg-black hover:bg-[#067780] text-white w-[260px] max-w-full py-4 rounded-md font-extrabold shadow-sm transition">
+            <svg class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.8" />
-              <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
               <path d="M12 14v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
             </svg>
             Kaufen
