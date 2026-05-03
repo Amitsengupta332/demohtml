@@ -1,8 +1,8 @@
-<section class="px-8 py-20 bg-white">
+<section class="bg-white px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
   <div class="max-w-[1050px] mx-auto">
     <!-- Heading -->
-    <div class="text-center mb-10">
-      <h2 class="text-2xl font-semibold leading-snug">
+    <div class="text-center mb-8 sm:mb-10">
+      <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold leading-snug">
         Take a moment for yourself.<br>
         Let beauty become a part of you.
       </h2>
@@ -15,50 +15,63 @@
       </a> -->
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-8 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-[380px_1fr] xl:grid-cols-[420px_1fr] gap-6 sm:gap-8 items-start">
       <!-- Left Image -->
-      <div class="lg:sticky lg:top-10">
-        <img src="assets/images/output.avif" alt="Take a moment" class="w-full object-cover block" />
+      <div class="w-full lg:sticky lg:top-10">
+        <img
+          src="assets/images/output.avif"
+          alt="Take a moment"
+          class="w-full h-auto sm:max-h-[620px] lg:max-h-none object-cover block"
+        />
       </div>
 
       <!-- Right Products -->
-      <!-- Right Products -->
-      <div class="space-y-5">
+      <div class="space-y-4 sm:space-y-5">
         <!-- Group 1 -->
-        <div class="grid grid-cols-2 gap-5">
-
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           <!-- Card 1 -->
           <div class="block">
             <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-              <span class="absolute top-5 left-5 bg-red-400 text-white text-xs font-bold px-3 py-1 z-10">-50%</span>
+              <span class="absolute top-4 sm:top-5 left-4 sm:left-5 bg-red-400 text-white text-xs font-bold px-3 py-1 z-10">
+                -50%
+              </span>
 
-              <div class="relative h-[300px] flex items-center justify-center">
+              <div class="relative h-[240px] sm:h-[280px] lg:h-[300px] flex items-center justify-center px-4">
                 <a href="product.html?id=9" class="block">
-                  <img src="assets/images/UBio-X-Pro2.png" class="h-[210px] object-contain"
-                    alt="Mielle Rosemary Mint Strength">
+                  <img
+                    src="assets/images/UBio-X-Pro2.png"
+                    class="h-[170px] sm:h-[195px] lg:h-[210px] max-w-full object-contain"
+                    alt="Mielle Rosemary Mint Strength"
+                  >
                 </a>
 
-                <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">♡</button>
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">⌕</button>
+                <div class="absolute top-4 sm:top-5 right-4 sm:right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ♡
+                  </button>
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ⌕
+                  </button>
                 </div>
 
-                <button type="button"
-                  class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
-                  data-id="9" data-name="Mielle Rosemary Mint Strength" data-price="10.00"
-                  data-image="assets/images/anviz_vp30_rfid_access_control.png">
+                <button
+                  type="button"
+                  class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-[11px] sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+                  data-id="9"
+                  data-name="Mielle Rosemary Mint Strength"
+                  data-price="10.00"
+                  data-image="assets/images/anviz_vp30_rfid_access_control.png"
+                >
                   ADD TO CART
                 </button>
               </div>
 
               <a href="product.html?id=9" class="block">
-                <div class="bg-[#EFF5FA] pb-7 px-4">
+                <div class="bg-[#EFF5FA] pb-6 sm:pb-7 px-3 sm:px-4">
                   <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
                   <h4 class="text-sm font-medium truncate mb-2">Mielle Rosemary Mint Strength...</h4>
                   <p class="text-gray-400 text-sm mb-1">★★★★☆</p>
-                  <p class="text-lg font-bold">
+                  <p class="text-base sm:text-lg font-bold">
                     <span class="line-through text-gray-400 text-sm font-normal">$20.00</span>
                     $10.00
                   </p>
@@ -70,35 +83,46 @@
           <!-- Card 2 -->
           <div class="block">
             <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-              <span class="absolute top-5 left-5 bg-red-400 text-white text-xs font-bold px-3 py-1 z-10">-50%</span>
+              <span class="absolute top-4 sm:top-5 left-4 sm:left-5 bg-red-400 text-white text-xs font-bold px-3 py-1 z-10">
+                -50%
+              </span>
 
-              <div class="relative h-[300px] flex items-center justify-center">
+              <div class="relative h-[240px] sm:h-[280px] lg:h-[300px] flex items-center justify-center px-4">
                 <a href="product.html?id=10" class="block">
-                  <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
-                    class="h-[210px] object-contain" alt="Fenty Beauty Pro Filt’r">
+                  <img
+                    src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+                    class="h-[170px] sm:h-[195px] lg:h-[210px] max-w-full object-contain"
+                    alt="Fenty Beauty Pro Filt’r"
+                  >
                 </a>
 
-                <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">♡</button>
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">⌕</button>
+                <div class="absolute top-4 sm:top-5 right-4 sm:right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ♡
+                  </button>
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ⌕
+                  </button>
                 </div>
 
-                <button type="button"
-                  class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
-                  data-id="10" data-name="Fenty Beauty Pro Filt’r" data-price="7.50"
-                  data-image="assets/images/anviz_facedeep_5_ai_based_smart_face_recognition_terminal.png">
+                <button
+                  type="button"
+                  class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-[11px] sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+                  data-id="10"
+                  data-name="Fenty Beauty Pro Filt’r"
+                  data-price="7.50"
+                  data-image="assets/images/anviz_facedeep_5_ai_based_smart_face_recognition_terminal.png"
+                >
                   ADD TO CART
                 </button>
               </div>
 
               <a href="product.html?id=10" class="block">
-                <div class="bg-[#EFF5FA] pb-7 px-4">
+                <div class="bg-[#EFF5FA] pb-6 sm:pb-7 px-3 sm:px-4">
                   <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
                   <h4 class="text-sm font-medium truncate mb-2">Fenty Beauty Pro Filt’r...</h4>
                   <p class="text-gray-400 text-sm mb-1">★★★★☆</p>
-                  <p class="text-lg font-bold">$7.50</p>
+                  <p class="text-base sm:text-lg font-bold">$7.50</p>
                 </div>
               </a>
             </div>
@@ -106,38 +130,46 @@
         </div>
 
         <!-- Group 2 -->
-        <div class="grid grid-cols-2 gap-5">
-
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           <!-- Card 3 -->
           <div class="block">
             <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-              <div class="relative h-[300px] flex items-center justify-center">
+              <div class="relative h-[240px] sm:h-[280px] lg:h-[300px] flex items-center justify-center px-4">
                 <a href="product.html?id=11" class="block">
-                  <img src="assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png"
-                    class="h-[210px] object-contain" alt="Mielle Rosemary Pom & Honey">
+                  <img
+                    src="assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png"
+                    class="h-[170px] sm:h-[195px] lg:h-[210px] max-w-full object-contain"
+                    alt="Mielle Rosemary Pom & Honey"
+                  >
                 </a>
 
-                <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">♡</button>
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">⌕</button>
+                <div class="absolute top-4 sm:top-5 right-4 sm:right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ♡
+                  </button>
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ⌕
+                  </button>
                 </div>
 
-                <button type="button"
-                  class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
-                  data-id="11" data-name="Mielle Rosemary Pom & Honey" data-price="20.00"
-                  data-image="assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png">
+                <button
+                  type="button"
+                  class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-[11px] sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+                  data-id="11"
+                  data-name="Mielle Rosemary Pom & Honey"
+                  data-price="20.00"
+                  data-image="assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png"
+                >
                   ADD TO CART
                 </button>
               </div>
 
               <a href="product.html?id=11" class="block">
-                <div class="bg-[#EFF5FA] pb-7 px-4">
+                <div class="bg-[#EFF5FA] pb-6 sm:pb-7 px-3 sm:px-4">
                   <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
                   <h4 class="text-sm font-medium truncate mb-2">Mielle Rosemary Pom & Honey...</h4>
                   <p class="text-gray-400 text-sm mb-1">★★★★☆</p>
-                  <p class="text-lg font-bold">$20.00 - $50.00</p>
+                  <p class="text-base sm:text-lg font-bold">$20.00 - $50.00</p>
                 </div>
               </a>
             </div>
@@ -146,35 +178,46 @@
           <!-- Card 4 -->
           <div class="block">
             <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-              <span class="absolute top-5 left-5 bg-red-400 text-white text-xs font-bold px-3 py-1 z-10">-50%</span>
+              <span class="absolute top-4 sm:top-5 left-4 sm:left-5 bg-red-400 text-white text-xs font-bold px-3 py-1 z-10">
+                -50%
+              </span>
 
-              <div class="relative h-[300px] flex items-center justify-center">
+              <div class="relative h-[240px] sm:h-[280px] lg:h-[300px] flex items-center justify-center px-4">
                 <a href="product.html?id=12" class="block">
-                  <img src="assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png"
-                    class="h-[210px] object-contain" alt="Mielle Rosemary Mint Strength">
+                  <img
+                    src="assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png"
+                    class="h-[170px] sm:h-[195px] lg:h-[210px] max-w-full object-contain"
+                    alt="Mielle Rosemary Mint Strength"
+                  >
                 </a>
 
-                <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">♡</button>
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">⌕</button>
+                <div class="absolute top-4 sm:top-5 right-4 sm:right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ♡
+                  </button>
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ⌕
+                  </button>
                 </div>
 
-                <button type="button"
-                  class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
-                  data-id="12" data-name="Mielle Rosemary Mint Strength" data-price="10.00"
-                  data-image="assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png">
+                <button
+                  type="button"
+                  class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-[11px] sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+                  data-id="12"
+                  data-name="Mielle Rosemary Mint Strength"
+                  data-price="10.00"
+                  data-image="assets/images/facepass_7_irt_touchless_thermal_facial_recognition_system.png"
+                >
                   ADD TO CART
                 </button>
               </div>
 
               <a href="product.html?id=12" class="block">
-                <div class="bg-[#EFF5FA] pb-7 px-4">
+                <div class="bg-[#EFF5FA] pb-6 sm:pb-7 px-3 sm:px-4">
                   <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
                   <h4 class="text-sm font-medium truncate mb-2">Mielle Rosemary Mint Strength...</h4>
                   <p class="text-gray-400 text-sm mb-1">★★★★☆</p>
-                  <p class="text-lg font-bold">
+                  <p class="text-base sm:text-lg font-bold">
                     <span class="line-through text-gray-400 text-sm font-normal">$20.00</span>
                     $10.00
                   </p>
@@ -185,38 +228,46 @@
         </div>
 
         <!-- Group 3 -->
-        <div class="grid grid-cols-2 gap-5">
-
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           <!-- Card 5 -->
           <div class="block">
             <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-              <div class="relative h-[300px] flex items-center justify-center">
+              <div class="relative h-[240px] sm:h-[280px] lg:h-[300px] flex items-center justify-center px-4">
                 <a href="product.html?id=13" class="block">
-                  <img src="assets/images/secugen-hamster-plus-hsdu03p.jpg" class="h-[210px] object-contain"
-                    alt="Hourglass Ambient Lighting">
+                  <img
+                    src="assets/images/secugen-hamster-plus-hsdu03p.jpg"
+                    class="h-[170px] sm:h-[195px] lg:h-[210px] max-w-full object-contain"
+                    alt="Hourglass Ambient Lighting"
+                  >
                 </a>
 
-                <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">♡</button>
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">⌕</button>
+                <div class="absolute top-4 sm:top-5 right-4 sm:right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ♡
+                  </button>
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ⌕
+                  </button>
                 </div>
 
-                <button type="button"
-                  class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
-                  data-id="13" data-name="Hourglass Ambient Lighting" data-price="12.00"
-                  data-image="assets/images/secugen-hamster-plus-hsdu03p.jpg">
+                <button
+                  type="button"
+                  class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-[11px] sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+                  data-id="13"
+                  data-name="Hourglass Ambient Lighting"
+                  data-price="12.00"
+                  data-image="assets/images/secugen-hamster-plus-hsdu03p.jpg"
+                >
                   ADD TO CART
                 </button>
               </div>
 
               <a href="product.html?id=13" class="block">
-                <div class="bg-[#EFF5FA] pb-7 px-4">
+                <div class="bg-[#EFF5FA] pb-6 sm:pb-7 px-3 sm:px-4">
                   <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
                   <h4 class="text-sm font-medium truncate mb-2">Hourglass Ambient Lighting...</h4>
                   <p class="text-gray-400 text-sm mb-1">★★★★☆</p>
-                  <p class="text-lg font-bold">$12.00</p>
+                  <p class="text-base sm:text-lg font-bold">$12.00</p>
                 </div>
               </a>
             </div>
@@ -225,33 +276,42 @@
           <!-- Card 6 -->
           <div class="block">
             <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-              <div class="relative h-[300px] flex items-center justify-center">
+              <div class="relative h-[240px] sm:h-[280px] lg:h-[300px] flex items-center justify-center px-4">
                 <a href="product.html?id=14" class="block">
-                  <img src="assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png"
-                    class="h-[210px] object-contain" alt="CHI Browmance Eye Pencil">
+                  <img
+                    src="assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png"
+                    class="h-[170px] sm:h-[195px] lg:h-[210px] max-w-full object-contain"
+                    alt="CHI Browmance Eye Pencil"
+                  >
                 </a>
 
-                <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">♡</button>
-                  <button type="button"
-                    class="w-10 h-10 rounded-full bg-[#ead8c7] text-2xl hover:bg-black hover:text-white">⌕</button>
+                <div class="absolute top-4 sm:top-5 right-4 sm:right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ♡
+                  </button>
+                  <button type="button" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#ead8c7] text-xl sm:text-2xl hover:bg-black hover:text-white">
+                    ⌕
+                  </button>
                 </div>
 
-                <button type="button"
-                  class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
-                  data-id="14" data-name="CHI Browmance Eye Pencil" data-price="8.00"
-                  data-image="assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png">
+                <button
+                  type="button"
+                  class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-[11px] sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-black hover:text-white"
+                  data-id="14"
+                  data-name="CHI Browmance Eye Pencil"
+                  data-price="8.00"
+                  data-image="assets/images/anviz_a350_fingerprint_and_rfid_time_attendance_device.png"
+                >
                   ADD TO CART
                 </button>
               </div>
 
               <a href="product.html?id=14" class="block">
-                <div class="bg-[#EFF5FA] pb-7 px-4">
+                <div class="bg-[#EFF5FA] pb-6 sm:pb-7 px-3 sm:px-4">
                   <p class="text-[10px] text-gray-400 uppercase mb-1">MAKEUP</p>
                   <h4 class="text-sm font-medium truncate mb-2">CHI Browmance Eye Pencil</h4>
                   <p class="text-gray-400 text-sm mb-1">★★★★☆</p>
-                  <p class="text-lg font-bold">$8.00</p>
+                  <p class="text-base sm:text-lg font-bold">$8.00</p>
                 </div>
               </a>
             </div>

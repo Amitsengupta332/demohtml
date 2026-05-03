@@ -15,8 +15,8 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
-
-  <title>Porto Clone</title>
+D
+  <title>Cls Security </title>
 </head>
 
 <body>
@@ -28,8 +28,11 @@
   <div id="banner2"></div>
   <div id="trainingCalendar"></div>
   <div id="best-sellers"></div>
+  <div id="productSlider"></div>
   <div id="takeMoment"></div>
   <div id="videoSection"></div>
+  <div id="homeReadMore"></div>
+  <div id="blogNews"></div>
   <div id="faq"></div>
   <div id="footer"></div>
 
@@ -37,6 +40,96 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
+    function initFAQ() {
+      const faqToggles = document.querySelectorAll(".faq-toggle");
+
+      faqToggles.forEach((toggle) => {
+        toggle.addEventListener("click", function () {
+          const faqItem = this.closest(".faq-item");
+          const faqContent = faqItem.querySelector(".faq-content");
+          const faqIcon = faqItem.querySelector(".faq-icon");
+
+          faqContent.classList.toggle("hidden");
+
+          if (faqContent.classList.contains("hidden")) {
+            faqIcon.textContent = "+";
+          } else {
+            faqIcon.textContent = "−";
+          }
+        });
+      });
+    }
+
+    function toggleHomeReadMoreText() {
+      const textBox = document.getElementById("homeReadMoreText");
+      const button = document.getElementById("homeReadMoreBtn");
+
+      textBox.classList.toggle("hidden");
+
+      if (textBox.classList.contains("hidden")) {
+        button.innerText = "Read More";
+      } else {
+        button.innerText = "Read Less";
+      }
+    }
+
+    function initProductSlider() {
+      const section = document.getElementById("homeProductSlider");
+      if (!section) return;
+
+      const track = section.querySelector("#productSliderTrack");
+      const prevBtn = section.querySelector("#productPrevBtn");
+      const nextBtn = section.querySelector("#productNextBtn");
+
+      if (!track || !prevBtn || !nextBtn) return;
+
+      let currentIndex = 0;
+
+      function getVisibleCards() {
+        if (window.innerWidth >= 1024) return 4;
+        if (window.innerWidth >= 640) return 2;
+        return 1;
+      }
+
+      function getStep() {
+        const firstCard = track.children[0];
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return firstCard.offsetWidth + gap;
+      }
+
+      function updateSlider() {
+        const totalCards = track.children.length;
+        const visibleCards = getVisibleCards();
+        const maxIndex = Math.max(totalCards - visibleCards, 0);
+
+        currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex);
+
+        track.style.transform = `translateX(-${currentIndex * getStep()}px)`;
+
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === maxIndex;
+      }
+
+      nextBtn.addEventListener("click", function () {
+        const visibleCards = getVisibleCards();
+        const totalCards = track.children.length;
+        const maxIndex = Math.max(totalCards - visibleCards, 0);
+
+        currentIndex = Math.min(currentIndex + visibleCards, maxIndex);
+        updateSlider();
+      });
+
+      prevBtn.addEventListener("click", function () {
+        const visibleCards = getVisibleCards();
+
+        currentIndex = Math.max(currentIndex - visibleCards, 0);
+        updateSlider();
+      });
+
+      window.addEventListener("resize", updateSlider);
+      updateSlider();
+    }
+
     async function loadComponents() {
       const navbar = await fetch("components/navbar.html");
       document.getElementById("navbar").innerHTML = await navbar.text();
@@ -54,10 +147,16 @@
       document.getElementById("trainingCalendar").innerHTML =
         await trainingCalendar.text();
 
-
       const bestSellers = await fetch("components/best-sellers.html");
       document.getElementById("best-sellers").innerHTML =
         await bestSellers.text();
+
+      const productSlider = await fetch("components/slider.html");
+      document.getElementById("productSlider").innerHTML =
+        await productSlider.text();
+
+      // Product card slider starts AFTER slider.html is loaded
+      initProductSlider();
 
       const takeMoment = await fetch("components/take-moment.html");
       document.getElementById("takeMoment").innerHTML =
@@ -67,21 +166,24 @@
       document.getElementById("videoSection").innerHTML =
         await videoSection.text();
 
+      const homeReadMore = await fetch("components/home-readmore.html");
+      document.getElementById("homeReadMore").innerHTML =
+        await homeReadMore.text();
+
+      const blogNews = await fetch("components/blog-news.html");
+      document.getElementById("blogNews").innerHTML = await blogNews.text();
 
       const faq = await fetch("components/faq.html");
       document.getElementById("faq").innerHTML = await faq.text();
 
-      
       const footer = await fetch("components/footer.html");
       document.getElementById("footer").innerHTML = await footer.text();
 
       // Icons render AFTER components load
       lucide.createIcons();
 
-      // Extra scripts
-      const sliderScript = document.createElement("script");
-      sliderScript.src = "assets/js/slider.js";
-      document.body.appendChild(sliderScript);
+      // FAQ works AFTER faq.html loads
+      initFAQ();
 
       const cartScript = document.createElement("script");
       cartScript.src = "assets/js/cart.js";

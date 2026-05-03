@@ -1,0 +1,102 @@
+<header class="absolute top-0 left-0 w-full z-50">
+  <div class="px-10 py-7 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="/" class="block">
+      <img src="assets/images/CLS-SECURITY-NEW-LOGO-2024.png" alt="Logo" class="w-[130px] h-auto object-contain" />
+    </a>
+    <!-- <div >
+      <h1 class="text-4xl font-black leading-none">PORTO</h1>
+      <p class="text-sm text-gray-400 text-center -mt-1">eCommerce</p>
+    </div> -->
+
+    <nav class="hidden lg:flex items-center gap-8 text-sm font-bold">
+      <a href="/">HOME</a>
+      <a href="#">CATEGORIES</a>
+      <a href="/shop.html">PRODUCTS</a>
+      <!-- <a href="#">PRODUCTS ▼</a> -->
+      <a href="#">PAGES</a>
+      <a href="#">FEATURES</a>
+      <a href="#">BLOG</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+    <div class="flex items-center gap-6">
+
+      <!-- Search -->
+      <i data-lucide="search" class="w-6 h-6"></i>
+
+      <!-- User -->
+      <!-- <i data-lucide="user" class="w-6 h-6"></i> -->
+      <!-- User / Login -->
+      <a href="/login.html" class="inline-flex items-center">
+        <i data-lucide="user" class="w-6 h-6"></i>
+      </a>
+
+      <!-- Wishlist -->
+      <i data-lucide="heart" class="w-6 h-6"></i>
+
+      <!-- Cart -->
+      <button id="cartButton" type="button" class="relative">
+        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+
+        <span id="cartCount"
+          class="absolute -top-2 -right-3 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+          0
+        </span>
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+<!-- Cart Overlay -->
+<div id="cartOverlay" class="fixed inset-0 bg-black/40 z-[90] hidden"></div>
+
+<!-- Cart Drawer -->
+<aside id="cartDrawer"
+  class="fixed top-0 right-0 w-[320px] max-w-full h-screen bg-white z-[100] translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
+
+  <!-- Drawer Header -->
+  <div class="bg-[#36aeb3] text-white px-4 py-3 flex items-center justify-between">
+    <h2 class="text-xl font-bold">Einkaufswagen</h2>
+
+    <button id="cartClose" type="button" class="text-white">
+      <i data-lucide="x" class="w-7 h-7"></i>
+    </button>
+  </div>
+
+  <!-- Item Count -->
+  <div class="px-4 py-3 text-[#007c89] text-sm font-semibold border-b">
+    <span id="cartDrawerCount">0 Stück</span>
+  </div>
+
+  <!-- Cart Items -->
+  <div id="cartItems" class="flex-1 overflow-y-auto px-4 py-4">
+    <p class="text-sm text-gray-500">Your cart is empty.</p>
+  </div>
+
+  <!-- Cart Footer -->
+  <div class="border-t bg-white px-4 py-4">
+    <div class="flex items-start justify-between mb-4">
+      <p class="text-[#007c89] font-bold">SUMME:</p>
+
+      <div class="text-right">
+        <p id="cartTotal" class="font-bold text-lg">0,00 €</p>
+        <p id="cartNetTotal" class="text-xs text-gray-500">( Netto : 0,00 € )</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <a href="cart.html" class="bg-[#36aeb3] text-white py-3 text-center font-bold skew-x-[-10deg]">
+        <span class="inline-block skew-x-[10deg]">Warenkorb</span>
+      </a>
+
+      <a href="checkout.html" class="bg-gray-600 text-white py-3 text-center font-bold skew-x-[-10deg]">
+        <span class="inline-block skew-x-[10deg]">Kasse</span>
+      </a>
+    </div>
+  </div>
+
+</aside>
