@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Customer Login</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-[#222]">
+
+    <!-- Navbar -->
+    <div id="navbar"></div>
+
+    <!-- Space because your navbar is absolute -->
+    <div class="h-[120px]"></div>
+
+    <!-- Page Title -->
+    <section class="bg-[#f4f4f4] py-16">
+        <div class="max-w-[1200px] mx-auto px-6 text-center">
+            <h1 class="text-3xl font-extrabold text-[#222]">
+                Customer Login
+            </h1>
+        </div>
+    </section>
+
+    <!-- Login Form -->
+    <section class="py-12 bg-white">
+        <div class="max-w-[600px] mx-auto px-6">
+
+            <h2 class="text-2xl font-extrabold mb-4">
+                Registered Customers
+            </h2>
+
+            <p class="text-sm text-gray-500 mb-6">
+                If you have an account, sign in with your email address.
+            </p>
+
+            <form action="#" method="POST">
+
+                <!-- Email -->
+                <div class="mb-5">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                        Email <span class="text-red-500">*</span>
+                    </label>
+
+                    <input type="email" id="email" name="email" required
+                        class="w-full h-[52px] border border-gray-300 px-4 outline-none focus:border-[#36aeb3]" />
+                </div>
+
+                <!-- Password -->
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                        Password <span class="text-red-500">*</span>
+                    </label>
+
+                    <input type="password" id="password" name="password" required
+                        class="w-full h-[52px] border border-gray-300 px-4 outline-none focus:border-[#36aeb3]" />
+                </div>
+
+                <!-- Forgot Password -->
+                <div class="mb-5">
+                    <a href="#" class="text-sm font-semibold text-black hover:text-[#36aeb3]">
+                        Forgot Your Password?
+                    </a>
+                </div>
+
+                <!-- Sign In -->
+                <button type="submit"
+                    class="w-full bg-[#22272b] text-white py-4 text-sm font-extrabold uppercase hover:bg-[#36aeb3] transition">
+                    Sign In
+                </button>
+
+                <!-- Create Account -->
+                <!-- Create Account -->
+                <a href="create-account.html"
+                    class="block w-full bg-[#22272b] text-white py-4 text-center text-sm font-extrabold uppercase mt-6 hover:bg-[#36aeb3] transition">
+                    Create An Account
+                </a>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        async function loadComponents() {
+            const navbar = await fetch("components/navbar.html");
+            document.getElementById("navbar").innerHTML = await navbar.text();
+
+            const footer = await fetch("components/footer.html");
+            document.getElementById("footer").innerHTML = await footer.text();
+
+            lucide.createIcons();
+
+            const cartScript = document.createElement("script");
+            cartScript.src = "assets/js/cart.js";
+            document.body.appendChild(cartScript);
+        }
+
+        loadComponents();
+    </script>
+
+</body>
+
+</html>

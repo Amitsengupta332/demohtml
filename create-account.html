@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Create New Customer Account</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-[#222]">
+
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Space because navbar is absolute -->
+  <div class="h-[120px]"></div>
+
+  <!-- Page Title -->
+  <section class="bg-[#f4f4f4] py-16">
+    <div class="max-w-[1200px] mx-auto px-6 text-center">
+      <h1 class="text-3xl font-extrabold text-[#222]">
+        Create New Customer Account
+      </h1>
+    </div>
+  </section>
+
+  <!-- Create Account Form -->
+  <section class="py-12 bg-white">
+    <div class="max-w-[950px] mx-auto px-6">
+
+      <form action="#" method="POST">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+          <!-- Personal Information -->
+          <div>
+            <h2 class="text-2xl font-extrabold mb-5">
+              Personal Information
+            </h2>
+
+            <!-- First Name -->
+            <div class="mb-5">
+              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
+                First Name <span class="text-red-500">*</span>
+              </label>
+
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+                class="w-full h-[52px] border border-gray-300 px-4 outline-none focus:border-[#36aeb3]"
+              />
+            </div>
+
+            <!-- Last Name -->
+            <div class="mb-4">
+              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
+                Last Name <span class="text-red-500">*</span>
+              </label>
+
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                class="w-full h-[52px] border border-gray-300 px-4 outline-none focus:border-[#36aeb3]"
+              />
+            </div>
+
+            <!-- Newsletter -->
+            <label class="inline-flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+              <input
+                type="checkbox"
+                name="newsletter"
+                class="w-4 h-4 border border-gray-300"
+              />
+              <span>Sign Up for Newsletter</span>
+            </label>
+          </div>
+
+          <!-- Sign-in Information -->
+          <div>
+            <h2 class="text-2xl font-extrabold mb-5">
+              Sign-in Information
+            </h2>
+
+            <!-- Email -->
+            <div class="mb-5">
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                Email <span class="text-red-500">*</span>
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full h-[52px] border border-gray-300 px-4 outline-none focus:border-[#36aeb3]"
+              />
+            </div>
+
+            <!-- Password -->
+            <div class="mb-2">
+              <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                Password <span class="text-red-500">*</span>
+              </label>
+
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                class="w-full h-[52px] border border-gray-300 px-4 outline-none focus:border-[#36aeb3]"
+              />
+            </div>
+
+            <p id="passwordStrength" class="text-sm text-gray-500 mb-5">
+              Password Strength: No Password
+            </p>
+
+            <!-- Confirm Password -->
+            <div class="mb-5">
+              <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">
+                Confirm Password <span class="text-red-500">*</span>
+              </label>
+
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                required
+                class="w-full h-[52px] border border-gray-300 px-4 outline-none focus:border-[#36aeb3]"
+              />
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Button -->
+        <div class="mt-8 w-full lg:w-[450px]">
+          <button
+            type="submit"
+            class="w-full bg-[#22272b] text-white py-4 text-sm font-extrabold uppercase hover:bg-[#36aeb3] transition"
+          >
+            Create An Account
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    async function loadComponents() {
+      const navbar = await fetch("components/navbar.html");
+      document.getElementById("navbar").innerHTML = await navbar.text();
+
+      const footer = await fetch("components/footer.html");
+      document.getElementById("footer").innerHTML = await footer.text();
+
+      lucide.createIcons();
+
+      const cartScript = document.createElement("script");
+      cartScript.src = "assets/js/cart.js";
+      document.body.appendChild(cartScript);
+    }
+
+    loadComponents();
+
+    // Simple password strength text
+    const passwordInput = document.getElementById("password");
+    const strengthText = document.getElementById("passwordStrength");
+
+    passwordInput.addEventListener("input", function () {
+      const value = passwordInput.value;
+
+      if (value.length === 0) {
+        strengthText.textContent = "Password Strength: No Password";
+      } else if (value.length < 6) {
+        strengthText.textContent = "Password Strength: Weak";
+      } else if (value.length < 10) {
+        strengthText.textContent = "Password Strength: Medium";
+      } else {
+        strengthText.textContent = "Password Strength: Strong";
+      }
+    });
+  </script>
+
+</body>
+
+</html>

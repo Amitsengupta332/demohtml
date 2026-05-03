@@ -1,10 +1,14 @@
 <header class="absolute top-0 left-0 w-full z-50">
   <div class="px-10 py-7 flex items-center justify-between">
 
-    <div >
+    <!-- Logo -->
+    <a href="/" class="block">
+      <img src="assets/images/CLS-SECURITY-NEW-LOGO-2024.png" alt="Logo" class="w-[130px] h-auto object-contain" />
+    </a>
+    <!-- <div >
       <h1 class="text-4xl font-black leading-none">PORTO</h1>
       <p class="text-sm text-gray-400 text-center -mt-1">eCommerce</p>
-    </div>
+    </div> -->
 
     <nav class="hidden lg:flex items-center gap-8 text-sm font-bold">
       <a href="/">HOME</a>
@@ -23,7 +27,11 @@
       <i data-lucide="search" class="w-6 h-6"></i>
 
       <!-- User -->
-      <i data-lucide="user" class="w-6 h-6"></i>
+      <!-- <i data-lucide="user" class="w-6 h-6"></i> -->
+      <!-- User / Login -->
+      <a href="/login.html" class="inline-flex items-center">
+        <i data-lucide="user" class="w-6 h-6"></i>
+      </a>
 
       <!-- Wishlist -->
       <i data-lucide="heart" class="w-6 h-6"></i>
@@ -81,13 +89,11 @@
     </div>
 
     <div class="grid grid-cols-2 gap-4">
-      <a href="cart.html"
-        class="bg-[#36aeb3] text-white py-3 text-center font-bold skew-x-[-10deg]">
+      <a href="cart.html" class="bg-[#36aeb3] text-white py-3 text-center font-bold skew-x-[-10deg]">
         <span class="inline-block skew-x-[10deg]">Warenkorb</span>
       </a>
 
-      <a href="checkout.html"
-        class="bg-gray-600 text-white py-3 text-center font-bold skew-x-[-10deg]">
+      <a href="checkout.html" class="bg-gray-600 text-white py-3 text-center font-bold skew-x-[-10deg]">
         <span class="inline-block skew-x-[10deg]">Kasse</span>
       </a>
     </div>
