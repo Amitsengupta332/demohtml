@@ -15,8 +15,8 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
-D
-  <title>Cls Security </title>
+
+  <title>Cls Security</title>
 </head>
 
 <body>
@@ -40,6 +40,155 @@ D
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
+    function initNavbarMenu() {
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      if (!mobileMenuButton || !mobileMenu) return;
+
+      mobileMenuButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      mobileMenu.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+
+      document.addEventListener("click", function () {
+        mobileMenu.classList.add("hidden");
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 1024) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+    }
+
+    function initHeroSlider() {
+      const slider = document.getElementById("slider");
+      const prevBtn = document.getElementById("heroPrevBtn");
+      const nextBtn = document.getElementById("heroNextBtn");
+
+      if (!slider) return;
+
+      const totalSlides = slider.children.length;
+      let currentSlide = 0;
+      let autoSlide = null;
+
+      function showSlide(index) {
+        if (index < 0) {
+          currentSlide = totalSlides - 1;
+        } else if (index >= totalSlides) {
+          currentSlide = 0;
+        } else {
+          currentSlide = index;
+        }
+
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      function prevSlide() {
+        showSlide(currentSlide - 1);
+      }
+
+      function startAutoSlide() {
+        stopAutoSlide();
+        autoSlide = setInterval(nextSlide, 5000);
+      }
+
+      function stopAutoSlide() {
+        if (autoSlide) {
+          clearInterval(autoSlide);
+        }
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          nextSlide();
+          startAutoSlide();
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          prevSlide();
+          startAutoSlide();
+        });
+      }
+
+      let startX = 0;
+      let endX = 0;
+
+      slider.addEventListener("touchstart", function (e) {
+        startX = e.touches[0].clientX;
+        endX = startX;
+        stopAutoSlide();
+      }, { passive: true });
+
+      slider.addEventListener("touchmove", function (e) {
+        endX = e.touches[0].clientX;
+      }, { passive: true });
+
+      slider.addEventListener("touchend", function () {
+        const diff = startX - endX;
+
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+
+        startAutoSlide();
+      });
+
+      const translations = {
+        de: {
+          slide1_title: "Moderne Sicherheitstechnologie",
+          slide1_product: "Überwachungskameras",
+          slide2_title: "Zutrittskontrollsysteme",
+          slide2_subtitle: "Moderne Zugangssicherheit",
+          shop: "JETZT KAUFEN",
+          shop_arrow: "JETZT KAUFEN →"
+        },
+        en: {
+          slide1_title: "Modern Security Technology",
+          slide1_product: "Surveillance Cameras",
+          slide2_title: "Access Control Systems",
+          slide2_subtitle: "Modern Access Security",
+          shop: "SHOP NOW",
+          shop_arrow: "SHOP NOW →"
+        }
+      };
+
+      function setLanguage(lang) {
+        document.querySelectorAll("[data-key]").forEach((el) => {
+          const key = el.getAttribute("data-key");
+
+          if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+          }
+        });
+      }
+
+      setLanguage("de");
+      showSlide(0);
+      startAutoSlide();
+
+      window.nextSlide = nextSlide;
+      window.prevSlide = prevSlide;
+      window.setLanguage = setLanguage;
+    }
+
     function initFAQ() {
       const faqToggles = document.querySelectorAll(".faq-toggle");
 
@@ -63,6 +212,8 @@ D
     function toggleHomeReadMoreText() {
       const textBox = document.getElementById("homeReadMoreText");
       const button = document.getElementById("homeReadMoreBtn");
+
+      if (!textBox || !button) return;
 
       textBox.classList.toggle("hidden");
 
@@ -93,6 +244,8 @@ D
 
       function getStep() {
         const firstCard = track.children[0];
+        if (!firstCard) return 0;
+
         const gap = parseFloat(getComputedStyle(track).gap) || 0;
         return firstCard.offsetWidth + gap;
       }
@@ -137,6 +290,9 @@ D
       const hero = await fetch("components/hero.html");
       document.getElementById("hero").innerHTML = await hero.text();
 
+      /* HERO SLIDER STARTS AFTER hero.html IS LOADED */
+      initHeroSlider();
+
       // const banner = await fetch("components/banner-section.html");
       // document.getElementById("banner").innerHTML = await banner.text();
 
@@ -155,7 +311,6 @@ D
       document.getElementById("productSlider").innerHTML =
         await productSlider.text();
 
-      // Product card slider starts AFTER slider.html is loaded
       initProductSlider();
 
       const takeMoment = await fetch("components/take-moment.html");
@@ -179,10 +334,11 @@ D
       const footer = await fetch("components/footer.html");
       document.getElementById("footer").innerHTML = await footer.text();
 
-      // Icons render AFTER components load
-      lucide.createIcons();
+      if (window.lucide) {
+        lucide.createIcons();
+      }
 
-      // FAQ works AFTER faq.html loads
+      initNavbarMenu();
       initFAQ();
 
       const cartScript = document.createElement("script");

@@ -42,76 +42,19 @@
 </head>
 
 <body class="bg-white text-[#222]">
-
-  <!-- TOP BAR -->
-  <div class="bg-[#f7eee9] text-[11px]">
-    <div class="max-w-[1320px] mx-auto px-8 h-9 flex items-center justify-between">
-      <div class="flex items-center gap-5">
-        <a href="#">f</a>
-        <a href="#">x</a>
-        <a href="#">◎</a>
-      </div>
-
-      <p>
-        Sale up to <strong>50% OFF</strong> on selected items +
-      </p>
-
-      <div class="flex items-center gap-5">
-        <button type="button">USD⌄</button>
-        <button type="button">ENG⌄</button>
-        <a href="#">ⓘ Need Help?</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- HEADER -->
-  <!-- HEADER -->
-  <header class="bg-white">
-    <div class="max-w-[1320px] mx-auto px-8 h-20 grid grid-cols-[1fr_auto_1fr] items-center">
-
-      <!-- Left Search -->
-      <div class="flex items-center gap-3 w-[260px] justify-self-start">
-        <i data-lucide="search" class="w-5 h-5"></i>
-        <input type="text" placeholder="Search for Products..."
-          class="text-xs outline-none w-full placeholder:text-gray-400" />
-      </div>
-
-      <!-- Center Logo -->
-      <a href="index.html" class="block justify-self-center">
-        <img src="assets/images/CLS-SECURITY-NEW-LOGO-2024.png" alt="CLS Security Logo"
-          class="w-[130px] h-auto object-contain" />
-      </a>
-
-      <!-- Right Icons -->
-      <div class="flex items-center gap-6 justify-self-end">
-        <a href="login.html" class="inline-flex items-center">
-          <i data-lucide="user" class="w-6 h-6"></i>
-        </a>
-
-        <i data-lucide="heart" class="w-5 h-5"></i>
-
-        <button id="cartButton" type="button" class="relative">
-          <i data-lucide="shopping-cart" class="w-5 h-5"></i>
-
-          <span id="cartCount"
-            class="absolute -top-2 -right-3 bg-black text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
-            0
-          </span>
-        </button>
-      </div>
-
-    </div>
-  </header>
+  <!-- Navbar Component -->
+  <div id="navbar"></div>
 
   <!-- PRODUCTS HERO IMAGE -->
-  <section class="h-[300px] bg-cover bg-center" style="background-image: url('assets/images/products_02.jpg');">
+  <section class="h-[220px] sm:h-[260px] md:h-[300px] bg-cover bg-center"
+    style="background-image: url('assets/images/products_02.jpg');">
     <div class="h-full bg-black/10 flex items-center">
-      <div class="max-w-[1320px] mx-auto px-8 w-full text-white">
-        <h1 class="text-5xl font-semibold tracking-wide mb-5">
+      <div class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 w-full text-white">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-wide mb-3 sm:mb-5">
           PRODUCTS
         </h1>
 
-        <p class="text-2xl font-light">
+        <p class="text-base sm:text-xl md:text-2xl font-light max-w-[850px]">
           Innovative Technology | Reliable Quality | End-to-End Service
         </p>
       </div>
@@ -119,30 +62,30 @@
   </section>
 
   <!-- READ MORE TEXT SECTION -->
-  <section class="bg-white px-8 py-10">
+  <section class="bg-white px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
     <div class="max-w-[1320px] mx-auto">
-      <h2 class="text-4xl font-bold text-[#003b73] mb-4">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#003b73] mb-4">
         Build Your Own Custom PC
       </h2>
 
-      <p class="text-lg leading-8 text-[#111] mb-3">
+      <p class="text-base sm:text-lg leading-7 sm:leading-8 text-[#111] mb-3">
         With the CSL PC Configurator, you can precisely tailor your individual desktop system to your requirements.
         Whether you want a powerful gaming PC, an efficient office PC, or an especially quiet silent system – you retain
         full control over hardware, design, and performance.
       </p>
 
       <div id="readMoreText" class="hidden">
-        <p class="text-lg leading-8 text-[#111] mb-3">
+        <p class="text-base sm:text-lg leading-7 sm:leading-8 text-[#111] mb-3">
           Professional assembly and comprehensive testing of your fully assembled PC system is
           <strong>free of charge!</strong>
         </p>
 
-        <p class="text-lg leading-8 text-[#111] mb-3">
+        <p class="text-base sm:text-lg leading-7 sm:leading-8 text-[#111] mb-3">
           We offer a wide selection of pre-configured PC systems, but sometimes you need something special:
           a PC with specific desired components tailored to your personal requirements.
         </p>
 
-        <p class="text-lg leading-8 text-[#111] mb-5">
+        <p class="text-base sm:text-lg leading-7 sm:leading-8 text-[#111] mb-5">
           The CSL PC Configurator is designed for this – here you can configure your own PC system precisely.
           <strong>Create your custom dream system!</strong>
         </p>
@@ -155,54 +98,9 @@
     </div>
   </section>
 
-  <!-- CART OVERLAY -->
-  <div id="cartOverlay" class="fixed inset-0 bg-black/40 z-[90] hidden"></div>
-
-  <!-- CART DRAWER -->
-  <aside id="cartDrawer"
-    class="fixed top-0 right-0 w-[320px] max-w-full h-screen bg-white z-[100] translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
-
-    <div class="bg-[#36aeb3] text-white px-4 py-3 flex items-center justify-between">
-      <h2 class="text-xl font-bold">Einkaufswagen</h2>
-
-      <button id="cartClose" type="button" class="text-white">
-        <i data-lucide="x" class="w-7 h-7"></i>
-      </button>
-    </div>
-
-    <div class="px-4 py-3 text-[#007c89] text-sm font-semibold border-b">
-      <span id="cartDrawerCount">0 Stück</span>
-    </div>
-
-    <div id="cartItems" class="flex-1 overflow-y-auto px-4 py-4">
-      <p class="text-sm text-gray-500">Your cart is empty.</p>
-    </div>
-
-    <div class="border-t bg-white px-4 py-4">
-      <div class="flex items-start justify-between mb-4">
-        <p class="text-[#007c89] font-bold">SUMME:</p>
-
-        <div class="text-right">
-          <p id="cartTotal" class="font-bold text-lg">0,00 €</p>
-          <p id="cartNetTotal" class="text-xs text-gray-500">( Netto : 0,00 € )</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-2 gap-4">
-        <a href="cart.html" class="bg-[#36aeb3] text-white py-3 text-center font-bold skew-x-[-10deg]">
-          <span class="inline-block skew-x-[10deg]">Warenkorb</span>
-        </a>
-
-        <a href="checkout.html" class="bg-gray-600 text-white py-3 text-center font-bold skew-x-[-10deg]">
-          <span class="inline-block skew-x-[10deg]">Kasse</span>
-        </a>
-      </div>
-    </div>
-  </aside>
-
   <!-- MAIN SHOP CONTENT -->
-  <main class="max-w-[1320px] mx-auto px-8 py-14">
-    <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-10">
+  <main class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-14">
+    <div class="grid grid-cols-1 lg:grid-cols-[260px_1fr] gap-8 lg:gap-10">
 
       <!-- SIDEBAR -->
       <aside class="hidden lg:block">
@@ -332,7 +230,7 @@
         </div>
 
         <!-- More Brands -->
-        <div class="filter-section pt-40">
+        <div class="filter-section pt-10 lg:pt-40">
           <button type="button" class="filter-toggle w-full flex items-center justify-between mb-5">
             <h3 class="text-sm font-bold">More Brands</h3>
             <span class="filter-icon font-bold">−</span>
@@ -382,17 +280,17 @@
 
       <!-- PRODUCTS -->
       <section>
-        <div class="flex items-center justify-between mb-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
           <p class="text-sm text-gray-500">Showing 1–9 of 17 results</p>
 
-          <div class="flex items-center gap-3">
-            <select class="bg-[#f8f8f8] text-xs px-4 py-3 outline-none">
+          <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+            <select class="bg-[#f8f8f8] text-xs px-3 sm:px-4 py-3 outline-none flex-1 sm:flex-none min-w-[145px]">
               <option>Default Sorting</option>
               <option>Sort by price</option>
               <option>Sort by latest</option>
             </select>
 
-            <select class="bg-[#f8f8f8] text-xs px-4 py-3 outline-none">
+            <select class="bg-[#f8f8f8] text-xs px-3 sm:px-4 py-3 outline-none">
               <option>9</option>
               <option>12</option>
               <option>18</option>
@@ -413,10 +311,10 @@
 
           <!-- Product 1 -->
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-            <div class="relative h-[300px] flex items-center justify-center bg-white">
+            <div class="relative h-[260px] sm:h-[280px] lg:h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=8">
-                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png" class="h-[210px] object-contain"
-                  alt="Clarins Sos Primer Matifying" />
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+                  class="h-[180px] sm:h-[200px] lg:h-[210px] object-contain" alt="Clarins Sos Primer Matifying" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -432,7 +330,7 @@
               </div>
 
               <button type="button"
-                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
+                class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
                 data-id="8" data-name="Clarins Sos Primer Matifying 30ml" data-price="27.00"
                 data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
                 ADD TO CART
@@ -451,10 +349,10 @@
 
           <!-- Product 2 -->
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-            <div class="relative h-[300px] flex items-center justify-center bg-white">
+            <div class="relative h-[260px] sm:h-[280px] lg:h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=6">
                 <img src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
-                  class="h-[210px] object-contain" alt="Dermalogica Invisible Physical" />
+                  class="h-[180px] sm:h-[200px] lg:h-[210px] object-contain" alt="Dermalogica Invisible Physical" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -470,7 +368,7 @@
               </div>
 
               <button type="button"
-                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
+                class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
                 data-id="6" data-name="Dermalogica Intensive Moisture Balance" data-price="15.00"
                 data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
                 ADD TO CART
@@ -493,10 +391,10 @@
               -50%
             </span>
 
-            <div class="relative h-[300px] flex items-center justify-center bg-white">
+            <div class="relative h-[260px] sm:h-[280px] lg:h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=7">
                 <img src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
-                  class="h-[210px] object-contain" alt="Yves Saint Laurent Luxurious" />
+                  class="h-[180px] sm:h-[200px] lg:h-[210px] object-contain" alt="Yves Saint Laurent Luxurious" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -512,7 +410,7 @@
               </div>
 
               <button type="button"
-                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
+                class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
                 data-id="7" data-name="Yves Saint Laurent Luxurious Volume" data-price="9.00"
                 data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
                 ADD TO CART
@@ -534,10 +432,10 @@
 
           <!-- Product 4 -->
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-            <div class="relative h-[300px] flex items-center justify-center bg-white">
+            <div class="relative h-[260px] sm:h-[280px] lg:h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=1">
-                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png" class="h-[210px] object-contain"
-                  alt="Hourglass Ambient Lighting" />
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+                  class="h-[180px] sm:h-[200px] lg:h-[210px] object-contain" alt="Hourglass Ambient Lighting" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -553,7 +451,7 @@
               </div>
 
               <button type="button"
-                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
+                class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
                 data-id="1" data-name="Hourglass Ambient Lighting Bronzer" data-price="12.00"
                 data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
                 ADD TO CART
@@ -572,10 +470,10 @@
 
           <!-- Product 5 -->
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-            <div class="relative h-[300px] flex items-center justify-center bg-white">
+            <div class="relative h-[260px] sm:h-[280px] lg:h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=5">
-                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png" class="h-[210px] object-contain"
-                  alt="Clarins Natural Lip Perfector" />
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+                  class="h-[180px] sm:h-[200px] lg:h-[210px] object-contain" alt="Clarins Natural Lip Perfector" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -591,7 +489,7 @@
               </div>
 
               <button type="button"
-                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
+                class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
                 data-id="5" data-name="Clarins Natural Lip Perfector 12ml" data-price="16.00"
                 data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
                 ADD TO CART
@@ -610,10 +508,10 @@
 
           <!-- Product 6 -->
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-            <div class="relative h-[300px] flex items-center justify-center bg-white">
+            <div class="relative h-[260px] sm:h-[280px] lg:h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=3">
                 <img src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
-                  class="h-[210px] object-contain" alt="Yves Saint Laurent Touche" />
+                  class="h-[180px] sm:h-[200px] lg:h-[210px] object-contain" alt="Yves Saint Laurent Touche" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -629,7 +527,7 @@
               </div>
 
               <button type="button"
-                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
+                class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
                 data-id="3" data-name="Yves Saint Laurent Touche Eclat" data-price="23.00"
                 data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
                 ADD TO CART
@@ -648,10 +546,10 @@
 
           <!-- Product 7 -->
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-            <div class="relative h-[300px] flex items-center justify-center bg-white">
+            <div class="relative h-[260px] sm:h-[280px] lg:h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=2">
-                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png" class="h-[210px] object-contain"
-                  alt="Hourglass Veil Hydrating" />
+                <img src="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png"
+                  class="h-[180px] sm:h-[200px] lg:h-[210px] object-contain" alt="Hourglass Veil Hydrating" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -667,7 +565,7 @@
               </div>
 
               <button type="button"
-                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
+                class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
                 data-id="2" data-name="Hourglass Veil Hydrating Skin Tint" data-price="35.00"
                 data-image="assets/images/f5d-pv-seite-wifi-puzzel_06c0mfdaupjslv7w.png">
                 ADD TO CART
@@ -686,10 +584,10 @@
 
           <!-- Product 8 -->
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-            <div class="relative h-[300px] flex items-center justify-center bg-white">
+            <div class="relative h-[260px] sm:h-[280px] lg:h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=4">
                 <img src="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png"
-                  class="h-[210px] object-contain" alt="Hourglass Sublime Blush" />
+                  class="h-[180px] sm:h-[200px] lg:h-[210px] object-contain" alt="Hourglass Sublime Blush" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -705,7 +603,7 @@
               </div>
 
               <button type="button"
-                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
+                class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
                 data-id="4" data-name="Clarins Lip Comfort Oil" data-price="20.00"
                 data-image="assets/images/ipc-k1430k-stw-wifi-puzzel_tl67ndcwcvazb7ff.png">
                 ADD TO CART
@@ -724,10 +622,10 @@
 
           <!-- Product 9 -->
           <div class="group bg-white border border-gray-100 text-center relative overflow-hidden">
-            <div class="relative h-[300px] flex items-center justify-center bg-white">
+            <div class="relative h-[260px] sm:h-[280px] lg:h-[300px] flex items-center justify-center bg-white">
               <a href="product.html?id=9">
-                <img src="assets/images/anviz_vp30_rfid_access_control.png" class="h-[210px] object-contain"
-                  alt="Mac Cosmetics Peachstock" />
+                <img src="assets/images/anviz_vp30_rfid_access_control.png"
+                  class="h-[180px] sm:h-[200px] lg:h-[210px] object-contain" alt="Mac Cosmetics Peachstock" />
               </a>
 
               <div class="absolute top-5 right-5 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition">
@@ -743,7 +641,7 @@
               </div>
 
               <button type="button"
-                class="add-to-cart absolute bottom-0 left-5 right-5 bg-black text-white py-4 text-sm font-bold tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
+                class="add-to-cart absolute bottom-0 left-4 sm:left-5 right-4 sm:right-5 bg-black text-white py-3 sm:py-4 text-xs sm:text-sm font-bold tracking-[0.18em] sm:tracking-[0.25em] opacity-0 group-hover:opacity-100 transition hover:bg-[#ead8c7] hover:text-black"
                 data-id="9" data-name="Mielle Rosemary Mint Strength" data-price="10.00"
                 data-image="assets/images/anviz_vp30_rfid_access_control.png">
                 ADD TO CART
@@ -762,7 +660,7 @@
 
         </div>
 
-        <div class="flex justify-end mt-12">
+        <div class="flex justify-center sm:justify-end mt-10 sm:mt-12">
           <div class="flex items-center gap-2">
             <a href="#" class="w-9 h-9 bg-black text-white flex items-center justify-center text-sm font-bold">1</a>
             <a href="#" class="w-9 h-9 bg-[#f4f4f4] flex items-center justify-center text-sm">2</a>
@@ -773,11 +671,10 @@
     </div>
   </main>
 
-
   <!-- FAQ SECTION -->
-  <section class="bg-white px-8 py-16">
+  <section class="bg-white px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
     <div class="max-w-[950px] mx-auto">
-      <h2 class="text-2xl font-semibold text-center mb-10">
+      <h2 class="text-xl sm:text-2xl font-semibold text-center mb-8 sm:mb-10">
         Häufig gestellte Fragen (FAQ)
       </h2>
 
@@ -785,14 +682,14 @@
 
         <!-- FAQ 1 -->
         <div class="faq-item border-b border-gray-300">
-          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
-            <span class="font-light text-base">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 py-5 text-left">
+            <span class="font-light text-sm sm:text-base">
               Was ist ein PC Konfigurator?
             </span>
-            <span class="faq-icon text-2xl font-bold">+</span>
+            <span class="faq-icon text-2xl font-bold shrink-0">+</span>
           </button>
 
-          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7 text-sm sm:text-base">
             Ein PC Konfigurator ist ein Online-Tool, mit dem Sie Ihren Computer
             individuell nach Ihren Anforderungen zusammenstellen können.
           </div>
@@ -800,14 +697,14 @@
 
         <!-- FAQ 2 -->
         <div class="faq-item border-b border-gray-300">
-          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
-            <span class="font-light text-base">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 py-5 text-left">
+            <span class="font-light text-sm sm:text-base">
               Wie kann ich meinen eigenen PC zusammenstellen?
             </span>
-            <span class="faq-icon text-2xl font-bold">+</span>
+            <span class="faq-icon text-2xl font-bold shrink-0">+</span>
           </button>
 
-          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7 text-sm sm:text-base">
             Sie können Komponenten wie Prozessor, Arbeitsspeicher, Grafikkarte,
             Speicher, Gehäuse und Betriebssystem auswählen und Ihr System Schritt
             für Schritt konfigurieren.
@@ -816,14 +713,14 @@
 
         <!-- FAQ 3 -->
         <div class="faq-item border-b border-gray-300">
-          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
-            <span class="font-light text-base">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 py-5 text-left">
+            <span class="font-light text-sm sm:text-base">
               Welche Komponenten sind beim PC konfigurieren am wichtigsten?
             </span>
-            <span class="faq-icon text-2xl font-bold">+</span>
+            <span class="faq-icon text-2xl font-bold shrink-0">+</span>
           </button>
 
-          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7 text-sm sm:text-base">
             Besonders wichtig sind Prozessor, Grafikkarte, Arbeitsspeicher,
             Mainboard, Netzteil und Speicher, da sie die Leistung und Stabilität
             des PCs stark beeinflussen.
@@ -832,14 +729,14 @@
 
         <!-- FAQ 4 -->
         <div class="faq-item border-b border-gray-300">
-          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
-            <span class="font-light text-base">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 py-5 text-left">
+            <span class="font-light text-sm sm:text-base">
               Worauf sollte man beim Zusammenbau eines PCs achten?
             </span>
-            <span class="faq-icon text-2xl font-bold">+</span>
+            <span class="faq-icon text-2xl font-bold shrink-0">+</span>
           </button>
 
-          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7 text-sm sm:text-base">
             Achten Sie auf die Kompatibilität der Komponenten, ausreichende
             Kühlung, ein passendes Netzteil und sauberes Kabelmanagement.
           </div>
@@ -847,14 +744,14 @@
 
         <!-- FAQ 5 -->
         <div class="faq-item border-b border-gray-300">
-          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
-            <span class="font-light text-base">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 py-5 text-left">
+            <span class="font-light text-sm sm:text-base">
               Wie lange dauert die Lieferung eines konfigurierten PCs?
             </span>
-            <span class="faq-icon text-2xl font-bold">+</span>
+            <span class="faq-icon text-2xl font-bold shrink-0">+</span>
           </button>
 
-          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7 text-sm sm:text-base">
             Die Lieferzeit hängt von Verfügbarkeit, Konfiguration und Versandart
             ab. In der Regel wird die voraussichtliche Lieferzeit während der
             Bestellung angezeigt.
@@ -863,14 +760,14 @@
 
         <!-- FAQ 6 -->
         <div class="faq-item border-b border-gray-300">
-          <button type="button" class="faq-toggle w-full flex items-center justify-between py-5 text-left">
-            <span class="font-light text-base">
+          <button type="button" class="faq-toggle w-full flex items-center justify-between gap-4 py-5 text-left">
+            <span class="font-light text-sm sm:text-base">
               Kann ich meinen PC später aufrüsten?
             </span>
-            <span class="faq-icon text-2xl font-bold">+</span>
+            <span class="faq-icon text-2xl font-bold shrink-0">+</span>
           </button>
 
-          <div class="faq-content hidden pb-5 text-gray-600 leading-7">
+          <div class="faq-content hidden pb-5 text-gray-600 leading-7 text-sm sm:text-base">
             Ja, viele PCs können später mit mehr Arbeitsspeicher, größerem
             Speicher, einer neuen Grafikkarte oder anderen Komponenten erweitert
             werden.
@@ -882,19 +779,22 @@
   </section>
 
   <!-- NEWSLETTER -->
-  <section class="bg-[#354049] py-28">
-    <div class="text-center max-w-[680px] mx-auto px-8">
-      <h2 class="text-4xl font-bold mb-8 text-white">Get 10% OFF in Your First Order</h2>
+  <section class="bg-[#354049] py-16 sm:py-20 lg:py-28">
+    <div class="text-center max-w-[680px] mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-white">
+        Get 10% OFF in Your First Order
+      </h2>
 
-      <div class="flex">
+      <div class="flex flex-col sm:flex-row">
         <input type="email" placeholder="E-mail" class="flex-1 h-14 px-6 text-sm outline-none" />
 
-        <button type="button" class="h-14 px-14 bg-[#222] text-white text-xs font-bold tracking-[0.25em]">
+        <button type="button"
+          class="h-14 px-8 sm:px-14 bg-[#222] text-white text-xs font-bold tracking-[0.2em] sm:tracking-[0.25em]">
           SUBSCRIBE
         </button>
       </div>
 
-      <p class="text-xs text-gray-200 mt-6">
+      <p class="text-xs text-gray-200 mt-6 leading-6">
         By subscribing, you agree to our
         <a href="#" class="underline">Terms of Use</a>
         and
@@ -904,11 +804,10 @@
   </section>
 
   <!-- FOOTER -->
-  <!-- Footer -->
   <div id="footer"></div>
 
   <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-    class="fixed bottom-5 right-5 w-10 h-10 bg-gray-700 text-white">
+    class="fixed bottom-5 right-5 w-10 h-10 bg-gray-700 text-white z-50">
     ⌃
   </button>
 
@@ -917,16 +816,86 @@
     lucide.createIcons();
   </script>
 
-  <!-- LOAD FOOTER COMPONENT -->
+  <!-- LOAD NAVBAR + FOOTER COMPONENTS -->
   <script>
-    async function loadFooter() {
-      const footer = await fetch("components/footer.html");
-      document.getElementById("footer").innerHTML = await footer.text();
+    async function loadComponent(targetId, componentPath) {
+      const target = document.getElementById(targetId);
+      if (!target) return;
 
-      lucide.createIcons();
+      try {
+        const response = await fetch(componentPath);
+
+        if (!response.ok) {
+          throw new Error(`Failed to load ${componentPath}`);
+        }
+
+        target.innerHTML = await response.text();
+      } catch (error) {
+        console.error(error);
+      }
     }
 
-    loadFooter();
+    function initNavbarMenu() {
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        mobileMenu.addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+
+        document.addEventListener("click", function () {
+          mobileMenu.classList.add("hidden");
+        });
+
+        window.addEventListener("resize", function () {
+          if (window.innerWidth >= 1024) {
+            mobileMenu.classList.add("hidden");
+          }
+        });
+      }
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    function loadScriptOnce(scriptPath) {
+      return new Promise(function (resolve, reject) {
+        if (document.querySelector(`script[src="${scriptPath}"]`)) {
+          resolve();
+          return;
+        }
+
+        const script = document.createElement("script");
+        script.src = scriptPath;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.body.appendChild(script);
+      });
+    }
+
+    async function loadPageComponents() {
+      await loadComponent("navbar", "components/navbar.html");
+      await loadComponent("footer", "components/footer.html");
+
+      initNavbarMenu();
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+
+      await loadScriptOnce("assets/js/cart.js");
+    }
+
+    loadPageComponents();
   </script>
 
   <!-- READ MORE FUNCTIONALITY -->
@@ -1077,8 +1046,6 @@
     initFAQ();
   </script>
 
-  <!-- CART FUNCTIONALITY - keep only once -->
-  <script src="assets/js/cart.js"></script>
-
 </body>
+
 </html>

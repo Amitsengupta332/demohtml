@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Über uns - CLS-Computer</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+          },
+          colors: {
+            primary: "#00718a",
+            dark: "#0f1a20",
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-white font-poppins text-[#5f6f78]">
+
+  <!-- Your Navbar Component -->
+  <div id="navbar"></div>
+
+  <!-- Spacer if navbar is fixed/absolute -->
+  <div class="h-[105px]"></div>
+
+  <!-- About Us Content -->
+  <main class="w-full bg-white">
+    <section class="px-4 sm:px-6 lg:px-8 pb-12">
+      <div class="max-w-[1320px] mx-auto">
+
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-[11px] sm:text-xs text-gray-500 mb-6">
+          <a href="index.html" class="font-semibold text-[#263238] hover:text-primary transition">
+            CLS-Computer
+          </a>
+          <span>›</span>
+          <span>Unser-unternehmen</span>
+        </div>
+
+        <!-- Page Title -->
+        <h1 class="text-[22px] sm:text-[28px] lg:text-[34px] font-bold text-[#2b2f32] leading-tight mb-6">
+          CLS-Computer – Ihr IT-Partner in Mannheim seit 1993
+        </h1>
+
+        <!-- Hero Image -->
+        <div class="w-full mb-7">
+          <img
+            src="assets/images/Team-Photo-2026-Edition.avif"
+            alt="CLS-Computer Team"
+            class="w-full h-auto object-cover border border-gray-100"
+          />
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="space-y-8 text-[13px] sm:text-[14px] leading-[1.9]">
+
+          <!-- Block -->
+          <article class="border-b border-gray-200 pb-7">
+            <h2 class="text-[18px] sm:text-[21px] font-bold text-[#2b2f32] mb-3">
+              Tradition, Kompetenz und Innovation in der IT-Branche
+            </h2>
+
+            <p class="mb-3">
+              CLS-Computer wurde im Jahr 1993 in Mannheim gegründet. Der Name „CLS“ steht für „Clear screen“ –
+              ein Begriff aus dem Betriebssystem Microsoft DOS, der sinnbildlich für Klarheit, Effizienz und
+              technische Präzision steht.
+            </p>
+
+            <p class="mb-3">
+              Was einst als kleiner Ein-Mann-Betrieb in der Schwetzinger Straße begann, entwickelte sich schnell zu
+              einem etablierten Unternehmen im Bereich IT und Hardware. Von Anfang an lag der Fokus auf dem Verkauf
+              und der Reparatur von Hochleistungs-Computersystemen – verbunden mit einem kompromisslosen Anspruch
+              an Qualität und Service.
+            </p>
+
+            <p>
+              Durch einen stetig wachsenden Kundenstamm, faire Preise und zuverlässige Leistungen konnte sich
+              CLS-Computer früh am Markt behaupten. Bereits 1999 wurde das Unternehmen von der Fachzeitschrift
+              „PC-Bild“ als Testsieger ausgezeichnet – ein folgender von mehreren Auszeichnungen in renommierten
+              Fachmedien.
+            </p>
+          </article>
+
+          <!-- Block -->
+          <article class="border-b border-gray-200 pb-7">
+            <h2 class="text-[18px] sm:text-[21px] font-bold text-[#2b2f32] mb-3">
+              Wachstum & Weiterentwicklung – Vom Reparaturservice zum Systemhaus
+            </h2>
+
+            <p class="mb-3">
+              Mit den steigenden Anforderungen unserer Kunden ist auch die Expertise von CLS-Computer kontinuierlich
+              gewachsen.
+            </p>
+
+            <p class="mb-3">
+              Im Jahr 2006 eröffneten wir unsere Hauptfiliale in Mannheim-Käfertal und erweiterten unser Angebot um
+              professionelle Notebook-Reparaturen. Bereits zwei Jahre später folgte ein weiterer Meilenstein: Mit
+              unserer zentral gelegenen Filiale in der Mannheimer Innenstadt – direkt gegenüber dem Hauptbahnhof –
+              etablierten wir uns erfolgreich im Bereich PC-, Notebook-, Smartphone- und Tablet-Reparaturen.
+            </p>
+
+            <p>
+              Dank schneller Servicezeiten, hoher Qualität und einem engagierten Team entwickelte sich dieser Bereich
+              zu einer unserer Kernkompetenzen. Heute zählt CLS-Computer zu den führenden IT- und
+              Reparaturdienstleistern im Rhein-Neckar-Dreieck.
+            </p>
+          </article>
+
+          <!-- Block -->
+          <article class="border-b border-gray-200 pb-7">
+            <h2 class="text-[18px] sm:text-[21px] font-bold text-[#2b2f32] mb-3">
+              Mehr als Reparatur – Ganzheitliche B2B-IT-Lösungen
+            </h2>
+
+            <p class="mb-4">
+              CLS-Computer steht heute für umfassende IT-Lösungen. Neben Privatkunden betreuen wir zahlreiche
+              Unternehmen und öffentliche Einrichtungen im B2B-Bereich.
+            </p>
+
+            <h3 class="font-bold text-[#2b2f32] mb-3">Unsere Kernleistungen:</h3>
+
+            <ul class="space-y-2 mb-4">
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Netzwerk- und Serverlösungen für höchste Ausfallsicherheit</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Planung und Umsetzung kompletter IT-Infrastrukturen</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Individuelle IT-Beratung und langfristige Betreuung</span>
+              </li>
+            </ul>
+
+            <p>
+              Zu unseren Kunden zählen Behörden, Universitäten, Schulen, Polizeipräsidien, Feuerwehren, Arztpraxen,
+              Krankenhäuser sowie Einrichtungen der Bundeswehr. Darüber hinaus realisieren wir erfolgreich
+              anspruchsvolle Projekte im Rahmen öffentlicher und privater Ausschreibungen.
+            </p>
+          </article>
+
+          <!-- Block -->
+          <article class="border-b border-gray-200 pb-7">
+            <h2 class="text-[18px] sm:text-[21px] font-bold text-[#2b2f32] mb-3">
+              Innovation & Zukunftstechnologien
+            </h2>
+
+            <p class="mb-4">
+              Innovation ist ein zentraler Bestandteil unserer Unternehmensphilosophie. Wir entwickeln und integrieren
+              moderne Technologien – insbesondere im Bereich der künstlichen Intelligenz.
+            </p>
+
+            <h3 class="font-bold text-[#2b2f32] mb-3">Unsere Schwerpunkte:</h3>
+
+            <ul class="space-y-2 mb-4">
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>KI-gestützte Systeme für automatisierte Workflows</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Leistungsstarke Serverlösungen für datenintensive Prozesse</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Zukunftssichere IT-Architekturen</span>
+              </li>
+            </ul>
+
+            <p>
+              Damit unterstützen wir Unternehmen aktiv bei der digitalen Transformation und schaffen nachhaltige
+              Wettbewerbsvorteile.
+            </p>
+          </article>
+
+          <!-- Block -->
+          <article class="border-b border-gray-200 pb-7">
+            <h2 class="text-[18px] sm:text-[21px] font-bold text-[#2b2f32] mb-3">
+              Hauseigene Softwareentwicklung & Web-Technologien
+            </h2>
+
+            <p class="mb-4">
+              Ein besonderes Merkmal von CLS-Computer ist unsere eigene Softwareentwicklung. Wir realisieren
+              individuelle Lösungen für unterschiedlichste Anforderungen:
+            </p>
+
+            <ul class="space-y-2 mb-4">
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Maßgeschneiderte Unternehmenssoftware</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Moderne Webseiten und performante Online-Plattformen</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>E-Marketing-Systeme</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Management-, Verwaltungs- und Zeiterfassungslösungen</span>
+              </li>
+            </ul>
+
+            <p>
+              Ob kleines Unternehmen oder große Organisation – wir entwickeln Lösungen, die exakt zu den Anforderungen
+              unserer Kunden passen.
+            </p>
+          </article>
+
+          <!-- Block -->
+          <article class="border-b border-gray-200 pb-7">
+            <h2 class="text-[18px] sm:text-[21px] font-bold text-[#2b2f32] mb-3">
+              Sicherheitstechnik & Partnerschaften
+            </h2>
+
+            <p class="mb-3">
+              Ein weiterer Meilenstein wurde 2016 erreicht: die Partnerschaften mit Hikvision und Dahua. Seitdem
+              bieten wir umfassende Sicherheitslösungen – von der Planung über die Installation bis hin zur Wartung.
+            </p>
+
+            <p>
+              Dabei stehen modernste Technologie, Zuverlässigkeit und Vertrauen stets im Mittelpunkt.
+            </p>
+          </article>
+
+          <!-- Block -->
+          <article class="border-b border-gray-200 pb-7">
+            <h2 class="text-[18px] sm:text-[21px] font-bold text-[#2b2f32] mb-3">
+              Unser Anspruch für die Zukunft
+            </h2>
+
+            <p>
+              Seit über 34 Jahren steht CLS-Computer für Qualität, Innovation und Kundenzufriedenheit. Unser Ziel ist
+              es, stets am Puls der Zeit zu bleiben und unseren Kunden zuverlässige, moderne und zukunftssichere
+              IT-Lösungen zu bieten.
+            </p>
+          </article>
+
+          <!-- Final Heading -->
+          <article class="border-b border-gray-200 pb-7">
+            <h2 class="text-[18px] sm:text-[21px] font-bold text-[#2b2f32]">
+              CLS-Computer – Ihr Partner für Technik, Innovation und Zukunft
+            </h2>
+          </article>
+
+          <!-- Product Example -->
+          <article>
+            <h2 class="text-[18px] sm:text-[21px] font-bold text-[#2b2f32] mb-4">
+              Single Product – Produktbeschreibung (Beispiel)
+            </h2>
+
+            <h3 class="font-bold text-[#2b2f32] mb-3">
+              High-End Business Serverlösung
+            </h3>
+
+            <p class="mb-4">
+              Unsere leistungsstarken Serversysteme bieten maximale Stabilität und Performance für anspruchsvolle
+              Unternehmensanwendungen.
+            </p>
+
+            <h3 class="font-bold text-[#2b2f32] mb-3">Highlights:</h3>
+
+            <ul class="space-y-2 mb-5">
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Hochverfügbare Serverarchitektur</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Skalierbare Speicherlösungen</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Optimiert für KI- und datenintensive Prozesse</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Individuell konfigurierbar nach Kundenanforderung</span>
+              </li>
+            </ul>
+
+            <h3 class="font-bold text-[#2b2f32] mb-3">Einsatzbereiche:</h3>
+
+            <ul class="space-y-2 mb-5">
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Unternehmensnetzwerke</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Cloud- und Virtualisierungslösungen</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="w-2 h-2 bg-primary mt-[10px] shrink-0"></span>
+                <span>Datenanalyse & KI-Anwendungen</span>
+              </li>
+            </ul>
+
+            <h3 class="font-bold text-[#2b2f32] mb-2">Ihr Vorteil:</h3>
+
+            <p>
+              Maximale Leistung, höchste Sicherheit und langfristige Investitionssicherheit.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Your Footer Component -->
+  <div id="footer"></div>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

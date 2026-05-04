@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kontakt - CLS-Computer</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body class="font-[Poppins] bg-[#f6f7f8] text-[#111827]">
+
+  <!-- Your Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Spacer if navbar is fixed/absolute -->
+  <div class="h-[90px]"></div>
+
+  <main>
+
+    <!-- Breadcrumb -->
+    <section class="bg-white px-4 sm:px-6 lg:px-8 py-4 border-b border-gray-100">
+      <div class="max-w-[1320px] mx-auto">
+        <div class="flex items-center gap-2 text-[12px] text-gray-500">
+          <a href="index.html" class="text-[#111827] font-semibold hover:text-[#0797a1] transition">
+            CLS-Computer
+          </a>
+          <span class="text-[#111827]">›</span>
+          <span>Kontakt</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-[#20262c] px-4 sm:px-6 lg:px-8 pt-14 pb-[150px]">
+      <div class="max-w-[1320px] mx-auto text-center relative z-10">
+        <p class="text-white text-[13px] font-semibold mb-3">
+          Kontakt
+        </p>
+
+        <h1 class="text-white text-[28px] sm:text-[34px] font-extrabold leading-tight">
+          Kontaktieren Sie uns
+        </h1>
+
+        <div class="w-[58px] h-[3px] bg-white mx-auto mt-5 rounded-full"></div>
+      </div>
+
+      <!-- Bottom Wave -->
+      <div class="absolute left-0 right-0 bottom-[-1px]">
+        <svg viewBox="0 0 1440 125" class="w-full h-[95px]" preserveAspectRatio="none">
+          <path
+            d="M0,62 C175,92 320,102 520,70 C720,38 875,24 1060,55 C1220,82 1325,76 1440,48 L1440,125 L0,125 Z"
+            fill="#f6f7f8">
+          </path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="relative z-10 px-4 sm:px-6 lg:px-8 -mt-[105px] pb-16">
+      <div class="max-w-[1320px] mx-auto">
+
+        <div class="grid grid-cols-1 lg:grid-cols-[1.35fr_0.95fr] gap-6">
+
+          <!-- Contact Form Card -->
+          <div class="bg-white rounded-[6px] shadow-[0_8px_25px_rgba(0,0,0,0.08)] p-6 sm:p-7 lg:p-8">
+
+            <!-- Card Heading -->
+            <div class="flex items-center gap-4 mb-7">
+              <div class="w-[46px] h-[46px] rounded-full bg-[#0797a1] text-white flex items-center justify-center shrink-0">
+                <i data-lucide="message-circle" class="w-6 h-6"></i>
+              </div>
+
+              <h2 class="text-[24px] sm:text-[28px] font-extrabold text-[#111827] leading-tight">
+                Senden Sie uns eine Nachricht
+              </h2>
+            </div>
+
+            <form action="#" method="post" class="space-y-5">
+
+              <!-- Row 1 -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div>
+                  <label class="block text-[14px] font-bold text-[#111827] mb-2">
+                    Firma
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Firmenname eingeben"
+                    class="w-full h-[39px] rounded-[5px] border border-gray-300 px-4 text-[14px] text-gray-700 outline-none focus:border-[#0797a1]"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-[14px] font-bold text-[#111827] mb-2">
+                    Anrede <span class="text-red-500">*</span>
+                  </label>
+                  <select
+                    class="w-full h-[39px] rounded-[5px] border border-gray-300 px-4 text-[14px] text-gray-500 outline-none focus:border-[#0797a1] bg-white">
+                    <option>Bitte wählen...</option>
+                    <option>Herr</option>
+                    <option>Frau</option>
+                    <option>Divers</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-[14px] font-bold text-[#111827] mb-2">
+                    Titel
+                  </label>
+                  <select
+                    class="w-full h-[39px] rounded-[5px] border border-gray-300 px-4 text-[14px] text-gray-500 outline-none focus:border-[#0797a1] bg-white">
+                    <option>Kein Titel</option>
+                    <option>Dr.</option>
+                    <option>Prof.</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-[14px] font-bold text-[#111827] mb-2">
+                    Vorname <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Vorname"
+                    class="w-full h-[39px] rounded-[5px] border border-gray-300 px-4 text-[14px] text-gray-700 outline-none focus:border-[#0797a1]"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-[14px] font-bold text-[#111827] mb-2">
+                    Last Name <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Nachname"
+                    class="w-full h-[39px] rounded-[5px] border border-gray-300 px-4 text-[14px] text-gray-700 outline-none focus:border-[#0797a1]"
+                  />
+                </div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-[14px] font-bold text-[#111827] mb-2">
+                    E-Mail <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Ihre E-Mail"
+                    class="w-full h-[39px] rounded-[5px] border border-gray-300 px-4 text-[14px] text-gray-700 outline-none focus:border-[#0797a1]"
+                  />
+                </div>
+
+                <div>
+                  <label class="block text-[14px] font-bold text-[#111827] mb-2">
+                    Telefonnummer <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="Telefonnummer"
+                    class="w-full h-[39px] rounded-[5px] border border-gray-300 px-4 text-[14px] text-gray-700 outline-none focus:border-[#0797a1]"
+                  />
+                </div>
+              </div>
+
+              <!-- Row 4 -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-[14px] font-bold text-[#111827] mb-2">
+                    Grund der Anfrage <span class="text-red-500">*</span>
+                  </label>
+                  <select
+                    class="w-full h-[39px] rounded-[5px] border border-gray-300 px-4 text-[14px] text-gray-500 outline-none focus:border-[#0797a1] bg-white">
+                    <option>Bitte auswählen</option>
+                    <option>Allgemeine Anfrage</option>
+                    <option>Reparatur</option>
+                    <option>Support</option>
+                    <option>Beratung</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-[14px] font-bold text-[#111827] mb-2">
+                    Dringlichkeit <span class="text-red-500">*</span>
+                  </label>
+                  <select
+                    class="w-full h-[39px] rounded-[5px] border border-gray-300 px-4 text-[14px] text-gray-500 outline-none focus:border-[#0797a1] bg-white">
+                    <option>Bitte wählen...</option>
+                    <option>Niedrig</option>
+                    <option>Normal</option>
+                    <option>Hoch</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div>
+                <label class="block text-[14px] font-bold text-[#111827] mb-2">
+                  Fehlerbeschreibung
+                </label>
+                <textarea
+                  rows="7"
+                  class="w-full rounded-[5px] border border-gray-300 px-4 py-3 text-[14px] text-gray-700 outline-none resize-y focus:border-[#0797a1]"></textarea>
+              </div>
+
+              <!-- Button -->
+              <button
+                type="submit"
+                class="inline-flex items-center gap-3 h-[48px] px-5 rounded-[7px] bg-[#0797a1] text-white text-[15px] font-bold hover:bg-[#057f88] transition">
+                Nachricht senden
+                <i data-lucide="send" class="w-5 h-5"></i>
+              </button>
+
+            </form>
+          </div>
+
+          <!-- Contact Info Card -->
+          <div class="bg-white rounded-[6px] shadow-[0_8px_25px_rgba(0,0,0,0.08)] p-6 sm:p-7 lg:p-8">
+
+            <!-- Card Heading -->
+            <div class="flex items-center gap-4 mb-8">
+              <div class="w-[46px] h-[46px] rounded-full bg-[#0797a1] text-white flex items-center justify-center shrink-0">
+                <i data-lucide="map-pin" class="w-6 h-6"></i>
+              </div>
+
+              <h2 class="text-[24px] sm:text-[28px] font-extrabold text-[#111827] leading-tight">
+                Weitere Möglichkeiten
+              </h2>
+            </div>
+
+            <!-- Info Items -->
+            <div class="space-y-8">
+
+              <!-- Email -->
+              <div class="grid grid-cols-[54px_1fr] gap-5">
+                <div class="w-[52px] h-[52px] rounded-[8px] bg-[#f2f3f4] flex items-center justify-center text-[#0797a1]">
+                  <i data-lucide="mail" class="w-6 h-6"></i>
+                </div>
+
+                <div>
+                  <h3 class="text-[15px] font-extrabold text-[#111827] mb-2">
+                    E-Mail
+                  </h3>
+                  <p class="text-[14px] text-gray-600 mb-1">
+                    info@cls-computer.de
+                  </p>
+                  <p class="text-[13px] text-gray-500">
+                    Wir antworten innerhalb von 24h
+                  </p>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="grid grid-cols-[54px_1fr] gap-5">
+                <div class="w-[52px] h-[52px] rounded-[8px] bg-[#f2f3f4] flex items-center justify-center text-[#0797a1]">
+                  <i data-lucide="phone" class="w-6 h-6"></i>
+                </div>
+
+                <div>
+                  <h3 class="text-[15px] font-extrabold text-[#111827] mb-2">
+                    Telefon
+                  </h3>
+                  <p class="text-[14px] text-gray-600 mb-1">
+                    +49 621 71 63 591
+                  </p>
+                  <p class="text-[13px] text-gray-500">
+                    Mo - Sa: 09:00 - 19:00 Uhr
+                  </p>
+                </div>
+              </div>
+
+              <!-- Address -->
+              <div class="grid grid-cols-[54px_1fr] gap-5">
+                <div class="w-[52px] h-[52px] rounded-[8px] bg-[#f2f3f4] flex items-center justify-center text-[#0797a1]">
+                  <i data-lucide="map-pin" class="w-6 h-6"></i>
+                </div>
+
+                <div>
+                  <h3 class="text-[15px] font-extrabold text-[#111827] mb-2">
+                    Adresse
+                  </h3>
+                  <p class="text-[14px] text-gray-600 leading-[1.7]">
+                    CLS-Computer<br />
+                    Auf dem Sand 76<br />
+                    68309 Mannheim, Deutschland
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Map Image -->
+            <div class="mt-7 rounded-[7px] overflow-hidden border border-gray-200">
+              <iframe
+                title="CLS-Computer Standort"
+                src="https://www.google.com/maps?q=CLS-Computer%20Auf%20dem%20Sand%2076%2068309%20Mannheim&output=embed"
+                class="w-full h-[240px] border-0"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Bottom Feature Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+
+          <div class="bg-white min-h-[82px] px-5 py-4 flex items-center gap-5 shadow-sm">
+            <div class="w-[56px] h-[56px] rounded-full bg-[#f4f4f4] flex items-center justify-center text-black shrink-0">
+              <i data-lucide="zap" class="w-7 h-7 fill-black"></i>
+            </div>
+
+            <div>
+              <h3 class="text-[18px] font-extrabold text-[#111827] mb-1">
+                Schnelle Antwort
+              </h3>
+              <p class="text-[13px] text-gray-500">
+                Innerhalb von 24 Stunden
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white min-h-[82px] px-5 py-4 flex items-center gap-5 shadow-sm">
+            <div class="w-[56px] h-[56px] rounded-full bg-[#f4f4f4] flex items-center justify-center text-black shrink-0">
+              <i data-lucide="headphones" class="w-7 h-7"></i>
+            </div>
+
+            <div>
+              <h3 class="text-[18px] font-extrabold text-[#111827] mb-1">
+                Persönlicher Support
+              </h3>
+              <p class="text-[13px] text-gray-500">
+                Wir helfen dir gerne weiter
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white min-h-[82px] px-5 py-4 flex items-center gap-5 shadow-sm">
+            <div class="w-[56px] h-[56px] rounded-full bg-[#f4f4f4] flex items-center justify-center text-black shrink-0">
+              <i data-lucide="shield-check" class="w-7 h-7 fill-black"></i>
+            </div>
+
+            <div>
+              <h3 class="text-[18px] font-extrabold text-[#111827] mb-1">
+                Sichere Kommunikation
+              </h3>
+              <p class="text-[13px] text-gray-500">
+                Deine Daten sind sicher
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Your Footer -->
+  <div id="footer"></div>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
