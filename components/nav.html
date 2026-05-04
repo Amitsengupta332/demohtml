@@ -1,69 +1,99 @@
 <header class="absolute top-0 left-0 w-full z-50">
-  <div class="px-10 py-7 flex items-center justify-between">
+  <div class="px-4 sm:px-6 lg:px-10 py-4 sm:py-5 lg:py-7 flex items-center justify-between gap-4">
 
     <!-- Logo -->
-    <a href="/" class="block">
-      <img src="assets/images/CLS-SECURITY-NEW-LOGO-2024.png" alt="Logo" class="w-[130px] h-auto object-contain" />
+    <a href="/" class="block shrink-0">
+      <img
+        src="assets/images/CLS-SECURITY-NEW-LOGO-2024.png"
+        alt="Logo"
+        class="w-[105px] sm:w-[120px] lg:w-[130px] h-auto object-contain"
+      />
     </a>
-    <!-- <div >
-      <h1 class="text-4xl font-black leading-none">PORTO</h1>
-      <p class="text-sm text-gray-400 text-center -mt-1">eCommerce</p>
-    </div> -->
 
-    <nav class="hidden lg:flex items-center gap-8 text-sm font-bold">
-      <a href="/">HOME</a>
-      <a href="#">CATEGORIES</a>
-      <a href="/shop.html">PRODUCTS</a>
-      <!-- <a href="#">PRODUCTS ▼</a> -->
-      <a href="#">PAGES</a>
-      <a href="#">FEATURES</a>
-      <a href="#">BLOG</a>
-      <a href="dashboard.html">Dashboard</a>
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-bold">
+      <a href="/" class="hover:text-[#36aeb3] transition">HOME</a>
+      <a href="/contact.html" class="hover:text-[#36aeb3] transition">Kontakt</a>
+      <a href="/shop.html" class="hover:text-[#36aeb3] transition">PRODUCTS</a>
+      <a href="/about.html" class="hover:text-[#36aeb3] transition">About Us</a>
+      <a href="#" class="hover:text-[#36aeb3] transition">FEATURES</a>
+      <a href="#" class="hover:text-[#36aeb3] transition">BLOG</a>
+      <a href="dashboard.html" class="hover:text-[#36aeb3] transition">Dashboard</a>
     </nav>
 
-    <div class="flex items-center gap-6">
+    <!-- Right Icons -->
+    <div class="flex items-center gap-3 sm:gap-4 lg:gap-6 shrink-0">
 
       <!-- Search -->
-      <i data-lucide="search" class="w-6 h-6"></i>
+      <button type="button" class="inline-flex items-center justify-center">
+        <i data-lucide="search" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+      </button>
 
-      <!-- User -->
-      <!-- <i data-lucide="user" class="w-6 h-6"></i> -->
       <!-- User / Login -->
-      <a href="/login.html" class="inline-flex items-center">
-        <i data-lucide="user" class="w-6 h-6"></i>
+      <a href="/login.html" class="inline-flex items-center justify-center">
+        <i data-lucide="user" class="w-5 h-5 sm:w-6 sm:h-6"></i>
       </a>
 
       <!-- Wishlist -->
-      <i data-lucide="heart" class="w-6 h-6"></i>
+      <button type="button" class="inline-flex items-center justify-center">
+        <i data-lucide="heart" class="w-5 h-5 sm:w-6 sm:h-6"></i>
+      </button>
 
       <!-- Cart -->
-      <button id="cartButton" type="button" class="relative">
-        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+      <button id="cartButton" type="button" class="relative inline-flex items-center justify-center">
+        <i data-lucide="shopping-cart" class="w-5 h-5 sm:w-6 sm:h-6"></i>
 
-        <span id="cartCount"
-          class="absolute -top-2 -right-3 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+        <span
+          id="cartCount"
+          class="absolute -top-2 -right-3 bg-red-500 text-white text-[10px] sm:text-xs w-5 h-5 rounded-full flex items-center justify-center"
+        >
           0
         </span>
       </button>
 
-    </div>
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobileMenuButton"
+        type="button"
+        class="lg:hidden inline-flex items-center justify-center"
+        aria-label="Open mobile menu"
+      >
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
 
+    </div>
   </div>
+
+  <!-- Mobile Nav -->
+  <nav
+    id="mobileMenu"
+    class="hidden lg:hidden mx-4 sm:mx-6 mt-1 bg-white shadow-lg rounded-md overflow-hidden text-sm font-bold"
+  >
+    <a href="/" class="block px-5 py-3 border-b hover:bg-gray-50">HOME</a>
+    <a href="#" class="block px-5 py-3 border-b hover:bg-gray-50">CATEGORIES</a>
+    <a href="/shop.html" class="block px-5 py-3 border-b hover:bg-gray-50">PRODUCTS</a>
+    <a href="#" class="block px-5 py-3 border-b hover:bg-gray-50">PAGES</a>
+    <a href="#" class="block px-5 py-3 border-b hover:bg-gray-50">FEATURES</a>
+    <a href="#" class="block px-5 py-3 border-b hover:bg-gray-50">BLOG</a>
+    <a href="dashboard.html" class="block px-5 py-3 hover:bg-gray-50">Dashboard</a>
+  </nav>
 </header>
 
 <!-- Cart Overlay -->
 <div id="cartOverlay" class="fixed inset-0 bg-black/40 z-[90] hidden"></div>
 
 <!-- Cart Drawer -->
-<aside id="cartDrawer"
-  class="fixed top-0 right-0 w-[320px] max-w-full h-screen bg-white z-[100] translate-x-full transition-transform duration-300 shadow-2xl flex flex-col">
+<aside
+  id="cartDrawer"
+  class="fixed top-0 right-0 w-[300px] sm:w-[320px] max-w-full h-screen bg-white z-[100] translate-x-full transition-transform duration-300 shadow-2xl flex flex-col"
+>
 
   <!-- Drawer Header -->
   <div class="bg-[#36aeb3] text-white px-4 py-3 flex items-center justify-between">
-    <h2 class="text-xl font-bold">Einkaufswagen</h2>
+    <h2 class="text-lg sm:text-xl font-bold">Einkaufswagen</h2>
 
     <button id="cartClose" type="button" class="text-white">
-      <i data-lucide="x" class="w-7 h-7"></i>
+      <i data-lucide="x" class="w-6 h-6 sm:w-7 sm:h-7"></i>
     </button>
   </div>
 
@@ -79,24 +109,72 @@
 
   <!-- Cart Footer -->
   <div class="border-t bg-white px-4 py-4">
-    <div class="flex items-start justify-between mb-4">
+    <div class="flex items-start justify-between gap-4 mb-4">
       <p class="text-[#007c89] font-bold">SUMME:</p>
 
       <div class="text-right">
-        <p id="cartTotal" class="font-bold text-lg">0,00 €</p>
+        <p id="cartTotal" class="font-bold text-base sm:text-lg">0,00 €</p>
         <p id="cartNetTotal" class="text-xs text-gray-500">( Netto : 0,00 € )</p>
       </div>
     </div>
 
-    <div class="grid grid-cols-2 gap-4">
-      <a href="cart.html" class="bg-[#36aeb3] text-white py-3 text-center font-bold skew-x-[-10deg]">
+    <div class="grid grid-cols-2 gap-3 sm:gap-4">
+      <a
+        href="cart.html"
+        class="bg-[#36aeb3] text-white py-3 text-center text-sm sm:text-base font-bold skew-x-[-10deg]"
+      >
         <span class="inline-block skew-x-[10deg]">Warenkorb</span>
       </a>
 
-      <a href="checkout.html" class="bg-gray-600 text-white py-3 text-center font-bold skew-x-[-10deg]">
+      <a
+        href="checkout.html"
+        class="bg-gray-600 text-white py-3 text-center text-sm sm:text-base font-bold skew-x-[-10deg]"
+      >
         <span class="inline-block skew-x-[10deg]">Kasse</span>
       </a>
     </div>
   </div>
-
 </aside>
+
+<script>
+  function initNavbarMenu() {
+    const mobileMenuButton = document.getElementById("mobileMenuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        mobileMenu.classList.toggle("hidden");
+      });
+    }
+
+    document.addEventListener("click", function (e) {
+      if (!mobileMenu || !mobileMenuButton) return;
+
+      const clickedInsideMenu = mobileMenu.contains(e.target);
+      const clickedButton = mobileMenuButton.contains(e.target);
+
+      if (!clickedInsideMenu && !clickedButton) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth >= 1024 && mobileMenu) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initNavbarMenu);
+  } else {
+    initNavbarMenu();
+  }
+</script>

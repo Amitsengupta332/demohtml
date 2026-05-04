@@ -1,6 +1,37 @@
+// function initNavbarMenu() {
+//   const mobileMenuButton = document.getElementById("mobileMenuButton");
+//   const mobileMenu = document.getElementById("mobileMenu");
+
+//   if (!mobileMenuButton || !mobileMenu) return;
+
+//   mobileMenuButton.addEventListener("click", function (e) {
+//     e.preventDefault();
+//     e.stopPropagation();
+
+//     mobileMenu.classList.toggle("hidden");
+//   });
+
+//   mobileMenu.addEventListener("click", function (e) {
+//     e.stopPropagation();
+//   });
+
+//   document.addEventListener("click", function () {
+//     mobileMenu.classList.add("hidden");
+//   });
+
+//   window.addEventListener("resize", function () {
+//     if (window.innerWidth >= 1024) {
+//       mobileMenu.classList.add("hidden");
+//     }
+//   });
+// }
+
+
 function initNavbarMenu() {
   const mobileMenuButton = document.getElementById("mobileMenuButton");
   const mobileMenu = document.getElementById("mobileMenu");
+  const mobileProductsButton = document.getElementById("mobileProductsButton");
+  const mobileProductsMenu = document.getElementById("mobileProductsMenu");
 
   if (!mobileMenuButton || !mobileMenu) return;
 
@@ -9,6 +40,28 @@ function initNavbarMenu() {
     e.stopPropagation();
 
     mobileMenu.classList.toggle("hidden");
+  });
+
+  if (mobileProductsButton && mobileProductsMenu) {
+    mobileProductsButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      mobileProductsMenu.classList.toggle("hidden");
+    });
+  }
+
+  document.querySelectorAll(".mobileSubmenuButton").forEach(function (button) {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const submenu = button.nextElementSibling;
+
+      if (submenu && submenu.classList.contains("mobileSubmenu")) {
+        submenu.classList.toggle("hidden");
+      }
+    });
   });
 
   mobileMenu.addEventListener("click", function (e) {
@@ -22,6 +75,14 @@ function initNavbarMenu() {
   window.addEventListener("resize", function () {
     if (window.innerWidth >= 1024) {
       mobileMenu.classList.add("hidden");
+
+      if (mobileProductsMenu) {
+        mobileProductsMenu.classList.add("hidden");
+      }
+
+      document.querySelectorAll(".mobileSubmenu").forEach(function (submenu) {
+        submenu.classList.add("hidden");
+      });
     }
   });
 }
