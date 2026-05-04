@@ -74,7 +74,7 @@ function updateCartDrawer() {
 
                 <span class="w-8 h-8 flex items-center justify-center border-x text-sm">
                   ${item.quantity}
-                </span>
+                </span> 
 
                 <button
                   type="button"
